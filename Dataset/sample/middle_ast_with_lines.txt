@@ -1,0 +1,144 @@
+Issue descriptions: "The middle.py code works as expected for the input "1 2 3", but fails when the input is "2 1 3"."
+
+AST:
+Module (line None): 
+    Import (line 2): import sys
+        alias (line 2): import sys
+    FunctionDef (line 4): def main():
+        arguments (line None): 
+        If (line 5):     if len(sys.argv) < 4:
+            Compare (line 5):     if len(sys.argv) < 4:
+                Call (line 5):     if len(sys.argv) < 4:
+                    Name (line 5):     if len(sys.argv) < 4:
+                        Load (line None): 
+                    Attribute (line 5):     if len(sys.argv) < 4:
+                        Name (line 5):     if len(sys.argv) < 4:
+                            Load (line None): 
+                        Load (line None): 
+                Lt (line None): 
+                Constant (line 5):     if len(sys.argv) < 4:
+            Expr (line 6):         sys.exit(1)
+                Call (line 6):         sys.exit(1)
+                    Attribute (line 6):         sys.exit(1)
+                        Name (line 6):         sys.exit(1)
+                            Load (line None): 
+                        Load (line None): 
+                    Constant (line 6):         sys.exit(1)
+        Assign (line 8):     x = int(sys.argv[1])
+            Name (line 8):     x = int(sys.argv[1])
+                Store (line None): 
+            Call (line 8):     x = int(sys.argv[1])
+                Name (line 8):     x = int(sys.argv[1])
+                    Load (line None): 
+                Subscript (line 8):     x = int(sys.argv[1])
+                    Attribute (line 8):     x = int(sys.argv[1])
+                        Name (line 8):     x = int(sys.argv[1])
+                            Load (line None): 
+                        Load (line None): 
+                    Constant (line 8):     x = int(sys.argv[1])
+                    Load (line None): 
+        Assign (line 9):     y = int(sys.argv[2])
+            Name (line 9):     y = int(sys.argv[2])
+                Store (line None): 
+            Call (line 9):     y = int(sys.argv[2])
+                Name (line 9):     y = int(sys.argv[2])
+                    Load (line None): 
+                Subscript (line 9):     y = int(sys.argv[2])
+                    Attribute (line 9):     y = int(sys.argv[2])
+                        Name (line 9):     y = int(sys.argv[2])
+                            Load (line None): 
+                        Load (line None): 
+                    Constant (line 9):     y = int(sys.argv[2])
+                    Load (line None): 
+        Assign (line 10):     z = int(sys.argv[3])
+            Name (line 10):     z = int(sys.argv[3])
+                Store (line None): 
+            Call (line 10):     z = int(sys.argv[3])
+                Name (line 10):     z = int(sys.argv[3])
+                    Load (line None): 
+                Subscript (line 10):     z = int(sys.argv[3])
+                    Attribute (line 10):     z = int(sys.argv[3])
+                        Name (line 10):     z = int(sys.argv[3])
+                            Load (line None): 
+                        Load (line None): 
+                    Constant (line 10):     z = int(sys.argv[3])
+                    Load (line None): 
+        Assign (line 12):     m = z
+            Name (line 12):     m = z
+                Store (line None): 
+            Name (line 12):     m = z
+                Load (line None): 
+        If (line 13):     if y < z:
+            Compare (line 13):     if y < z:
+                Name (line 13):     if y < z:
+                    Load (line None): 
+                Lt (line None): 
+                Name (line 13):     if y < z:
+                    Load (line None): 
+            If (line 14):         if x < y:
+                Compare (line 14):         if x < y:
+                    Name (line 14):         if x < y:
+                        Load (line None): 
+                    Lt (line None): 
+                    Name (line 14):         if x < y:
+                        Load (line None): 
+                Assign (line 15):             m = y
+                    Name (line 15):             m = y
+                        Store (line None): 
+                    Name (line 15):             m = y
+                        Load (line None): 
+                If (line 16):         elif x < z:
+                    Compare (line 16):         elif x < z:
+                        Name (line 16):         elif x < z:
+                            Load (line None): 
+                        Lt (line None): 
+                        Name (line 16):         elif x < z:
+                            Load (line None): 
+                    Assign (line 17):             m = y  # `m = y; // m = z;`
+                        Name (line 17):             m = y  # `m = y; // m = z;`
+                            Store (line None): 
+                        Name (line 17):             m = y  # `m = y; // m = z;`
+                            Load (line None): 
+            If (line 19):         if x > y:
+                Compare (line 19):         if x > y:
+                    Name (line 19):         if x > y:
+                        Load (line None): 
+                    Gt (line None): 
+                    Name (line 19):         if x > y:
+                        Load (line None): 
+                Assign (line 20):             m = y
+                    Name (line 20):             m = y
+                        Store (line None): 
+                    Name (line 20):             m = y
+                        Load (line None): 
+                If (line 21):         elif x > z:
+                    Compare (line 21):         elif x > z:
+                        Name (line 21):         elif x > z:
+                            Load (line None): 
+                        Gt (line None): 
+                        Name (line 21):         elif x > z:
+                            Load (line None): 
+                    Assign (line 22):             m = x
+                        Name (line 22):             m = x
+                            Store (line None): 
+                        Name (line 22):             m = x
+                            Load (line None): 
+        Expr (line 24):     print(f"The middle value is: {m}")
+            Call (line 24):     print(f"The middle value is: {m}")
+                Name (line 24):     print(f"The middle value is: {m}")
+                    Load (line None): 
+                JoinedStr (line 24):     print(f"The middle value is: {m}")
+                    Constant (line 24):     print(f"The middle value is: {m}")
+                    FormattedValue (line 24):     print(f"The middle value is: {m}")
+                        Name (line 24):     print(f"The middle value is: {m}")
+                            Load (line None): 
+    If (line 26): if __name__ == "__main__":
+        Compare (line 26): if __name__ == "__main__":
+            Name (line 26): if __name__ == "__main__":
+                Load (line None): 
+            Eq (line None): 
+            Constant (line 26): if __name__ == "__main__":
+        Expr (line 27):     main()
+            Call (line 27):     main()
+                Name (line 27):     main()
+                    Load (line None): 

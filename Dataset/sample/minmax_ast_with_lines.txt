@@ -1,0 +1,186 @@
+Issue descriptions: "The minmax.py code works as expected for the input "1 2 3", but fails when the input is "3 1 2"."
+
+AST:
+
+Module (line None): 
+    Import (line 2): import sys
+        alias (line 2): import sys
+    FunctionDef (line 4): def minmax(input1, input2, input3):
+        arguments (line None): 
+            arg (line 4): def minmax(input1, input2, input3):
+            arg (line 4): def minmax(input1, input2, input3):
+            arg (line 4): def minmax(input1, input2, input3):
+        Assign (line 5):     least = input1
+            Name (line 5):     least = input1
+                Store (line None): 
+            Name (line 5):     least = input1
+                Load (line None): 
+        Assign (line 6):     most = input1
+            Name (line 6):     most = input1
+                Store (line None): 
+            Name (line 6):     most = input1
+                Load (line None): 
+        If (line 8):     if most < input2:
+            Compare (line 8):     if most < input2:
+                Name (line 8):     if most < input2:
+                    Load (line None): 
+                Lt (line None): 
+                Name (line 8):     if most < input2:
+                    Load (line None): 
+            Assign (line 9):         most = input2
+                Name (line 9):         most = input2
+                    Store (line None): 
+                Name (line 9):         most = input2
+                    Load (line None): 
+        If (line 10):     if most < input3:
+            Compare (line 10):     if most < input3:
+                Name (line 10):     if most < input3:
+                    Load (line None): 
+                Lt (line None): 
+                Name (line 10):     if most < input3:
+                    Load (line None): 
+            Assign (line 11):         most = input3
+                Name (line 11):         most = input3
+                    Store (line None): 
+                Name (line 11):         most = input3
+                    Load (line None): 
+        If (line 12):     if least > input2:
+            Compare (line 12):     if least > input2:
+                Name (line 12):     if least > input2:
+                    Load (line None): 
+                Gt (line None): 
+                Name (line 12):     if least > input2:
+                    Load (line None): 
+            Assign (line 13):         most = input2  #error here: least=input2
+                Name (line 13):         most = input2  #error here: least=input2
+                    Store (line None): 
+                Name (line 13):         most = input2  #error here: least=input2
+                    Load (line None): 
+        If (line 14):     if least > input3:
+            Compare (line 14):     if least > input3:
+                Name (line 14):     if least > input3:
+                    Load (line None): 
+                Gt (line None): 
+                Name (line 14):     if least > input3:
+                    Load (line None): 
+            Assign (line 15):         least = input3
+                Name (line 15):         least = input3
+                    Store (line None): 
+                Name (line 15):         least = input3
+                    Load (line None): 
+        Assert (line 17):     assert least <= most
+            Compare (line 17):     assert least <= most
+                Name (line 17):     assert least <= most
+                    Load (line None): 
+                LtE (line None): 
+                Name (line 17):     assert least <= most
+                    Load (line None): 
+        Expr (line 18):     print(f"Least: {least}, Most: {most}")
+            Call (line 18):     print(f"Least: {least}, Most: {most}")
+                Name (line 18):     print(f"Least: {least}, Most: {most}")
+                    Load (line None): 
+                JoinedStr (line 18):     print(f"Least: {least}, Most: {most}")
+                    Constant (line 18):     print(f"Least: {least}, Most: {most}")
+                    FormattedValue (line 18):     print(f"Least: {least}, Most: {most}")
+                        Name (line 18):     print(f"Least: {least}, Most: {most}")
+                            Load (line None): 
+                    Constant (line 18):     print(f"Least: {least}, Most: {most}")
+                    FormattedValue (line 18):     print(f"Least: {least}, Most: {most}")
+                        Name (line 18):     print(f"Least: {least}, Most: {most}")
+                            Load (line None): 
+        Return (line 19):     return 0
+            Constant (line 19):     return 0
+    FunctionDef (line 21): def main():
+        arguments (line None): 
+        If (line 22):     if len(sys.argv) < 4:
+            Compare (line 22):     if len(sys.argv) < 4:
+                Call (line 22):     if len(sys.argv) < 4:
+                    Name (line 22):     if len(sys.argv) < 4:
+                        Load (line None): 
+                    Attribute (line 22):     if len(sys.argv) < 4:
+                        Name (line 22):     if len(sys.argv) < 4:
+                            Load (line None): 
+                        Load (line None): 
+                Lt (line None): 
+                Constant (line 22):     if len(sys.argv) < 4:
+            Expr (line 23):         sys.exit(1)
+                Call (line 23):         sys.exit(1)
+                    Attribute (line 23):         sys.exit(1)
+                        Name (line 23):         sys.exit(1)
+                            Load (line None): 
+                        Load (line None): 
+                    Constant (line 23):         sys.exit(1)
+        Assign (line 25):     input1 = int(sys.argv[1])
+            Name (line 25):     input1 = int(sys.argv[1])
+                Store (line None): 
+            Call (line 25):     input1 = int(sys.argv[1])
+                Name (line 25):     input1 = int(sys.argv[1])
+                    Load (line None): 
+                Subscript (line 25):     input1 = int(sys.argv[1])
+                    Attribute (line 25):     input1 = int(sys.argv[1])
+                        Name (line 25):     input1 = int(sys.argv[1])
+                            Load (line None): 
+                        Load (line None): 
+                    Constant (line 25):     input1 = int(sys.argv[1])
+                    Load (line None): 
+        Assign (line 26):     input2 = int(sys.argv[2])
+            Name (line 26):     input2 = int(sys.argv[2])
+                Store (line None): 
+            Call (line 26):     input2 = int(sys.argv[2])
+                Name (line 26):     input2 = int(sys.argv[2])
+                    Load (line None): 
+                Subscript (line 26):     input2 = int(sys.argv[2])
+                    Attribute (line 26):     input2 = int(sys.argv[2])
+                        Name (line 26):     input2 = int(sys.argv[2])
+                            Load (line None): 
+                        Load (line None): 
+                    Constant (line 26):     input2 = int(sys.argv[2])
+                    Load (line None): 
+        Assign (line 27):     input3 = int(sys.argv[3])
+            Name (line 27):     input3 = int(sys.argv[3])
+                Store (line None): 
+            Call (line 27):     input3 = int(sys.argv[3])
+                Name (line 27):     input3 = int(sys.argv[3])
+                    Load (line None): 
+                Subscript (line 27):     input3 = int(sys.argv[3])
+                    Attribute (line 27):     input3 = int(sys.argv[3])
+                        Name (line 27):     input3 = int(sys.argv[3])
+                            Load (line None): 
+                        Load (line None): 
+                    Constant (line 27):     input3 = int(sys.argv[3])
+                    Load (line None): 
+        Assign (line 29):     result = minmax(input1, input2, input3)
+            Name (line 29):     result = minmax(input1, input2, input3)
+                Store (line None): 
+            Call (line 29):     result = minmax(input1, input2, input3)
+                Name (line 29):     result = minmax(input1, input2, input3)
+                    Load (line None): 
+                Name (line 29):     result = minmax(input1, input2, input3)
+                    Load (line None): 
+                Name (line 29):     result = minmax(input1, input2, input3)
+                    Load (line None): 
+                Name (line 29):     result = minmax(input1, input2, input3)
+                    Load (line None): 
+        Expr (line 30):     print("Minmax function executed successfully.")
+            Call (line 30):     print("Minmax function executed successfully.")
+                Name (line 30):     print("Minmax function executed successfully.")
+                    Load (line None): 
+                Constant (line 30):     print("Minmax function executed successfully.")
+        Expr (line 31):     sys.exit(result)
+            Call (line 31):     sys.exit(result)
+                Attribute (line 31):     sys.exit(result)
+                    Name (line 31):     sys.exit(result)
+                        Load (line None): 
+                    Load (line None): 
+                Name (line 31):     sys.exit(result)
+                    Load (line None): 
+    If (line 33): if __name__ == "__main__":
+        Compare (line 33): if __name__ == "__main__":
+            Name (line 33): if __name__ == "__main__":
+                Load (line None): 
+            Eq (line None): 
+            Constant (line 33): if __name__ == "__main__":
+        Expr (line 34):     main()
+            Call (line 34):     main()
+                Name (line 34):     main()
+                    Load (line None): 
