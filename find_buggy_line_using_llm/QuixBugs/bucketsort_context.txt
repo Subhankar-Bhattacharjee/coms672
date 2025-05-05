@@ -1,0 +1,87 @@
+You are a smart assistant helping to identify buggy code.
+
+Task:
+Given AST of the code and an issue report, identify the most buggy function name, and its buggy line number.
+
+Respond in this exact format:
+Function: <function_name>
+Buggy Line Number: <line_number>
+
+Only include the above. Do not explain or add extra text.
+
+Here is the issue report:
+Computes bucket indices that can exceed the bucket list’s range (off-by-one).
+
+Here is the AST structure:
+Module (line None): 
+    FunctionDef (line 1): def bucketsort(arr, k):
+        arguments (line None): 
+            arg (line 1): def bucketsort(arr, k):
+            arg (line 1): def bucketsort(arr, k):
+        Assign (line 2):     counts = [0] * k
+            Name (line 2):     counts = [0] * k
+                Store (line None): 
+            BinOp (line 2):     counts = [0] * k
+                List (line 2):     counts = [0] * k
+                    Constant (line 2):     counts = [0] * k
+                    Load (line None): 
+                Mult (line None): 
+                Name (line 2):     counts = [0] * k
+                    Load (line None): 
+        For (line 3):     for x in arr:
+            Name (line 3):     for x in arr:
+                Store (line None): 
+            Name (line 3):     for x in arr:
+                Load (line None): 
+            AugAssign (line 4):         counts[x] += 1
+                Subscript (line 4):         counts[x] += 1
+                    Name (line 4):         counts[x] += 1
+                        Load (line None): 
+                    Name (line 4):         counts[x] += 1
+                        Load (line None): 
+                    Store (line None): 
+                Add (line None): 
+                Constant (line 4):         counts[x] += 1
+        Assign (line 6):     sorted_arr = []
+            Name (line 6):     sorted_arr = []
+                Store (line None): 
+            List (line 6):     sorted_arr = []
+                Load (line None): 
+        For (line 7):     for i, count in enumerate(arr):
+            Tuple (line 7):     for i, count in enumerate(arr):
+                Name (line 7):     for i, count in enumerate(arr):
+                    Store (line None): 
+                Name (line 7):     for i, count in enumerate(arr):
+                    Store (line None): 
+                Store (line None): 
+            Call (line 7):     for i, count in enumerate(arr):
+                Name (line 7):     for i, count in enumerate(arr):
+                    Load (line None): 
+                Name (line 7):     for i, count in enumerate(arr):
+                    Load (line None): 
+            Expr (line 8):         sorted_arr.extend([i] * count)
+                Call (line 8):         sorted_arr.extend([i] * count)
+                    Attribute (line 8):         sorted_arr.extend([i] * count)
+                        Name (line 8):         sorted_arr.extend([i] * count)
+                            Load (line None): 
+                        Load (line None): 
+                    BinOp (line 8):         sorted_arr.extend([i] * count)
+                        List (line 8):         sorted_arr.extend([i] * count)
+                            Name (line 8):         sorted_arr.extend([i] * count)
+                                Load (line None): 
+                            Load (line None): 
+                        Mult (line None): 
+                        Name (line 8):         sorted_arr.extend([i] * count)
+                            Load (line None): 
+        Return (line 10):     return sorted_arr
+            Name (line 10):     return sorted_arr
+                Load (line None): 
+    Expr (line 14): """
+        Constant (line 14): """
+
+Answer strictly following the instructions.
+
+
+Response: 
+Function: bucketsort
+Buggy Line Number: 4

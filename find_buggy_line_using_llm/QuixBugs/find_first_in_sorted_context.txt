@@ -1,0 +1,125 @@
+You are a smart assistant helping to identify buggy code.
+
+Task:
+Given AST of the code and an issue report, identify the most buggy function name, and its buggy line number.
+
+Respond in this exact format:
+Function: <function_name>
+Buggy Line Number: <line_number>
+
+Only include the above. Do not explain or add extra text.
+
+Here is the issue report:
+Mis-updates the search bounds when the target is found, skipping the leftmost occurrence.
+
+Here is the AST structure:
+Module (line None): 
+    FunctionDef (line 1): def find_first_in_sorted(arr, x):
+        arguments (line None): 
+            arg (line 1): def find_first_in_sorted(arr, x):
+            arg (line 1): def find_first_in_sorted(arr, x):
+        Assign (line 2):     lo = 0
+            Name (line 2):     lo = 0
+                Store (line None): 
+            Constant (line 2):     lo = 0
+        Assign (line 3):     hi = len(arr)
+            Name (line 3):     hi = len(arr)
+                Store (line None): 
+            Call (line 3):     hi = len(arr)
+                Name (line 3):     hi = len(arr)
+                    Load (line None): 
+                Name (line 3):     hi = len(arr)
+                    Load (line None): 
+        While (line 5):     while lo <= hi:
+            Compare (line 5):     while lo <= hi:
+                Name (line 5):     while lo <= hi:
+                    Load (line None): 
+                LtE (line None): 
+                Name (line 5):     while lo <= hi:
+                    Load (line None): 
+            Assign (line 6):         mid = (lo + hi) // 2
+                Name (line 6):         mid = (lo + hi) // 2
+                    Store (line None): 
+                BinOp (line 6):         mid = (lo + hi) // 2
+                    BinOp (line 6):         mid = (lo + hi) // 2
+                        Name (line 6):         mid = (lo + hi) // 2
+                            Load (line None): 
+                        Add (line None): 
+                        Name (line 6):         mid = (lo + hi) // 2
+                            Load (line None): 
+                    FloorDiv (line None): 
+                    Constant (line 6):         mid = (lo + hi) // 2
+            If (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                BoolOp (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                    And (line None): 
+                    Compare (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                        Name (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                            Load (line None): 
+                        Eq (line None): 
+                        Subscript (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                            Name (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                                Load (line None): 
+                            Name (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                                Load (line None): 
+                            Load (line None): 
+                    BoolOp (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                        Or (line None): 
+                        Compare (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                            Name (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                                Load (line None): 
+                            Eq (line None): 
+                            Constant (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                        Compare (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                            Name (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                                Load (line None): 
+                            NotEq (line None): 
+                            Subscript (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                                Name (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                                    Load (line None): 
+                                BinOp (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                                    Name (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                                        Load (line None): 
+                                    Sub (line None): 
+                                    Constant (line 8):         if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+                                Load (line None): 
+                Return (line 9):             return mid
+                    Name (line 9):             return mid
+                        Load (line None): 
+                If (line 11):         elif x <= arr[mid]:
+                    Compare (line 11):         elif x <= arr[mid]:
+                        Name (line 11):         elif x <= arr[mid]:
+                            Load (line None): 
+                        LtE (line None): 
+                        Subscript (line 11):         elif x <= arr[mid]:
+                            Name (line 11):         elif x <= arr[mid]:
+                                Load (line None): 
+                            Name (line 11):         elif x <= arr[mid]:
+                                Load (line None): 
+                            Load (line None): 
+                    Assign (line 12):             hi = mid
+                        Name (line 12):             hi = mid
+                            Store (line None): 
+                        Name (line 12):             hi = mid
+                            Load (line None): 
+                    Assign (line 15):             lo = mid + 1
+                        Name (line 15):             lo = mid + 1
+                            Store (line None): 
+                        BinOp (line 15):             lo = mid + 1
+                            Name (line 15):             lo = mid + 1
+                                Load (line None): 
+                            Add (line None): 
+                            Constant (line 15):             lo = mid + 1
+        Return (line 17):     return -1
+            UnaryOp (line 17):     return -1
+                USub (line None): 
+                Constant (line 17):     return -1
+    Expr (line 20): """
+        Constant (line 20): """
+            
+
+Answer strictly following the instructions.
+
+
+Response: 
+Function: find_first_in_sorted
+Buggy Line Number: 12

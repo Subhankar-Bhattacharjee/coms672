@@ -1,0 +1,85 @@
+You are a smart assistant helping to identify buggy code.
+
+Task:
+Given AST of the code and an issue report, identify the most buggy function name, and its buggy line number.
+
+Respond in this exact format:
+Function: <function_name>
+Buggy Line Number: <line_number>
+
+Only include the above. Do not explain or add extra text.
+
+Here is the issue report:
+Includes n itself in the factor list for n = 1 (should be empty/just 1).
+
+Here is the AST structure:
+Module (line None): 
+    FunctionDef (line 2): def get_factors(n):
+        arguments (line None): 
+            arg (line 2): def get_factors(n):
+        If (line 3):     if n == 1:
+            Compare (line 3):     if n == 1:
+                Name (line 3):     if n == 1:
+                    Load (line None): 
+                Eq (line None): 
+                Constant (line 3):     if n == 1:
+            Return (line 4):         return []
+                List (line 4):         return []
+                    Load (line None): 
+        For (line 6):     for i in range(2, int(n ** 0.5) + 1):
+            Name (line 6):     for i in range(2, int(n ** 0.5) + 1):
+                Store (line None): 
+            Call (line 6):     for i in range(2, int(n ** 0.5) + 1):
+                Name (line 6):     for i in range(2, int(n ** 0.5) + 1):
+                    Load (line None): 
+                Constant (line 6):     for i in range(2, int(n ** 0.5) + 1):
+                BinOp (line 6):     for i in range(2, int(n ** 0.5) + 1):
+                    Call (line 6):     for i in range(2, int(n ** 0.5) + 1):
+                        Name (line 6):     for i in range(2, int(n ** 0.5) + 1):
+                            Load (line None): 
+                        BinOp (line 6):     for i in range(2, int(n ** 0.5) + 1):
+                            Name (line 6):     for i in range(2, int(n ** 0.5) + 1):
+                                Load (line None): 
+                            Pow (line None): 
+                            Constant (line 6):     for i in range(2, int(n ** 0.5) + 1):
+                    Add (line None): 
+                    Constant (line 6):     for i in range(2, int(n ** 0.5) + 1):
+            If (line 7):         if n % i == 0:
+                Compare (line 7):         if n % i == 0:
+                    BinOp (line 7):         if n % i == 0:
+                        Name (line 7):         if n % i == 0:
+                            Load (line None): 
+                        Mod (line None): 
+                        Name (line 7):         if n % i == 0:
+                            Load (line None): 
+                    Eq (line None): 
+                    Constant (line 7):         if n % i == 0:
+                Return (line 8):             return [i] + get_factors(n // i)
+                    BinOp (line 8):             return [i] + get_factors(n // i)
+                        List (line 8):             return [i] + get_factors(n // i)
+                            Name (line 8):             return [i] + get_factors(n // i)
+                                Load (line None): 
+                            Load (line None): 
+                        Add (line None): 
+                        Call (line 8):             return [i] + get_factors(n // i)
+                            Name (line 8):             return [i] + get_factors(n // i)
+                                Load (line None): 
+                            BinOp (line 8):             return [i] + get_factors(n // i)
+                                Name (line 8):             return [i] + get_factors(n // i)
+                                    Load (line None): 
+                                FloorDiv (line None): 
+                                Name (line 8):             return [i] + get_factors(n // i)
+                                    Load (line None): 
+        Return (line 10):     return []
+            List (line 10):     return []
+                Load (line None): 
+    Expr (line 13): """
+        Constant (line 13): """
+
+            
+Answer strictly following the instructions.
+
+
+Response: 
+Function: get_factors
+Buggy Line Number: 4

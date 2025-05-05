@@ -1,0 +1,73 @@
+You are a smart assistant helping to identify buggy code.
+
+Task:
+Given AST of the code and an issue report, identify the most buggy function name, and its buggy line number.
+
+Respond in this exact format:
+Function: <function_name>
+Buggy Line Number: <line_number>
+
+Only include the above. Do not explain or add extra text.
+
+Here is the issue report:
+Calls the recursive check on the wrong node variable, so some cycles aren’t detected.
+
+Here is the AST structure:
+Module (line None): 
+    FunctionDef (line 1): def detect_cycle(node):
+        arguments (line None): 
+            arg (line 1): def detect_cycle(node):
+        Assign (line 2):     hare = tortoise = node
+            Name (line 2):     hare = tortoise = node
+                Store (line None): 
+            Name (line 2):     hare = tortoise = node
+                Store (line None): 
+            Name (line 2):     hare = tortoise = node
+                Load (line None): 
+        While (line 4):     while True:
+            Constant (line 4):     while True:
+            If (line 5):         if hare.successor is None:
+                Compare (line 5):         if hare.successor is None:
+                    Attribute (line 5):         if hare.successor is None:
+                        Name (line 5):         if hare.successor is None:
+                            Load (line None): 
+                        Load (line None): 
+                    Is (line None): 
+                    Constant (line 5):         if hare.successor is None:
+                Return (line 6):             return False
+                    Constant (line 6):             return False
+            Assign (line 8):         tortoise = tortoise.successor
+                Name (line 8):         tortoise = tortoise.successor
+                    Store (line None): 
+                Attribute (line 8):         tortoise = tortoise.successor
+                    Name (line 8):         tortoise = tortoise.successor
+                        Load (line None): 
+                    Load (line None): 
+            Assign (line 9):         hare = hare.successor.successor
+                Name (line 9):         hare = hare.successor.successor
+                    Store (line None): 
+                Attribute (line 9):         hare = hare.successor.successor
+                    Attribute (line 9):         hare = hare.successor.successor
+                        Name (line 9):         hare = hare.successor.successor
+                            Load (line None): 
+                        Load (line None): 
+                    Load (line None): 
+            If (line 11):         if hare is tortoise:
+                Compare (line 11):         if hare is tortoise:
+                    Name (line 11):         if hare is tortoise:
+                        Load (line None): 
+                    Is (line None): 
+                    Name (line 11):         if hare is tortoise:
+                        Load (line None): 
+                Return (line 12):             return True
+                    Constant (line 12):             return True
+    Expr (line 16): """
+        Constant (line 16): """
+
+
+Answer strictly following the instructions.
+
+
+Response: 
+Function: detect_cycle
+Buggy Line Number: 11

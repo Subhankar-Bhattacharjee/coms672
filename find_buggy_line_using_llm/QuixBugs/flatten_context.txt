@@ -1,0 +1,61 @@
+You are a smart assistant helping to identify buggy code.
+
+Task:
+Given AST of the code and an issue report, identify the most buggy function name, and its buggy line number.
+
+Respond in this exact format:
+Function: <function_name>
+Buggy Line Number: <line_number>
+
+Only include the above. Do not explain or add extra text.
+
+Here is the issue report:
+Appends nested lists as whole elements rather than recursing into them.
+
+Here is the AST structure:
+Module (line None): 
+    FunctionDef (line 1): def flatten(arr):
+        arguments (line None): 
+            arg (line 1): def flatten(arr):
+        For (line 2):     for x in arr:
+            Name (line 2):     for x in arr:
+                Store (line None): 
+            Name (line 2):     for x in arr:
+                Load (line None): 
+            If (line 3):         if isinstance(x, list):
+                Call (line 3):         if isinstance(x, list):
+                    Name (line 3):         if isinstance(x, list):
+                        Load (line None): 
+                    Name (line 3):         if isinstance(x, list):
+                        Load (line None): 
+                    Name (line 3):         if isinstance(x, list):
+                        Load (line None): 
+                For (line 4):             for y in flatten(x):
+                    Name (line 4):             for y in flatten(x):
+                        Store (line None): 
+                    Call (line 4):             for y in flatten(x):
+                        Name (line 4):             for y in flatten(x):
+                            Load (line None): 
+                        Name (line 4):             for y in flatten(x):
+                            Load (line None): 
+                    Expr (line 5):                 yield y
+                        Yield (line 5):                 yield y
+                            Name (line 5):                 yield y
+                                Load (line None): 
+                Expr (line 7):             yield flatten(x)
+                    Yield (line 7):             yield flatten(x)
+                        Call (line 7):             yield flatten(x)
+                            Name (line 7):             yield flatten(x)
+                                Load (line None): 
+                            Name (line 7):             yield flatten(x)
+                                Load (line None): 
+    Expr (line 11): """
+        Constant (line 11): """
+
+
+Answer strictly following the instructions.
+
+
+Response: 
+Function: flatten
+Buggy Line Number: 7

@@ -1,0 +1,198 @@
+You are a smart assistant helping to identify buggy code.
+
+Task:
+Given AST of the code and an issue report, identify the most buggy function name, and its buggy line number.
+
+Respond in this exact format:
+Function: <function_name>
+Buggy Line Number: <line_number>
+
+Only include the above. Do not explain or add extra text.
+
+Here is the issue report:
+Merge step fails when one sublist is empty, dropping remaining elements.
+
+Here is the AST structure:
+Module (line None): 
+    FunctionDef (line 2): def mergesort(arr):
+        arguments (line None): 
+            arg (line 2): def mergesort(arr):
+        FunctionDef (line 3):     def merge(left, right):
+            arguments (line None): 
+                arg (line 3):     def merge(left, right):
+                arg (line 3):     def merge(left, right):
+            Assign (line 4):         result = []
+                Name (line 4):         result = []
+                    Store (line None): 
+                List (line 4):         result = []
+                    Load (line None): 
+            Assign (line 5):         i = 0
+                Name (line 5):         i = 0
+                    Store (line None): 
+                Constant (line 5):         i = 0
+            Assign (line 6):         j = 0
+                Name (line 6):         j = 0
+                    Store (line None): 
+                Constant (line 6):         j = 0
+            While (line 7):         while i < len(left) and j < len(right):
+                BoolOp (line 7):         while i < len(left) and j < len(right):
+                    And (line None): 
+                    Compare (line 7):         while i < len(left) and j < len(right):
+                        Name (line 7):         while i < len(left) and j < len(right):
+                            Load (line None): 
+                        Lt (line None): 
+                        Call (line 7):         while i < len(left) and j < len(right):
+                            Name (line 7):         while i < len(left) and j < len(right):
+                                Load (line None): 
+                            Name (line 7):         while i < len(left) and j < len(right):
+                                Load (line None): 
+                    Compare (line 7):         while i < len(left) and j < len(right):
+                        Name (line 7):         while i < len(left) and j < len(right):
+                            Load (line None): 
+                        Lt (line None): 
+                        Call (line 7):         while i < len(left) and j < len(right):
+                            Name (line 7):         while i < len(left) and j < len(right):
+                                Load (line None): 
+                            Name (line 7):         while i < len(left) and j < len(right):
+                                Load (line None): 
+                If (line 8):             if left[i] <= right[j]:
+                    Compare (line 8):             if left[i] <= right[j]:
+                        Subscript (line 8):             if left[i] <= right[j]:
+                            Name (line 8):             if left[i] <= right[j]:
+                                Load (line None): 
+                            Name (line 8):             if left[i] <= right[j]:
+                                Load (line None): 
+                            Load (line None): 
+                        LtE (line None): 
+                        Subscript (line 8):             if left[i] <= right[j]:
+                            Name (line 8):             if left[i] <= right[j]:
+                                Load (line None): 
+                            Name (line 8):             if left[i] <= right[j]:
+                                Load (line None): 
+                            Load (line None): 
+                    Expr (line 9):                 result.append(left[i])
+                        Call (line 9):                 result.append(left[i])
+                            Attribute (line 9):                 result.append(left[i])
+                                Name (line 9):                 result.append(left[i])
+                                    Load (line None): 
+                                Load (line None): 
+                            Subscript (line 9):                 result.append(left[i])
+                                Name (line 9):                 result.append(left[i])
+                                    Load (line None): 
+                                Name (line 9):                 result.append(left[i])
+                                    Load (line None): 
+                                Load (line None): 
+                    AugAssign (line 10):                 i += 1
+                        Name (line 10):                 i += 1
+                            Store (line None): 
+                        Add (line None): 
+                        Constant (line 10):                 i += 1
+                    Expr (line 12):                 result.append(right[j])
+                        Call (line 12):                 result.append(right[j])
+                            Attribute (line 12):                 result.append(right[j])
+                                Name (line 12):                 result.append(right[j])
+                                    Load (line None): 
+                                Load (line None): 
+                            Subscript (line 12):                 result.append(right[j])
+                                Name (line 12):                 result.append(right[j])
+                                    Load (line None): 
+                                Name (line 12):                 result.append(right[j])
+                                    Load (line None): 
+                                Load (line None): 
+                    AugAssign (line 13):                 j += 1
+                        Name (line 13):                 j += 1
+                            Store (line None): 
+                        Add (line None): 
+                        Constant (line 13):                 j += 1
+            Expr (line 14):         result.extend(left[i:] or right[j:])
+                Call (line 14):         result.extend(left[i:] or right[j:])
+                    Attribute (line 14):         result.extend(left[i:] or right[j:])
+                        Name (line 14):         result.extend(left[i:] or right[j:])
+                            Load (line None): 
+                        Load (line None): 
+                    BoolOp (line 14):         result.extend(left[i:] or right[j:])
+                        Or (line None): 
+                        Subscript (line 14):         result.extend(left[i:] or right[j:])
+                            Name (line 14):         result.extend(left[i:] or right[j:])
+                                Load (line None): 
+                            Slice (line 14):         result.extend(left[i:] or right[j:])
+                                Name (line 14):         result.extend(left[i:] or right[j:])
+                                    Load (line None): 
+                            Load (line None): 
+                        Subscript (line 14):         result.extend(left[i:] or right[j:])
+                            Name (line 14):         result.extend(left[i:] or right[j:])
+                                Load (line None): 
+                            Slice (line 14):         result.extend(left[i:] or right[j:])
+                                Name (line 14):         result.extend(left[i:] or right[j:])
+                                    Load (line None): 
+                            Load (line None): 
+            Return (line 15):         return result
+                Name (line 15):         return result
+                    Load (line None): 
+        If (line 17):     if len(arr) == 0:
+            Compare (line 17):     if len(arr) == 0:
+                Call (line 17):     if len(arr) == 0:
+                    Name (line 17):     if len(arr) == 0:
+                        Load (line None): 
+                    Name (line 17):     if len(arr) == 0:
+                        Load (line None): 
+                Eq (line None): 
+                Constant (line 17):     if len(arr) == 0:
+            Return (line 18):         return arr
+                Name (line 18):         return arr
+                    Load (line None): 
+            Assign (line 20):         middle = len(arr) // 2
+                Name (line 20):         middle = len(arr) // 2
+                    Store (line None): 
+                BinOp (line 20):         middle = len(arr) // 2
+                    Call (line 20):         middle = len(arr) // 2
+                        Name (line 20):         middle = len(arr) // 2
+                            Load (line None): 
+                        Name (line 20):         middle = len(arr) // 2
+                            Load (line None): 
+                    FloorDiv (line None): 
+                    Constant (line 20):         middle = len(arr) // 2
+            Assign (line 21):         left = mergesort(arr[:middle])
+                Name (line 21):         left = mergesort(arr[:middle])
+                    Store (line None): 
+                Call (line 21):         left = mergesort(arr[:middle])
+                    Name (line 21):         left = mergesort(arr[:middle])
+                        Load (line None): 
+                    Subscript (line 21):         left = mergesort(arr[:middle])
+                        Name (line 21):         left = mergesort(arr[:middle])
+                            Load (line None): 
+                        Slice (line 21):         left = mergesort(arr[:middle])
+                            Name (line 21):         left = mergesort(arr[:middle])
+                                Load (line None): 
+                        Load (line None): 
+            Assign (line 22):         right = mergesort(arr[middle:])
+                Name (line 22):         right = mergesort(arr[middle:])
+                    Store (line None): 
+                Call (line 22):         right = mergesort(arr[middle:])
+                    Name (line 22):         right = mergesort(arr[middle:])
+                        Load (line None): 
+                    Subscript (line 22):         right = mergesort(arr[middle:])
+                        Name (line 22):         right = mergesort(arr[middle:])
+                            Load (line None): 
+                        Slice (line 22):         right = mergesort(arr[middle:])
+                            Name (line 22):         right = mergesort(arr[middle:])
+                                Load (line None): 
+                        Load (line None): 
+            Return (line 23):         return merge(left, right)
+                Call (line 23):         return merge(left, right)
+                    Name (line 23):         return merge(left, right)
+                        Load (line None): 
+                    Name (line 23):         return merge(left, right)
+                        Load (line None): 
+                    Name (line 23):         return merge(left, right)
+                        Load (line None): 
+    Expr (line 27): """
+        Constant (line 27): """
+  
+
+Answer strictly following the instructions.
+
+
+Response: 
+Function: gcd
+Buggy Line Number: 5

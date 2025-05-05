@@ -1,0 +1,113 @@
+You are a smart assistant helping to identify buggy code.
+
+Task:
+Given AST of the code and an issue report, identify the most buggy function name, and its buggy line number.
+
+Respond in this exact format:
+Function: <function_name>
+Buggy Line Number: <line_number>
+
+Only include the above. Do not explain or add extra text.
+
+Here is the issue report:
+Appends neighbors to the queue before checking if they’ve been visited, causing duplicates/revisits.
+
+Here is the AST structure:
+Module (line None): 
+    ImportFrom (line 2): from collections import deque as Queue
+        alias (line 2): from collections import deque as Queue
+    FunctionDef (line 4): def breadth_first_search(startnode, goalnode):
+        arguments (line None): 
+            arg (line 4): def breadth_first_search(startnode, goalnode):
+            arg (line 4): def breadth_first_search(startnode, goalnode):
+        Assign (line 5):     queue = Queue()
+            Name (line 5):     queue = Queue()
+                Store (line None): 
+            Call (line 5):     queue = Queue()
+                Name (line 5):     queue = Queue()
+                    Load (line None): 
+        Expr (line 6):     queue.append(startnode)
+            Call (line 6):     queue.append(startnode)
+                Attribute (line 6):     queue.append(startnode)
+                    Name (line 6):     queue.append(startnode)
+                        Load (line None): 
+                    Load (line None): 
+                Name (line 6):     queue.append(startnode)
+                    Load (line None): 
+        Assign (line 8):     nodesseen = set()
+            Name (line 8):     nodesseen = set()
+                Store (line None): 
+            Call (line 8):     nodesseen = set()
+                Name (line 8):     nodesseen = set()
+                    Load (line None): 
+        Expr (line 9):     nodesseen.add(startnode)
+            Call (line 9):     nodesseen.add(startnode)
+                Attribute (line 9):     nodesseen.add(startnode)
+                    Name (line 9):     nodesseen.add(startnode)
+                        Load (line None): 
+                    Load (line None): 
+                Name (line 9):     nodesseen.add(startnode)
+                    Load (line None): 
+        While (line 11):     while True:
+            Constant (line 11):     while True:
+            Assign (line 12):         node = queue.popleft()
+                Name (line 12):         node = queue.popleft()
+                    Store (line None): 
+                Call (line 12):         node = queue.popleft()
+                    Attribute (line 12):         node = queue.popleft()
+                        Name (line 12):         node = queue.popleft()
+                            Load (line None): 
+                        Load (line None): 
+            If (line 14):         if node is goalnode:
+                Compare (line 14):         if node is goalnode:
+                    Name (line 14):         if node is goalnode:
+                        Load (line None): 
+                    Is (line None): 
+                    Name (line 14):         if node is goalnode:
+                        Load (line None): 
+                Return (line 15):             return True
+                    Constant (line 15):             return True
+                Expr (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                    Call (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                        Attribute (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                            Name (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                                Load (line None): 
+                            Load (line None): 
+                        GeneratorExp (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                            Name (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                                Load (line None): 
+                            comprehension (line None): 
+                                Name (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                                    Store (line None): 
+                                Attribute (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                                    Name (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                                        Load (line None): 
+                                    Load (line None): 
+                                Compare (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                                    Name (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                                        Load (line None): 
+                                    NotIn (line None): 
+                                    Name (line 17):             queue.extend(node for node in node.successors if node not in nodesseen)
+                                        Load (line None): 
+                Expr (line 18):             nodesseen.update(node.successors)
+                    Call (line 18):             nodesseen.update(node.successors)
+                        Attribute (line 18):             nodesseen.update(node.successors)
+                            Name (line 18):             nodesseen.update(node.successors)
+                                Load (line None): 
+                            Load (line None): 
+                        Attribute (line 18):             nodesseen.update(node.successors)
+                            Name (line 18):             nodesseen.update(node.successors)
+                                Load (line None): 
+                            Load (line None): 
+        Return (line 20):     return False
+            Constant (line 20):     return False
+    Expr (line 24): """
+        Constant (line 24): """
+
+
+            
+
+Answer strictly following the instructions.
+
+
+Response: 
