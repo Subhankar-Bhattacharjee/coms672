@@ -1,0 +1,1 @@
+The code is trying to find the prime factors of a number. The bug is in the line 4, where it is trying to return an empty list if the number is 1. However, it is returning a list with 1 in it, which is not correct.

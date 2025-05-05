@@ -1,0 +1,13 @@
+### Explanation:
+
+The function gcd(a, b) takes two parameters, a and b, and returns their greatest common divisor. 
+The problem with this function is that the base-case check is reversed. 
+That is, the function checks if b == 0. 
+In this case, if b == 0, then the function should return a, not 0. 
+The problem is that there is a loop in the code, which makes the function recursive, and the function can be called with the same arguments multiple times. 
+This will result in infinite recursion, and a maximum recursion depth error. 
+
+
+
+### Solution:
+The solution is to switch the base-case and recursion branches.

@@ -1,0 +1,2 @@
+### Explanation:
+This bug was caused by the fact that the programmer expected the while loop to modify the value of count.

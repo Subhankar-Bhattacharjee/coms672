@@ -1,0 +1,1 @@
+The bug is in the line 5, where the if statement is checking if the node is already visited or not. The problem is that the node is only marked as visited when it is popped from the stack, and not when it is pushed. This means that if the node is pushed again, it will be marked as visited again, leading to an infinite loop.

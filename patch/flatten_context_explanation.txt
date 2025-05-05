@@ -1,0 +1,10 @@
+### Explanation:
+
+This is a recursive function.
+
+The base case is when we see a scalar, append it to the result.
+
+If we see a list, recurse into each element and then append it to the result.
+
+This is the same bug as in [buggy.py](buggy.py), and the same AST as in [correct.py](correct.py)
+
