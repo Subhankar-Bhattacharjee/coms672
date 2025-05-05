@@ -1,0 +1,86 @@
+Issue Description: Uses the wrong swap index in partition, so the pivot can end up in the wrong position.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def quicksort(arr):
+        arguments (line None): 
+            arg (line 1): def quicksort(arr):
+        If (line 2):     if not arr:
+            UnaryOp (line 2):     if not arr:
+                Not (line None): 
+                Name (line 2):     if not arr:
+                    Load (line None): 
+            Return (line 3):         return []
+                List (line 3):         return []
+                    Load (line None): 
+        Assign (line 5):     pivot = arr[0]
+            Name (line 5):     pivot = arr[0]
+                Store (line None): 
+            Subscript (line 5):     pivot = arr[0]
+                Name (line 5):     pivot = arr[0]
+                    Load (line None): 
+                Constant (line 5):     pivot = arr[0]
+                Load (line None): 
+        Assign (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+            Name (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                Store (line None): 
+            Call (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                Name (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                    Load (line None): 
+                ListComp (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                    Name (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                        Load (line None): 
+                    comprehension (line None): 
+                        Name (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                            Store (line None): 
+                        Subscript (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                            Name (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                                Load (line None): 
+                            Slice (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                                Constant (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                            Load (line None): 
+                        Compare (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                            Name (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                                Load (line None): 
+                            Lt (line None): 
+                            Name (line 6):     lesser = quicksort([x for x in arr[1:] if x < pivot])
+                                Load (line None): 
+        Assign (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+            Name (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                Store (line None): 
+            Call (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                Name (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                    Load (line None): 
+                ListComp (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                    Name (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                        Load (line None): 
+                    comprehension (line None): 
+                        Name (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                            Store (line None): 
+                        Subscript (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                            Name (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                                Load (line None): 
+                            Slice (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                                Constant (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                            Load (line None): 
+                        Compare (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                            Name (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                                Load (line None): 
+                            Gt (line None): 
+                            Name (line 7):     greater = quicksort([x for x in arr[1:] if x > pivot])
+                                Load (line None): 
+        Return (line 8):     return lesser + [pivot] + greater
+            BinOp (line 8):     return lesser + [pivot] + greater
+                BinOp (line 8):     return lesser + [pivot] + greater
+                    Name (line 8):     return lesser + [pivot] + greater
+                        Load (line None): 
+                    Add (line None): 
+                    List (line 8):     return lesser + [pivot] + greater
+                        Name (line 8):     return lesser + [pivot] + greater
+                            Load (line None): 
+                        Load (line None): 
+                Add (line None): 
+                Name (line 8):     return lesser + [pivot] + greater
+                    Load (line None): 
+    Expr (line 10): """
+        Constant (line 10): """

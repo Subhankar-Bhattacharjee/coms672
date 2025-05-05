@@ -1,0 +1,112 @@
+Issue Description: Miscounts substitution cost when characters match, producing too-large distances.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def levenshtein(source, target):
+        arguments (line None): 
+            arg (line 1): def levenshtein(source, target):
+            arg (line 1): def levenshtein(source, target):
+        If (line 2):     if source == '' or target == '':
+            BoolOp (line 2):     if source == '' or target == '':
+                Or (line None): 
+                Compare (line 2):     if source == '' or target == '':
+                    Name (line 2):     if source == '' or target == '':
+                        Load (line None): 
+                    Eq (line None): 
+                    Constant (line 2):     if source == '' or target == '':
+                Compare (line 2):     if source == '' or target == '':
+                    Name (line 2):     if source == '' or target == '':
+                        Load (line None): 
+                    Eq (line None): 
+                    Constant (line 2):     if source == '' or target == '':
+            Return (line 3):         return len(source) or len(target)
+                BoolOp (line 3):         return len(source) or len(target)
+                    Or (line None): 
+                    Call (line 3):         return len(source) or len(target)
+                        Name (line 3):         return len(source) or len(target)
+                            Load (line None): 
+                        Name (line 3):         return len(source) or len(target)
+                            Load (line None): 
+                    Call (line 3):         return len(source) or len(target)
+                        Name (line 3):         return len(source) or len(target)
+                            Load (line None): 
+                        Name (line 3):         return len(source) or len(target)
+                            Load (line None): 
+            If (line 5):     elif source[0] == target[0]:
+                Compare (line 5):     elif source[0] == target[0]:
+                    Subscript (line 5):     elif source[0] == target[0]:
+                        Name (line 5):     elif source[0] == target[0]:
+                            Load (line None): 
+                        Constant (line 5):     elif source[0] == target[0]:
+                        Load (line None): 
+                    Eq (line None): 
+                    Subscript (line 5):     elif source[0] == target[0]:
+                        Name (line 5):     elif source[0] == target[0]:
+                            Load (line None): 
+                        Constant (line 5):     elif source[0] == target[0]:
+                        Load (line None): 
+                Return (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                    BinOp (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                        Constant (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                        Add (line None): 
+                        Call (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                            Name (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                                Load (line None): 
+                            Subscript (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                                Name (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                                    Load (line None): 
+                                Slice (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                                    Constant (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                                Load (line None): 
+                            Subscript (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                                Name (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                                    Load (line None): 
+                                Slice (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                                    Constant (line 6):         return 1 + levenshtein(source[1:], target[1:])
+                                Load (line None): 
+                Return (line 9):         return 1 + min(
+                    BinOp (line 9):         return 1 + min(
+                        Constant (line 9):         return 1 + min(
+                        Add (line None): 
+                        Call (line 9):         return 1 + min(
+                            Name (line 9):         return 1 + min(
+                                Load (line None): 
+                            Call (line 10):             levenshtein(source,     target[1:]),
+                                Name (line 10):             levenshtein(source,     target[1:]),
+                                    Load (line None): 
+                                Name (line 10):             levenshtein(source,     target[1:]),
+                                    Load (line None): 
+                                Subscript (line 10):             levenshtein(source,     target[1:]),
+                                    Name (line 10):             levenshtein(source,     target[1:]),
+                                        Load (line None): 
+                                    Slice (line 10):             levenshtein(source,     target[1:]),
+                                        Constant (line 10):             levenshtein(source,     target[1:]),
+                                    Load (line None): 
+                            Call (line 11):             levenshtein(source[1:], target[1:]),
+                                Name (line 11):             levenshtein(source[1:], target[1:]),
+                                    Load (line None): 
+                                Subscript (line 11):             levenshtein(source[1:], target[1:]),
+                                    Name (line 11):             levenshtein(source[1:], target[1:]),
+                                        Load (line None): 
+                                    Slice (line 11):             levenshtein(source[1:], target[1:]),
+                                        Constant (line 11):             levenshtein(source[1:], target[1:]),
+                                    Load (line None): 
+                                Subscript (line 11):             levenshtein(source[1:], target[1:]),
+                                    Name (line 11):             levenshtein(source[1:], target[1:]),
+                                        Load (line None): 
+                                    Slice (line 11):             levenshtein(source[1:], target[1:]),
+                                        Constant (line 11):             levenshtein(source[1:], target[1:]),
+                                    Load (line None): 
+                            Call (line 12):             levenshtein(source[1:], target)
+                                Name (line 12):             levenshtein(source[1:], target)
+                                    Load (line None): 
+                                Subscript (line 12):             levenshtein(source[1:], target)
+                                    Name (line 12):             levenshtein(source[1:], target)
+                                        Load (line None): 
+                                    Slice (line 12):             levenshtein(source[1:], target)
+                                        Constant (line 12):             levenshtein(source[1:], target)
+                                    Load (line None): 
+                                Name (line 12):             levenshtein(source[1:], target)
+                                    Load (line None): 
+    Expr (line 15): """
+        Constant (line 15): """

@@ -1,0 +1,33 @@
+Issue Description: Returns [list, count] instead of just the integer count.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def bitcount(n):
+        arguments (line None): 
+            arg (line 2): def bitcount(n):
+        Assign (line 3):     count = 0
+            Name (line 3):     count = 0
+                Store (line None): 
+            Constant (line 3):     count = 0
+        While (line 4):     while n:
+            Name (line 4):     while n:
+                Load (line None): 
+            AugAssign (line 5):         n ^= n - 1
+                Name (line 5):         n ^= n - 1
+                    Store (line None): 
+                BitXor (line None): 
+                BinOp (line 5):         n ^= n - 1
+                    Name (line 5):         n ^= n - 1
+                        Load (line None): 
+                    Sub (line None): 
+                    Constant (line 5):         n ^= n - 1
+            AugAssign (line 6):         count += 1
+                Name (line 6):         count += 1
+                    Store (line None): 
+                Add (line None): 
+                Constant (line 6):         count += 1
+        Return (line 7):     return count
+            Name (line 7):     return count
+                Load (line None): 
+    Expr (line 10): """
+        Constant (line 10): """

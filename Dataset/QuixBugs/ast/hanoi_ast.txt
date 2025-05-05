@@ -1,0 +1,95 @@
+Issue Description: Prints the move for the first disk twice due to a misplaced print call.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def hanoi(height, start=1, end=3):
+        arguments (line None): 
+            arg (line 1): def hanoi(height, start=1, end=3):
+            arg (line 1): def hanoi(height, start=1, end=3):
+            arg (line 1): def hanoi(height, start=1, end=3):
+            Constant (line 1): def hanoi(height, start=1, end=3):
+            Constant (line 1): def hanoi(height, start=1, end=3):
+        Assign (line 2):     steps = []
+            Name (line 2):     steps = []
+                Store (line None): 
+            List (line 2):     steps = []
+                Load (line None): 
+        If (line 3):     if height > 0:
+            Compare (line 3):     if height > 0:
+                Name (line 3):     if height > 0:
+                    Load (line None): 
+                Gt (line None): 
+                Constant (line 3):     if height > 0:
+            Assign (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                Name (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                    Store (line None): 
+                Call (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                    Attribute (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                        BinOp (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                            BinOp (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                                Set (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                                    Constant (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                                    Constant (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                                    Constant (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                                Sub (line None): 
+                                Set (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                                    Name (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                                        Load (line None): 
+                            Sub (line None): 
+                            Set (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                                Name (line 4):         helper = ({1, 2, 3} - {start} - {end}).pop()
+                                    Load (line None): 
+                        Load (line None): 
+            Expr (line 5):         steps.extend(hanoi(height - 1, start, helper))
+                Call (line 5):         steps.extend(hanoi(height - 1, start, helper))
+                    Attribute (line 5):         steps.extend(hanoi(height - 1, start, helper))
+                        Name (line 5):         steps.extend(hanoi(height - 1, start, helper))
+                            Load (line None): 
+                        Load (line None): 
+                    Call (line 5):         steps.extend(hanoi(height - 1, start, helper))
+                        Name (line 5):         steps.extend(hanoi(height - 1, start, helper))
+                            Load (line None): 
+                        BinOp (line 5):         steps.extend(hanoi(height - 1, start, helper))
+                            Name (line 5):         steps.extend(hanoi(height - 1, start, helper))
+                                Load (line None): 
+                            Sub (line None): 
+                            Constant (line 5):         steps.extend(hanoi(height - 1, start, helper))
+                        Name (line 5):         steps.extend(hanoi(height - 1, start, helper))
+                            Load (line None): 
+                        Name (line 5):         steps.extend(hanoi(height - 1, start, helper))
+                            Load (line None): 
+            Expr (line 6):         steps.append((start, helper))
+                Call (line 6):         steps.append((start, helper))
+                    Attribute (line 6):         steps.append((start, helper))
+                        Name (line 6):         steps.append((start, helper))
+                            Load (line None): 
+                        Load (line None): 
+                    Tuple (line 6):         steps.append((start, helper))
+                        Name (line 6):         steps.append((start, helper))
+                            Load (line None): 
+                        Name (line 6):         steps.append((start, helper))
+                            Load (line None): 
+                        Load (line None): 
+            Expr (line 7):         steps.extend(hanoi(height - 1, helper, end))
+                Call (line 7):         steps.extend(hanoi(height - 1, helper, end))
+                    Attribute (line 7):         steps.extend(hanoi(height - 1, helper, end))
+                        Name (line 7):         steps.extend(hanoi(height - 1, helper, end))
+                            Load (line None): 
+                        Load (line None): 
+                    Call (line 7):         steps.extend(hanoi(height - 1, helper, end))
+                        Name (line 7):         steps.extend(hanoi(height - 1, helper, end))
+                            Load (line None): 
+                        BinOp (line 7):         steps.extend(hanoi(height - 1, helper, end))
+                            Name (line 7):         steps.extend(hanoi(height - 1, helper, end))
+                                Load (line None): 
+                            Sub (line None): 
+                            Constant (line 7):         steps.extend(hanoi(height - 1, helper, end))
+                        Name (line 7):         steps.extend(hanoi(height - 1, helper, end))
+                            Load (line None): 
+                        Name (line 7):         steps.extend(hanoi(height - 1, helper, end))
+                            Load (line None): 
+        Return (line 9):     return steps
+            Name (line 9):     return steps
+                Load (line None): 
+    Expr (line 12): """
+        Constant (line 12): """

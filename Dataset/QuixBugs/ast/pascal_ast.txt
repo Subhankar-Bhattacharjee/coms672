@@ -1,0 +1,113 @@
+Issue Description: Off-by-one in row-generation loop, so each row has one too many/few entries.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def pascal(n):
+        arguments (line None): 
+            arg (line 2): def pascal(n):
+        Assign (line 3):     rows = [[1]]
+            Name (line 3):     rows = [[1]]
+                Store (line None): 
+            List (line 3):     rows = [[1]]
+                List (line 3):     rows = [[1]]
+                    Constant (line 3):     rows = [[1]]
+                    Load (line None): 
+                Load (line None): 
+        For (line 4):     for r in range(1, n):
+            Name (line 4):     for r in range(1, n):
+                Store (line None): 
+            Call (line 4):     for r in range(1, n):
+                Name (line 4):     for r in range(1, n):
+                    Load (line None): 
+                Constant (line 4):     for r in range(1, n):
+                Name (line 4):     for r in range(1, n):
+                    Load (line None): 
+            Assign (line 5):         row = []
+                Name (line 5):         row = []
+                    Store (line None): 
+                List (line 5):         row = []
+                    Load (line None): 
+            For (line 6):         for c in range(0, r):
+                Name (line 6):         for c in range(0, r):
+                    Store (line None): 
+                Call (line 6):         for c in range(0, r):
+                    Name (line 6):         for c in range(0, r):
+                        Load (line None): 
+                    Constant (line 6):         for c in range(0, r):
+                    Name (line 6):         for c in range(0, r):
+                        Load (line None): 
+                Assign (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                    Name (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                        Store (line None): 
+                    IfExp (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                        Compare (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                            Name (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                                Load (line None): 
+                            Gt (line None): 
+                            Constant (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                        Subscript (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                            Subscript (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                                Name (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                                    Load (line None): 
+                                BinOp (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                                    Name (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                                        Load (line None): 
+                                    Sub (line None): 
+                                    Constant (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                                Load (line None): 
+                            BinOp (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                                Name (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                                    Load (line None): 
+                                Sub (line None): 
+                                Constant (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                            Load (line None): 
+                        Constant (line 7):             upleft = rows[r - 1][c - 1] if c > 0 else 0
+                Assign (line 8):             upright = rows[r - 1][c] if c < r else 0
+                    Name (line 8):             upright = rows[r - 1][c] if c < r else 0
+                        Store (line None): 
+                    IfExp (line 8):             upright = rows[r - 1][c] if c < r else 0
+                        Compare (line 8):             upright = rows[r - 1][c] if c < r else 0
+                            Name (line 8):             upright = rows[r - 1][c] if c < r else 0
+                                Load (line None): 
+                            Lt (line None): 
+                            Name (line 8):             upright = rows[r - 1][c] if c < r else 0
+                                Load (line None): 
+                        Subscript (line 8):             upright = rows[r - 1][c] if c < r else 0
+                            Subscript (line 8):             upright = rows[r - 1][c] if c < r else 0
+                                Name (line 8):             upright = rows[r - 1][c] if c < r else 0
+                                    Load (line None): 
+                                BinOp (line 8):             upright = rows[r - 1][c] if c < r else 0
+                                    Name (line 8):             upright = rows[r - 1][c] if c < r else 0
+                                        Load (line None): 
+                                    Sub (line None): 
+                                    Constant (line 8):             upright = rows[r - 1][c] if c < r else 0
+                                Load (line None): 
+                            Name (line 8):             upright = rows[r - 1][c] if c < r else 0
+                                Load (line None): 
+                            Load (line None): 
+                        Constant (line 8):             upright = rows[r - 1][c] if c < r else 0
+                Expr (line 9):             row.append(upleft + upright)
+                    Call (line 9):             row.append(upleft + upright)
+                        Attribute (line 9):             row.append(upleft + upright)
+                            Name (line 9):             row.append(upleft + upright)
+                                Load (line None): 
+                            Load (line None): 
+                        BinOp (line 9):             row.append(upleft + upright)
+                            Name (line 9):             row.append(upleft + upright)
+                                Load (line None): 
+                            Add (line None): 
+                            Name (line 9):             row.append(upleft + upright)
+                                Load (line None): 
+            Expr (line 10):         rows.append(row)
+                Call (line 10):         rows.append(row)
+                    Attribute (line 10):         rows.append(row)
+                        Name (line 10):         rows.append(row)
+                            Load (line None): 
+                        Load (line None): 
+                    Name (line 10):         rows.append(row)
+                        Load (line None): 
+        Return (line 12):     return rows
+            Name (line 12):     return rows
+                Load (line None): 
+    Expr (line 15): """
+        Constant (line 15): """

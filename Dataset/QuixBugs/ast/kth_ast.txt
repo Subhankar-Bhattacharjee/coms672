@@ -1,0 +1,108 @@
+Issue Description: Pivot selection returns the wrong index when all elements are equal, causing infinite recursion.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def kth(arr, k):
+        arguments (line None): 
+            arg (line 1): def kth(arr, k):
+            arg (line 1): def kth(arr, k):
+        Assign (line 2):     pivot = arr[0]
+            Name (line 2):     pivot = arr[0]
+                Store (line None): 
+            Subscript (line 2):     pivot = arr[0]
+                Name (line 2):     pivot = arr[0]
+                    Load (line None): 
+                Constant (line 2):     pivot = arr[0]
+                Load (line None): 
+        Assign (line 3):     below = [x for x in arr if x < pivot]
+            Name (line 3):     below = [x for x in arr if x < pivot]
+                Store (line None): 
+            ListComp (line 3):     below = [x for x in arr if x < pivot]
+                Name (line 3):     below = [x for x in arr if x < pivot]
+                    Load (line None): 
+                comprehension (line None): 
+                    Name (line 3):     below = [x for x in arr if x < pivot]
+                        Store (line None): 
+                    Name (line 3):     below = [x for x in arr if x < pivot]
+                        Load (line None): 
+                    Compare (line 3):     below = [x for x in arr if x < pivot]
+                        Name (line 3):     below = [x for x in arr if x < pivot]
+                            Load (line None): 
+                        Lt (line None): 
+                        Name (line 3):     below = [x for x in arr if x < pivot]
+                            Load (line None): 
+        Assign (line 4):     above = [x for x in arr if x > pivot]
+            Name (line 4):     above = [x for x in arr if x > pivot]
+                Store (line None): 
+            ListComp (line 4):     above = [x for x in arr if x > pivot]
+                Name (line 4):     above = [x for x in arr if x > pivot]
+                    Load (line None): 
+                comprehension (line None): 
+                    Name (line 4):     above = [x for x in arr if x > pivot]
+                        Store (line None): 
+                    Name (line 4):     above = [x for x in arr if x > pivot]
+                        Load (line None): 
+                    Compare (line 4):     above = [x for x in arr if x > pivot]
+                        Name (line 4):     above = [x for x in arr if x > pivot]
+                            Load (line None): 
+                        Gt (line None): 
+                        Name (line 4):     above = [x for x in arr if x > pivot]
+                            Load (line None): 
+        Assign (line 6):     num_less = len(below)
+            Name (line 6):     num_less = len(below)
+                Store (line None): 
+            Call (line 6):     num_less = len(below)
+                Name (line 6):     num_less = len(below)
+                    Load (line None): 
+                Name (line 6):     num_less = len(below)
+                    Load (line None): 
+        Assign (line 7):     num_lessoreq = len(arr) - len(above)
+            Name (line 7):     num_lessoreq = len(arr) - len(above)
+                Store (line None): 
+            BinOp (line 7):     num_lessoreq = len(arr) - len(above)
+                Call (line 7):     num_lessoreq = len(arr) - len(above)
+                    Name (line 7):     num_lessoreq = len(arr) - len(above)
+                        Load (line None): 
+                    Name (line 7):     num_lessoreq = len(arr) - len(above)
+                        Load (line None): 
+                Sub (line None): 
+                Call (line 7):     num_lessoreq = len(arr) - len(above)
+                    Name (line 7):     num_lessoreq = len(arr) - len(above)
+                        Load (line None): 
+                    Name (line 7):     num_lessoreq = len(arr) - len(above)
+                        Load (line None): 
+        If (line 9):     if k < num_less:
+            Compare (line 9):     if k < num_less:
+                Name (line 9):     if k < num_less:
+                    Load (line None): 
+                Lt (line None): 
+                Name (line 9):     if k < num_less:
+                    Load (line None): 
+            Return (line 10):         return kth(below, k)
+                Call (line 10):         return kth(below, k)
+                    Name (line 10):         return kth(below, k)
+                        Load (line None): 
+                    Name (line 10):         return kth(below, k)
+                        Load (line None): 
+                    Name (line 10):         return kth(below, k)
+                        Load (line None): 
+            If (line 11):     elif k >= num_lessoreq:
+                Compare (line 11):     elif k >= num_lessoreq:
+                    Name (line 11):     elif k >= num_lessoreq:
+                        Load (line None): 
+                    GtE (line None): 
+                    Name (line 11):     elif k >= num_lessoreq:
+                        Load (line None): 
+                Return (line 12):         return kth(above, k)
+                    Call (line 12):         return kth(above, k)
+                        Name (line 12):         return kth(above, k)
+                            Load (line None): 
+                        Name (line 12):         return kth(above, k)
+                            Load (line None): 
+                        Name (line 12):         return kth(above, k)
+                            Load (line None): 
+                Return (line 14):         return pivot
+                    Name (line 14):         return pivot
+                        Load (line None): 
+    Expr (line 18): """
+        Constant (line 18): """

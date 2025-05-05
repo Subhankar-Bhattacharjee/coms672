@@ -1,0 +1,70 @@
+Issue Description: Reverses the final order list, producing an invalid topological sort.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def topological_ordering(nodes):
+        arguments (line None): 
+            arg (line 1): def topological_ordering(nodes):
+        Assign (line 2):     ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+            Name (line 2):     ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+                Store (line None): 
+            ListComp (line 2):     ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+                Name (line 2):     ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+                    Load (line None): 
+                comprehension (line None): 
+                    Name (line 2):     ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+                        Store (line None): 
+                    Name (line 2):     ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+                        Load (line None): 
+                    UnaryOp (line 2):     ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+                        Not (line None): 
+                        Attribute (line 2):     ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+                            Name (line 2):     ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+                                Load (line None): 
+                            Load (line None): 
+        For (line 4):     for node in ordered_nodes:
+            Name (line 4):     for node in ordered_nodes:
+                Store (line None): 
+            Name (line 4):     for node in ordered_nodes:
+                Load (line None): 
+            For (line 5):         for nextnode in node.outgoing_nodes:
+                Name (line 5):         for nextnode in node.outgoing_nodes:
+                    Store (line None): 
+                Attribute (line 5):         for nextnode in node.outgoing_nodes:
+                    Name (line 5):         for nextnode in node.outgoing_nodes:
+                        Load (line None): 
+                    Load (line None): 
+                If (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                    BoolOp (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                        And (line None): 
+                        Call (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                            Attribute (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                                Call (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                                    Name (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                                        Load (line None): 
+                                    Name (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                                        Load (line None): 
+                                Load (line None): 
+                            Attribute (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                                Name (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                                    Load (line None): 
+                                Load (line None): 
+                        Compare (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                            Name (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                                Load (line None): 
+                            NotIn (line None): 
+                            Name (line 6):             if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                                Load (line None): 
+                    Expr (line 7):                 ordered_nodes.append(nextnode)
+                        Call (line 7):                 ordered_nodes.append(nextnode)
+                            Attribute (line 7):                 ordered_nodes.append(nextnode)
+                                Name (line 7):                 ordered_nodes.append(nextnode)
+                                    Load (line None): 
+                                Load (line None): 
+                            Name (line 7):                 ordered_nodes.append(nextnode)
+                                Load (line None): 
+        Return (line 9):     return ordered_nodes
+            Name (line 9):     return ordered_nodes
+                Load (line None): 
+    Expr (line 11): """
+        Constant (line 11): """

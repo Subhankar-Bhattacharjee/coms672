@@ -1,0 +1,78 @@
+Issue Description: Omits the empty subsequence from the result.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def subsequences(a, b, k):
+        arguments (line None): 
+            arg (line 1): def subsequences(a, b, k):
+            arg (line 1): def subsequences(a, b, k):
+            arg (line 1): def subsequences(a, b, k):
+        If (line 2):     if k == 0:
+            Compare (line 2):     if k == 0:
+                Name (line 2):     if k == 0:
+                    Load (line None): 
+                Eq (line None): 
+                Constant (line 2):     if k == 0:
+            Return (line 3):         return []
+                List (line 3):         return []
+                    Load (line None): 
+        Assign (line 5):     ret = []
+            Name (line 5):     ret = []
+                Store (line None): 
+            List (line 5):     ret = []
+                Load (line None): 
+        For (line 6):     for i in range(a, b + 1 - k):
+            Name (line 6):     for i in range(a, b + 1 - k):
+                Store (line None): 
+            Call (line 6):     for i in range(a, b + 1 - k):
+                Name (line 6):     for i in range(a, b + 1 - k):
+                    Load (line None): 
+                Name (line 6):     for i in range(a, b + 1 - k):
+                    Load (line None): 
+                BinOp (line 6):     for i in range(a, b + 1 - k):
+                    BinOp (line 6):     for i in range(a, b + 1 - k):
+                        Name (line 6):     for i in range(a, b + 1 - k):
+                            Load (line None): 
+                        Add (line None): 
+                        Constant (line 6):     for i in range(a, b + 1 - k):
+                    Sub (line None): 
+                    Name (line 6):     for i in range(a, b + 1 - k):
+                        Load (line None): 
+            Expr (line 7):         ret.extend(
+                Call (line 7):         ret.extend(
+                    Attribute (line 7):         ret.extend(
+                        Name (line 7):         ret.extend(
+                            Load (line None): 
+                        Load (line None): 
+                    GeneratorExp (line 7):         ret.extend(
+                        BinOp (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                            List (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                Name (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                    Load (line None): 
+                                Load (line None): 
+                            Add (line None): 
+                            Name (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                Load (line None): 
+                        comprehension (line None): 
+                            Name (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                Store (line None): 
+                            Call (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                Name (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                    Load (line None): 
+                                BinOp (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                    Name (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                        Load (line None): 
+                                    Add (line None): 
+                                    Constant (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                Name (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                    Load (line None): 
+                                BinOp (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                    Name (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+                                        Load (line None): 
+                                    Sub (line None): 
+                                    Constant (line 8):             [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        Return (line 11):     return ret
+            Name (line 11):     return ret
+                Load (line None): 
+    Expr (line 14): """
+        Constant (line 14): """

@@ -1,0 +1,56 @@
+Issue Description: Includes 1 in the list of primes because it starts marking at 2 only.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def sieve(max):
+        arguments (line None): 
+            arg (line 1): def sieve(max):
+        Assign (line 2):     primes = []
+            Name (line 2):     primes = []
+                Store (line None): 
+            List (line 2):     primes = []
+                Load (line None): 
+        For (line 3):     for n in range(2, max + 1):
+            Name (line 3):     for n in range(2, max + 1):
+                Store (line None): 
+            Call (line 3):     for n in range(2, max + 1):
+                Name (line 3):     for n in range(2, max + 1):
+                    Load (line None): 
+                Constant (line 3):     for n in range(2, max + 1):
+                BinOp (line 3):     for n in range(2, max + 1):
+                    Name (line 3):     for n in range(2, max + 1):
+                        Load (line None): 
+                    Add (line None): 
+                    Constant (line 3):     for n in range(2, max + 1):
+            If (line 4):         if any(n % p > 0 for p in primes):
+                Call (line 4):         if any(n % p > 0 for p in primes):
+                    Name (line 4):         if any(n % p > 0 for p in primes):
+                        Load (line None): 
+                    GeneratorExp (line 4):         if any(n % p > 0 for p in primes):
+                        Compare (line 4):         if any(n % p > 0 for p in primes):
+                            BinOp (line 4):         if any(n % p > 0 for p in primes):
+                                Name (line 4):         if any(n % p > 0 for p in primes):
+                                    Load (line None): 
+                                Mod (line None): 
+                                Name (line 4):         if any(n % p > 0 for p in primes):
+                                    Load (line None): 
+                            Gt (line None): 
+                            Constant (line 4):         if any(n % p > 0 for p in primes):
+                        comprehension (line None): 
+                            Name (line 4):         if any(n % p > 0 for p in primes):
+                                Store (line None): 
+                            Name (line 4):         if any(n % p > 0 for p in primes):
+                                Load (line None): 
+                Expr (line 5):             primes.append(n)
+                    Call (line 5):             primes.append(n)
+                        Attribute (line 5):             primes.append(n)
+                            Name (line 5):             primes.append(n)
+                                Load (line None): 
+                            Load (line None): 
+                        Name (line 5):             primes.append(n)
+                            Load (line None): 
+        Return (line 6):     return primes
+            Name (line 6):     return primes
+                Load (line None): 
+    Expr (line 8): """
+        Constant (line 8): """

@@ -1,0 +1,104 @@
+Issue Description: Doesn’t pop operators of equal precedence, so expressions like a^b^c parse wrong.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def shunting_yard(tokens):
+        arguments (line None): 
+            arg (line 2): def shunting_yard(tokens):
+        Assign (line 3):     precedence = {
+            Name (line 3):     precedence = {
+                Store (line None): 
+            Dict (line 3):     precedence = {
+                Constant (line 4):         '+': 1,
+                Constant (line 5):         '-': 1,
+                Constant (line 6):         '*': 2,
+                Constant (line 7):         '/': 2
+                Constant (line 4):         '+': 1,
+                Constant (line 5):         '-': 1,
+                Constant (line 6):         '*': 2,
+                Constant (line 7):         '/': 2
+        Assign (line 10):     rpntokens = []
+            Name (line 10):     rpntokens = []
+                Store (line None): 
+            List (line 10):     rpntokens = []
+                Load (line None): 
+        Assign (line 11):     opstack = []
+            Name (line 11):     opstack = []
+                Store (line None): 
+            List (line 11):     opstack = []
+                Load (line None): 
+        For (line 12):     for token in tokens:
+            Name (line 12):     for token in tokens:
+                Store (line None): 
+            Name (line 12):     for token in tokens:
+                Load (line None): 
+            If (line 13):         if isinstance(token, int):
+                Call (line 13):         if isinstance(token, int):
+                    Name (line 13):         if isinstance(token, int):
+                        Load (line None): 
+                    Name (line 13):         if isinstance(token, int):
+                        Load (line None): 
+                    Name (line 13):         if isinstance(token, int):
+                        Load (line None): 
+                Expr (line 14):             rpntokens.append(token)
+                    Call (line 14):             rpntokens.append(token)
+                        Attribute (line 14):             rpntokens.append(token)
+                            Name (line 14):             rpntokens.append(token)
+                                Load (line None): 
+                            Load (line None): 
+                        Name (line 14):             rpntokens.append(token)
+                            Load (line None): 
+                While (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                    BoolOp (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                        And (line None): 
+                        Name (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                            Load (line None): 
+                        Compare (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                            Subscript (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                                Name (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                                    Load (line None): 
+                                Name (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                                    Load (line None): 
+                                Load (line None): 
+                            LtE (line None): 
+                            Subscript (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                                Name (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                                    Load (line None): 
+                                Subscript (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                                    Name (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                                        Load (line None): 
+                                    UnaryOp (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                                        USub (line None): 
+                                        Constant (line 16):             while opstack and precedence[token] <= precedence[opstack[-1]]:
+                                    Load (line None): 
+                                Load (line None): 
+                    Expr (line 17):                 rpntokens.append(opstack.pop())
+                        Call (line 17):                 rpntokens.append(opstack.pop())
+                            Attribute (line 17):                 rpntokens.append(opstack.pop())
+                                Name (line 17):                 rpntokens.append(opstack.pop())
+                                    Load (line None): 
+                                Load (line None): 
+                            Call (line 17):                 rpntokens.append(opstack.pop())
+                                Attribute (line 17):                 rpntokens.append(opstack.pop())
+                                    Name (line 17):                 rpntokens.append(opstack.pop())
+                                        Load (line None): 
+                                    Load (line None): 
+        While (line 19):     while opstack:
+            Name (line 19):     while opstack:
+                Load (line None): 
+            Expr (line 20):         rpntokens.append(opstack.pop())
+                Call (line 20):         rpntokens.append(opstack.pop())
+                    Attribute (line 20):         rpntokens.append(opstack.pop())
+                        Name (line 20):         rpntokens.append(opstack.pop())
+                            Load (line None): 
+                        Load (line None): 
+                    Call (line 20):         rpntokens.append(opstack.pop())
+                        Attribute (line 20):         rpntokens.append(opstack.pop())
+                            Name (line 20):         rpntokens.append(opstack.pop())
+                                Load (line None): 
+                            Load (line None): 
+        Return (line 22):     return rpntokens
+            Name (line 22):     return rpntokens
+                Load (line None): 
+    Expr (line 25): """
+        Constant (line 25): """

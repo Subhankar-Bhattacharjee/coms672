@@ -1,0 +1,122 @@
+Issue Description: No change — buggy and fixed are identical.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def lis(arr):
+        arguments (line None): 
+            arg (line 2): def lis(arr):
+        Assign (line 3):     ends = {}
+            Name (line 3):     ends = {}
+                Store (line None): 
+            Dict (line 3):     ends = {}
+        Assign (line 4):     longest = 0
+            Name (line 4):     longest = 0
+                Store (line None): 
+            Constant (line 4):     longest = 0
+        For (line 6):     for i, val in enumerate(arr):
+            Tuple (line 6):     for i, val in enumerate(arr):
+                Name (line 6):     for i, val in enumerate(arr):
+                    Store (line None): 
+                Name (line 6):     for i, val in enumerate(arr):
+                    Store (line None): 
+                Store (line None): 
+            Call (line 6):     for i, val in enumerate(arr):
+                Name (line 6):     for i, val in enumerate(arr):
+                    Load (line None): 
+                Name (line 6):     for i, val in enumerate(arr):
+                    Load (line None): 
+            Assign (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                Name (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                    Store (line None): 
+                ListComp (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                    Name (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                        Load (line None): 
+                    comprehension (line None): 
+                        Name (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                            Store (line None): 
+                        Call (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                            Name (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                                Load (line None): 
+                            Constant (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                            BinOp (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                                Name (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                                    Load (line None): 
+                                Add (line None): 
+                                Constant (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                        Compare (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                            Subscript (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                                Name (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                                    Load (line None): 
+                                Subscript (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                                    Name (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                                        Load (line None): 
+                                    Name (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                                        Load (line None): 
+                                    Load (line None): 
+                                Load (line None): 
+                            Lt (line None): 
+                            Name (line 8):         prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+                                Load (line None): 
+            Assign (line 10):         length = max(prefix_lengths) if prefix_lengths else 0
+                Name (line 10):         length = max(prefix_lengths) if prefix_lengths else 0
+                    Store (line None): 
+                IfExp (line 10):         length = max(prefix_lengths) if prefix_lengths else 0
+                    Name (line 10):         length = max(prefix_lengths) if prefix_lengths else 0
+                        Load (line None): 
+                    Call (line 10):         length = max(prefix_lengths) if prefix_lengths else 0
+                        Name (line 10):         length = max(prefix_lengths) if prefix_lengths else 0
+                            Load (line None): 
+                        Name (line 10):         length = max(prefix_lengths) if prefix_lengths else 0
+                            Load (line None): 
+                    Constant (line 10):         length = max(prefix_lengths) if prefix_lengths else 0
+            If (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                BoolOp (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                    Or (line None): 
+                    Compare (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                        Name (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                            Load (line None): 
+                        Eq (line None): 
+                        Name (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                            Load (line None): 
+                    Compare (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                        Name (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                            Load (line None): 
+                        Lt (line None): 
+                        Subscript (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                            Name (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                                Load (line None): 
+                            Subscript (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                                Name (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                                    Load (line None): 
+                                BinOp (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                                    Name (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                                        Load (line None): 
+                                    Add (line None): 
+                                    Constant (line 12):         if length == longest or val < arr[ends[length + 1]]:
+                                Load (line None): 
+                            Load (line None): 
+                Assign (line 13):             ends[length + 1] = i
+                    Subscript (line 13):             ends[length + 1] = i
+                        Name (line 13):             ends[length + 1] = i
+                            Load (line None): 
+                        BinOp (line 13):             ends[length + 1] = i
+                            Name (line 13):             ends[length + 1] = i
+                                Load (line None): 
+                            Add (line None): 
+                            Constant (line 13):             ends[length + 1] = i
+                        Store (line None): 
+                    Name (line 13):             ends[length + 1] = i
+                        Load (line None): 
+                Assign (line 14):             longest = length + 1
+                    Name (line 14):             longest = length + 1
+                        Store (line None): 
+                    BinOp (line 14):             longest = length + 1
+                        Name (line 14):             longest = length + 1
+                            Load (line None): 
+                        Add (line None): 
+                        Constant (line 14):             longest = length + 1
+        Return (line 16):     return longest
+            Name (line 16):     return longest
+                Load (line None): 
+    Expr (line 20): """
+        Constant (line 20): """

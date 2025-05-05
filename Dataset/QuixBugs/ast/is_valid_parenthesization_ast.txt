@@ -1,0 +1,44 @@
+Issue Description: Fails on strings starting with a closing parenthesis because it doesn’t check stack emptiness first.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def is_valid_parenthesization(parens):
+        arguments (line None): 
+            arg (line 2): def is_valid_parenthesization(parens):
+        Assign (line 3):     depth = 0
+            Name (line 3):     depth = 0
+                Store (line None): 
+            Constant (line 3):     depth = 0
+        For (line 4):     for paren in parens:
+            Name (line 4):     for paren in parens:
+                Store (line None): 
+            Name (line 4):     for paren in parens:
+                Load (line None): 
+            If (line 5):         if paren == '(':
+                Compare (line 5):         if paren == '(':
+                    Name (line 5):         if paren == '(':
+                        Load (line None): 
+                    Eq (line None): 
+                    Constant (line 5):         if paren == '(':
+                AugAssign (line 6):             depth += 1
+                    Name (line 6):             depth += 1
+                        Store (line None): 
+                    Add (line None): 
+                    Constant (line 6):             depth += 1
+                AugAssign (line 8):             depth -= 1
+                    Name (line 8):             depth -= 1
+                        Store (line None): 
+                    Sub (line None): 
+                    Constant (line 8):             depth -= 1
+                If (line 9):             if depth < 0:
+                    Compare (line 9):             if depth < 0:
+                        Name (line 9):             if depth < 0:
+                            Load (line None): 
+                        Lt (line None): 
+                        Constant (line 9):             if depth < 0:
+                    Return (line 10):                 return False
+                        Constant (line 10):                 return False
+        Return (line 12):     return True
+            Constant (line 12):     return True
+    Expr (line 15): """
+        Constant (line 15): """

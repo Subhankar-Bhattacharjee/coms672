@@ -1,0 +1,58 @@
+Issue Description: Counts the same coin combination multiple times because it doesn’t advance the coin index correctly.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def possible_change(coins, total):
+        arguments (line None): 
+            arg (line 2): def possible_change(coins, total):
+            arg (line 2): def possible_change(coins, total):
+        If (line 3):     if total == 0:
+            Compare (line 3):     if total == 0:
+                Name (line 3):     if total == 0:
+                    Load (line None): 
+                Eq (line None): 
+                Constant (line 3):     if total == 0:
+            Return (line 4):         return 1
+                Constant (line 4):         return 1
+        If (line 5):     if total < 0:
+            Compare (line 5):     if total < 0:
+                Name (line 5):     if total < 0:
+                    Load (line None): 
+                Lt (line None): 
+                Constant (line 5):     if total < 0:
+            Return (line 6):         return 0
+                Constant (line 6):         return 0
+        Assign (line 8):     first, *rest = coins
+            Tuple (line 8):     first, *rest = coins
+                Name (line 8):     first, *rest = coins
+                    Store (line None): 
+                Starred (line 8):     first, *rest = coins
+                    Name (line 8):     first, *rest = coins
+                        Store (line None): 
+                    Store (line None): 
+                Store (line None): 
+            Name (line 8):     first, *rest = coins
+                Load (line None): 
+        Return (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+            BinOp (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+                Call (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+                    Name (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+                        Load (line None): 
+                    Name (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+                        Load (line None): 
+                    BinOp (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+                        Name (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+                            Load (line None): 
+                        Sub (line None): 
+                        Name (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+                            Load (line None): 
+                Add (line None): 
+                Call (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+                    Name (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+                        Load (line None): 
+                    Name (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+                        Load (line None): 
+                    Name (line 9):     return possible_change(coins, total - first) + possible_change(rest, total)
+                        Load (line None): 
+    Expr (line 13): """
+        Constant (line 13): """

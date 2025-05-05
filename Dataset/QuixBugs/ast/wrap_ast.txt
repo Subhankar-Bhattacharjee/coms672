@@ -1,0 +1,87 @@
+Issue Description: Breaks lines at the wrong index, splitting words incorrectly instead of at whitespace.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def wrap(text, cols):
+        arguments (line None): 
+            arg (line 1): def wrap(text, cols):
+            arg (line 1): def wrap(text, cols):
+        Assign (line 2):     lines = []
+            Name (line 2):     lines = []
+                Store (line None): 
+            List (line 2):     lines = []
+                Load (line None): 
+        While (line 3):     while len(text) > cols:
+            Compare (line 3):     while len(text) > cols:
+                Call (line 3):     while len(text) > cols:
+                    Name (line 3):     while len(text) > cols:
+                        Load (line None): 
+                    Name (line 3):     while len(text) > cols:
+                        Load (line None): 
+                Gt (line None): 
+                Name (line 3):     while len(text) > cols:
+                    Load (line None): 
+            Assign (line 4):         end = text.rfind(' ', 0, cols + 1)
+                Name (line 4):         end = text.rfind(' ', 0, cols + 1)
+                    Store (line None): 
+                Call (line 4):         end = text.rfind(' ', 0, cols + 1)
+                    Attribute (line 4):         end = text.rfind(' ', 0, cols + 1)
+                        Name (line 4):         end = text.rfind(' ', 0, cols + 1)
+                            Load (line None): 
+                        Load (line None): 
+                    Constant (line 4):         end = text.rfind(' ', 0, cols + 1)
+                    Constant (line 4):         end = text.rfind(' ', 0, cols + 1)
+                    BinOp (line 4):         end = text.rfind(' ', 0, cols + 1)
+                        Name (line 4):         end = text.rfind(' ', 0, cols + 1)
+                            Load (line None): 
+                        Add (line None): 
+                        Constant (line 4):         end = text.rfind(' ', 0, cols + 1)
+            If (line 5):         if end == -1:
+                Compare (line 5):         if end == -1:
+                    Name (line 5):         if end == -1:
+                        Load (line None): 
+                    Eq (line None): 
+                    UnaryOp (line 5):         if end == -1:
+                        USub (line None): 
+                        Constant (line 5):         if end == -1:
+                Assign (line 6):             end = cols
+                    Name (line 6):             end = cols
+                        Store (line None): 
+                    Name (line 6):             end = cols
+                        Load (line None): 
+            Assign (line 7):         line, text = text[:end], text[end:]
+                Tuple (line 7):         line, text = text[:end], text[end:]
+                    Name (line 7):         line, text = text[:end], text[end:]
+                        Store (line None): 
+                    Name (line 7):         line, text = text[:end], text[end:]
+                        Store (line None): 
+                    Store (line None): 
+                Tuple (line 7):         line, text = text[:end], text[end:]
+                    Subscript (line 7):         line, text = text[:end], text[end:]
+                        Name (line 7):         line, text = text[:end], text[end:]
+                            Load (line None): 
+                        Slice (line 7):         line, text = text[:end], text[end:]
+                            Name (line 7):         line, text = text[:end], text[end:]
+                                Load (line None): 
+                        Load (line None): 
+                    Subscript (line 7):         line, text = text[:end], text[end:]
+                        Name (line 7):         line, text = text[:end], text[end:]
+                            Load (line None): 
+                        Slice (line 7):         line, text = text[:end], text[end:]
+                            Name (line 7):         line, text = text[:end], text[end:]
+                                Load (line None): 
+                        Load (line None): 
+                    Load (line None): 
+            Expr (line 8):         lines.append(line)
+                Call (line 8):         lines.append(line)
+                    Attribute (line 8):         lines.append(line)
+                        Name (line 8):         lines.append(line)
+                            Load (line None): 
+                        Load (line None): 
+                    Name (line 8):         lines.append(line)
+                        Load (line None): 
+        Return (line 10):     return lines
+            Name (line 10):     return lines
+                Load (line None): 
+    Expr (line 12): """
+        Constant (line 12): """

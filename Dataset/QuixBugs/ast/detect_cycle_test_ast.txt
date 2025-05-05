@@ -1,0 +1,253 @@
+Issue Description: No description available.
+
+AST:
+Module (line None): 
+    ImportFrom (line 1): from .node import Node
+        alias (line 1): from .node import Node
+    ImportFrom (line 2): from .detect_cycle import detect_cycle
+        alias (line 2): from .detect_cycle import detect_cycle
+    Expr (line 5): """
+        Constant (line 5): """
+    FunctionDef (line 8): def main():
+        arguments (line None): 
+        Assign (line 11):     node1 = Node(1)
+            Name (line 11):     node1 = Node(1)
+                Store (line None): 
+            Call (line 11):     node1 = Node(1)
+                Name (line 11):     node1 = Node(1)
+                    Load (line None): 
+                Constant (line 11):     node1 = Node(1)
+        Assign (line 12):     node2 = Node(2, node1)
+            Name (line 12):     node2 = Node(2, node1)
+                Store (line None): 
+            Call (line 12):     node2 = Node(2, node1)
+                Name (line 12):     node2 = Node(2, node1)
+                    Load (line None): 
+                Constant (line 12):     node2 = Node(2, node1)
+                Name (line 12):     node2 = Node(2, node1)
+                    Load (line None): 
+        Assign (line 13):     node3 = Node(3, node2)
+            Name (line 13):     node3 = Node(3, node2)
+                Store (line None): 
+            Call (line 13):     node3 = Node(3, node2)
+                Name (line 13):     node3 = Node(3, node2)
+                    Load (line None): 
+                Constant (line 13):     node3 = Node(3, node2)
+                Name (line 13):     node3 = Node(3, node2)
+                    Load (line None): 
+        Assign (line 14):     node4 = Node(4, node3)
+            Name (line 14):     node4 = Node(4, node3)
+                Store (line None): 
+            Call (line 14):     node4 = Node(4, node3)
+                Name (line 14):     node4 = Node(4, node3)
+                    Load (line None): 
+                Constant (line 14):     node4 = Node(4, node3)
+                Name (line 14):     node4 = Node(4, node3)
+                    Load (line None): 
+        Assign (line 15):     node5 = Node(5, node4)
+            Name (line 15):     node5 = Node(5, node4)
+                Store (line None): 
+            Call (line 15):     node5 = Node(5, node4)
+                Name (line 15):     node5 = Node(5, node4)
+                    Load (line None): 
+                Constant (line 15):     node5 = Node(5, node4)
+                Name (line 15):     node5 = Node(5, node4)
+                    Load (line None): 
+        If (line 17):     if detect_cycle(node5):
+            Call (line 17):     if detect_cycle(node5):
+                Name (line 17):     if detect_cycle(node5):
+                    Load (line None): 
+                Name (line 17):     if detect_cycle(node5):
+                    Load (line None): 
+            Expr (line 18):         print("Cycle detected!", end=" ")
+                Call (line 18):         print("Cycle detected!", end=" ")
+                    Name (line 18):         print("Cycle detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 18):         print("Cycle detected!", end=" ")
+                    keyword (line 18):         print("Cycle detected!", end=" ")
+                        Constant (line 18):         print("Cycle detected!", end=" ")
+            Expr (line 20):         print("Cycle not detected!", end=" ")
+                Call (line 20):         print("Cycle not detected!", end=" ")
+                    Name (line 20):         print("Cycle not detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 20):         print("Cycle not detected!", end=" ")
+                    keyword (line 20):         print("Cycle not detected!", end=" ")
+                        Constant (line 20):         print("Cycle not detected!", end=" ")
+        Expr (line 21):     print()
+            Call (line 21):     print()
+                Name (line 21):     print()
+                    Load (line None): 
+        Assign (line 25):     node1.successor = node5
+            Attribute (line 25):     node1.successor = node5
+                Name (line 25):     node1.successor = node5
+                    Load (line None): 
+                Store (line None): 
+            Name (line 25):     node1.successor = node5
+                Load (line None): 
+        If (line 27):     if detect_cycle(node5):
+            Call (line 27):     if detect_cycle(node5):
+                Name (line 27):     if detect_cycle(node5):
+                    Load (line None): 
+                Name (line 27):     if detect_cycle(node5):
+                    Load (line None): 
+            Expr (line 28):         print("Cycle detected!", end=" ")
+                Call (line 28):         print("Cycle detected!", end=" ")
+                    Name (line 28):         print("Cycle detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 28):         print("Cycle detected!", end=" ")
+                    keyword (line 28):         print("Cycle detected!", end=" ")
+                        Constant (line 28):         print("Cycle detected!", end=" ")
+            Expr (line 30):         print("Cycle not detected!", end=" ")
+                Call (line 30):         print("Cycle not detected!", end=" ")
+                    Name (line 30):         print("Cycle not detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 30):         print("Cycle not detected!", end=" ")
+                    keyword (line 30):         print("Cycle not detected!", end=" ")
+                        Constant (line 30):         print("Cycle not detected!", end=" ")
+        Expr (line 31):     print()
+            Call (line 31):     print()
+                Name (line 31):     print()
+                    Load (line None): 
+        Assign (line 35):     node1.successor = node2
+            Attribute (line 35):     node1.successor = node2
+                Name (line 35):     node1.successor = node2
+                    Load (line None): 
+                Store (line None): 
+            Name (line 35):     node1.successor = node2
+                Load (line None): 
+        If (line 37):     if detect_cycle(node2):
+            Call (line 37):     if detect_cycle(node2):
+                Name (line 37):     if detect_cycle(node2):
+                    Load (line None): 
+                Name (line 37):     if detect_cycle(node2):
+                    Load (line None): 
+            Expr (line 38):         print("Cycle detected!", end=" ")
+                Call (line 38):         print("Cycle detected!", end=" ")
+                    Name (line 38):         print("Cycle detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 38):         print("Cycle detected!", end=" ")
+                    keyword (line 38):         print("Cycle detected!", end=" ")
+                        Constant (line 38):         print("Cycle detected!", end=" ")
+            Expr (line 40):         print("Cycle not detected!", end=" ")
+                Call (line 40):         print("Cycle not detected!", end=" ")
+                    Name (line 40):         print("Cycle not detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 40):         print("Cycle not detected!", end=" ")
+                    keyword (line 40):         print("Cycle not detected!", end=" ")
+                        Constant (line 40):         print("Cycle not detected!", end=" ")
+        Expr (line 41):     print()
+            Call (line 41):     print()
+                Name (line 41):     print()
+                    Load (line None): 
+        Assign (line 45):     node6 = Node(6)
+            Name (line 45):     node6 = Node(6)
+                Store (line None): 
+            Call (line 45):     node6 = Node(6)
+                Name (line 45):     node6 = Node(6)
+                    Load (line None): 
+                Constant (line 45):     node6 = Node(6)
+        Assign (line 46):     node7 = Node(7, node6)
+            Name (line 46):     node7 = Node(7, node6)
+                Store (line None): 
+            Call (line 46):     node7 = Node(7, node6)
+                Name (line 46):     node7 = Node(7, node6)
+                    Load (line None): 
+                Constant (line 46):     node7 = Node(7, node6)
+                Name (line 46):     node7 = Node(7, node6)
+                    Load (line None): 
+        If (line 48):     if detect_cycle(node7):
+            Call (line 48):     if detect_cycle(node7):
+                Name (line 48):     if detect_cycle(node7):
+                    Load (line None): 
+                Name (line 48):     if detect_cycle(node7):
+                    Load (line None): 
+            Expr (line 49):         print("Cycle detected!", end=" ")
+                Call (line 49):         print("Cycle detected!", end=" ")
+                    Name (line 49):         print("Cycle detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 49):         print("Cycle detected!", end=" ")
+                    keyword (line 49):         print("Cycle detected!", end=" ")
+                        Constant (line 49):         print("Cycle detected!", end=" ")
+            Expr (line 51):         print("Cycle not detected!", end=" ")
+                Call (line 51):         print("Cycle not detected!", end=" ")
+                    Name (line 51):         print("Cycle not detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 51):         print("Cycle not detected!", end=" ")
+                    keyword (line 51):         print("Cycle not detected!", end=" ")
+                        Constant (line 51):         print("Cycle not detected!", end=" ")
+        Expr (line 52):     print()
+            Call (line 52):     print()
+                Name (line 52):     print()
+                    Load (line None): 
+        Assign (line 56):     node = Node(0)
+            Name (line 56):     node = Node(0)
+                Store (line None): 
+            Call (line 56):     node = Node(0)
+                Name (line 56):     node = Node(0)
+                    Load (line None): 
+                Constant (line 56):     node = Node(0)
+        If (line 57):     if detect_cycle(node):
+            Call (line 57):     if detect_cycle(node):
+                Name (line 57):     if detect_cycle(node):
+                    Load (line None): 
+                Name (line 57):     if detect_cycle(node):
+                    Load (line None): 
+            Expr (line 58):         print("Cycle detected!", end=" ")
+                Call (line 58):         print("Cycle detected!", end=" ")
+                    Name (line 58):         print("Cycle detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 58):         print("Cycle detected!", end=" ")
+                    keyword (line 58):         print("Cycle detected!", end=" ")
+                        Constant (line 58):         print("Cycle detected!", end=" ")
+            Expr (line 60):         print("Cycle not detected!", end=" ")
+                Call (line 60):         print("Cycle not detected!", end=" ")
+                    Name (line 60):         print("Cycle not detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 60):         print("Cycle not detected!", end=" ")
+                    keyword (line 60):         print("Cycle not detected!", end=" ")
+                        Constant (line 60):         print("Cycle not detected!", end=" ")
+        Expr (line 61):     print()
+            Call (line 61):     print()
+                Name (line 61):     print()
+                    Load (line None): 
+        Assign (line 64):     node1.successor = node2
+            Attribute (line 64):     node1.successor = node2
+                Name (line 64):     node1.successor = node2
+                    Load (line None): 
+                Store (line None): 
+            Name (line 64):     node1.successor = node2
+                Load (line None): 
+        If (line 65):     if detect_cycle(node5):
+            Call (line 65):     if detect_cycle(node5):
+                Name (line 65):     if detect_cycle(node5):
+                    Load (line None): 
+                Name (line 65):     if detect_cycle(node5):
+                    Load (line None): 
+            Expr (line 66):         print("Cycle detected!", end=" ")
+                Call (line 66):         print("Cycle detected!", end=" ")
+                    Name (line 66):         print("Cycle detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 66):         print("Cycle detected!", end=" ")
+                    keyword (line 66):         print("Cycle detected!", end=" ")
+                        Constant (line 66):         print("Cycle detected!", end=" ")
+            Expr (line 68):         print("Cycle not detected!", end=" ")
+                Call (line 68):         print("Cycle not detected!", end=" ")
+                    Name (line 68):         print("Cycle not detected!", end=" ")
+                        Load (line None): 
+                    Constant (line 68):         print("Cycle not detected!", end=" ")
+                    keyword (line 68):         print("Cycle not detected!", end=" ")
+                        Constant (line 68):         print("Cycle not detected!", end=" ")
+        Expr (line 69):     print()
+            Call (line 69):     print()
+                Name (line 69):     print()
+                    Load (line None): 
+    If (line 72): if __name__ == "__main__":
+        Compare (line 72): if __name__ == "__main__":
+            Name (line 72): if __name__ == "__main__":
+                Load (line None): 
+            Eq (line None): 
+            Constant (line 72): if __name__ == "__main__":
+        Expr (line 73):     main()
+            Call (line 73):     main()
+                Name (line 73):     main()
+                    Load (line None): 

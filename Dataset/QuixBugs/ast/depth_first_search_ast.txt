@@ -1,0 +1,60 @@
+Issue Description: Marks a node visited only on pop instead of on push, leading to potential infinite loops.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def depth_first_search(startnode, goalnode):
+        arguments (line None): 
+            arg (line 1): def depth_first_search(startnode, goalnode):
+            arg (line 1): def depth_first_search(startnode, goalnode):
+        Assign (line 2):     nodesvisited = set()
+            Name (line 2):     nodesvisited = set()
+                Store (line None): 
+            Call (line 2):     nodesvisited = set()
+                Name (line 2):     nodesvisited = set()
+                    Load (line None): 
+        FunctionDef (line 4):     def search_from(node):
+            arguments (line None): 
+                arg (line 4):     def search_from(node):
+            If (line 5):         if node in nodesvisited:
+                Compare (line 5):         if node in nodesvisited:
+                    Name (line 5):         if node in nodesvisited:
+                        Load (line None): 
+                    In (line None): 
+                    Name (line 5):         if node in nodesvisited:
+                        Load (line None): 
+                Return (line 6):             return False
+                    Constant (line 6):             return False
+                If (line 7):         elif node is goalnode:
+                    Compare (line 7):         elif node is goalnode:
+                        Name (line 7):         elif node is goalnode:
+                            Load (line None): 
+                        Is (line None): 
+                        Name (line 7):         elif node is goalnode:
+                            Load (line None): 
+                    Return (line 8):             return True
+                        Constant (line 8):             return True
+                    Return (line 10):             return any(
+                        Call (line 10):             return any(
+                            Name (line 10):             return any(
+                                Load (line None): 
+                            GeneratorExp (line 10):             return any(
+                                Call (line 11):                 search_from(nextnode) for nextnode in node.successors
+                                    Name (line 11):                 search_from(nextnode) for nextnode in node.successors
+                                        Load (line None): 
+                                    Name (line 11):                 search_from(nextnode) for nextnode in node.successors
+                                        Load (line None): 
+                                comprehension (line None): 
+                                    Name (line 11):                 search_from(nextnode) for nextnode in node.successors
+                                        Store (line None): 
+                                    Attribute (line 11):                 search_from(nextnode) for nextnode in node.successors
+                                        Name (line 11):                 search_from(nextnode) for nextnode in node.successors
+                                            Load (line None): 
+                                        Load (line None): 
+        Return (line 14):     return search_from(startnode)
+            Call (line 14):     return search_from(startnode)
+                Name (line 14):     return search_from(startnode)
+                    Load (line None): 
+                Name (line 14):     return search_from(startnode)
+                    Load (line None): 
+    Expr (line 18): """
+        Constant (line 18): """

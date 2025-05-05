@@ -1,0 +1,58 @@
+Issue Description: Uses the wrong child index in heapify, so the heap property isn’t maintained.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def kheapsort(arr, k):
+        arguments (line None): 
+            arg (line 1): def kheapsort(arr, k):
+            arg (line 1): def kheapsort(arr, k):
+        Import (line 2):     import heapq
+            alias (line 2):     import heapq
+        Assign (line 4):     heap = arr[:k]
+            Name (line 4):     heap = arr[:k]
+                Store (line None): 
+            Subscript (line 4):     heap = arr[:k]
+                Name (line 4):     heap = arr[:k]
+                    Load (line None): 
+                Slice (line 4):     heap = arr[:k]
+                    Name (line 4):     heap = arr[:k]
+                        Load (line None): 
+                Load (line None): 
+        Expr (line 5):     heapq.heapify(heap)
+            Call (line 5):     heapq.heapify(heap)
+                Attribute (line 5):     heapq.heapify(heap)
+                    Name (line 5):     heapq.heapify(heap)
+                        Load (line None): 
+                    Load (line None): 
+                Name (line 5):     heapq.heapify(heap)
+                    Load (line None): 
+        For (line 7):     for x in arr:
+            Name (line 7):     for x in arr:
+                Store (line None): 
+            Name (line 7):     for x in arr:
+                Load (line None): 
+            Expr (line 8):         yield heapq.heappushpop(heap, x)
+                Yield (line 8):         yield heapq.heappushpop(heap, x)
+                    Call (line 8):         yield heapq.heappushpop(heap, x)
+                        Attribute (line 8):         yield heapq.heappushpop(heap, x)
+                            Name (line 8):         yield heapq.heappushpop(heap, x)
+                                Load (line None): 
+                            Load (line None): 
+                        Name (line 8):         yield heapq.heappushpop(heap, x)
+                            Load (line None): 
+                        Name (line 8):         yield heapq.heappushpop(heap, x)
+                            Load (line None): 
+        While (line 10):     while heap:
+            Name (line 10):     while heap:
+                Load (line None): 
+            Expr (line 11):         yield heapq.heappop(heap)
+                Yield (line 11):         yield heapq.heappop(heap)
+                    Call (line 11):         yield heapq.heappop(heap)
+                        Attribute (line 11):         yield heapq.heappop(heap)
+                            Name (line 11):         yield heapq.heappop(heap)
+                                Load (line None): 
+                            Load (line None): 
+                        Name (line 11):         yield heapq.heappop(heap)
+                            Load (line None): 
+    Expr (line 14): """
+        Constant (line 14): """

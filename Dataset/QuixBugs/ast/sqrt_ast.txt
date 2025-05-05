@@ -1,0 +1,51 @@
+Issue Description: Returns a truncated float rather than an integer square root (floor) when the root is exact.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def sqrt(x, epsilon):
+        arguments (line None): 
+            arg (line 2): def sqrt(x, epsilon):
+            arg (line 2): def sqrt(x, epsilon):
+        Assign (line 3):     approx = x / 2
+            Name (line 3):     approx = x / 2
+                Store (line None): 
+            BinOp (line 3):     approx = x / 2
+                Name (line 3):     approx = x / 2
+                    Load (line None): 
+                Div (line None): 
+                Constant (line 3):     approx = x / 2
+        While (line 4):     while abs(x - approx) > epsilon:
+            Compare (line 4):     while abs(x - approx) > epsilon:
+                Call (line 4):     while abs(x - approx) > epsilon:
+                    Name (line 4):     while abs(x - approx) > epsilon:
+                        Load (line None): 
+                    BinOp (line 4):     while abs(x - approx) > epsilon:
+                        Name (line 4):     while abs(x - approx) > epsilon:
+                            Load (line None): 
+                        Sub (line None): 
+                        Name (line 4):     while abs(x - approx) > epsilon:
+                            Load (line None): 
+                Gt (line None): 
+                Name (line 4):     while abs(x - approx) > epsilon:
+                    Load (line None): 
+            Assign (line 5):         approx = 0.5 * (approx + x / approx)
+                Name (line 5):         approx = 0.5 * (approx + x / approx)
+                    Store (line None): 
+                BinOp (line 5):         approx = 0.5 * (approx + x / approx)
+                    Constant (line 5):         approx = 0.5 * (approx + x / approx)
+                    Mult (line None): 
+                    BinOp (line 5):         approx = 0.5 * (approx + x / approx)
+                        Name (line 5):         approx = 0.5 * (approx + x / approx)
+                            Load (line None): 
+                        Add (line None): 
+                        BinOp (line 5):         approx = 0.5 * (approx + x / approx)
+                            Name (line 5):         approx = 0.5 * (approx + x / approx)
+                                Load (line None): 
+                            Div (line None): 
+                            Name (line 5):         approx = 0.5 * (approx + x / approx)
+                                Load (line None): 
+        Return (line 6):     return approx
+            Name (line 6):     return approx
+                Load (line None): 
+    Expr (line 8): """
+        Constant (line 8): """
