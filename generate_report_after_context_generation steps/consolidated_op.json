@@ -1,0 +1,590 @@
+[
+  {
+    "trace_id": "gcd",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if b == 0:",
+      "explanations": "Explanation: The if statement is not properly closed.",
+      "function": "gcd",
+      "ground_truth": "5 + gcd + return gcd(b, a % b)",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "find_in_sorted",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "return mid",
+      "explanations": "Explanation: The function returns the index of the first occurrence of x in arr, not the last.",
+      "function": "binsearch",
+      "ground_truth": "9 + binsearch + return binsearch(mid + 1, end)",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "get_factors",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if n == 1:",
+      "explanations": "Explanation: The function will return [] if n is 1.",
+      "function": "get_factors",
+      "ground_truth": "10 + get_factors + return [n]",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "depth_first_search",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "return any(",
+      "explanations": "Explanation: The line 10 is a buggy line because it is a return statement that is not inside a function.",
+      "function": "search_from",
+      "ground_truth": "10 + search_from + nodesvisited.add(node)",
+      "context_match": "Yes"
+    }
+  },
+  {
+    "trace_id": "to_base",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "i = num % b",
+      "explanations": "Explanation: The line 7 is a buggy line because it is not possible to have a negative value of i.",
+      "function": "to_base",
+      "ground_truth": "9 + to_base + result = alphabet[i] + result",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "pascal",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "upleft = rows[r - 1][c - 1] if c > 0 else 0",
+      "explanations": "Explanation: The line 7 has a bug. The variable upleft is not defined.",
+      "function": "pascal",
+      "ground_truth": "6 + pascal + for c in range(0, r + 1):",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "detect_cycle_test",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if detect_cycle(node5):",
+      "explanations": "Explanation: The if statement is not properly closed.",
+      "function": "main",
+      "ground_truth": "63 + main + if __name__ == \"__main__\":",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "find_first_in_sorted",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "elif x <= arr[mid]:",
+      "explanations": "Explanation: The elif statement is not needed. The if statement is sufficient.",
+      "function": "find_first_in_sorted",
+      "ground_truth": "5 + find_first_in_sorted + while lo < hi:",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "hanoi",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "helper = ({1, 2, 3} - {start} - {end}).pop()",
+      "explanations": "Explanation: The line 4 is a buggy line because the helper variable is not defined.",
+      "function": "hanoi",
+      "ground_truth": "6 + hanoi + steps.append((start, end))",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "lcs_length",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if s[i] == t[j]:",
+      "explanations": "Explanation: The bug is in the if statement. The condition is not correct.",
+      "function": "lcs_length",
+      "ground_truth": "9 + lcs_length + dp[i, j] = dp[i - 1, j - 1] + 1",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "topological_ordering",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "ordered_nodes.append(nextnode)",
+      "explanations": "Explanation: The function appends the nextnode to the ordered_nodes list even if it is already in the list. This is a bug because it will",
+      "function": "topological_ordering",
+      "ground_truth": "6 + topological_ordering + if set(ordered_nodes).issuperset(nextnode.incoming_nodes) and nextnode not in ordered_nodes:",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "bucketsort",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "counts[x] += 1",
+      "explanations": "Explanation: The line 4 is a buggy statement because it is not possible to have a negative value in the list counts.",
+      "function": "bucketsort",
+      "ground_truth": "7 + bucketsort + for i, count in enumerate(counts):",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "max_sublist_sum",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "max_so_far = max(max_so_far, max_ending_here)",
+      "explanations": "Explanation: The max_so_far variable is not initialized.",
+      "function": "max_sublist_sum",
+      "ground_truth": "7 + max_sublist_sum + max_ending_here = max(0, max_ending_here + x)",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "shortest_path_lengths",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "length_by_path[i, j] = min(",
+      "explanations": "Explanation: The line 11 is a buggy line because it is a infinite loop. The function is trying to find the short",
+      "function": "shortest_path_lengths",
+      "ground_truth": "13 + shortest_path_lengths + length_by_path[i, k] + length_by_path[k, j]",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "mergesort",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if len(arr) == 0:",
+      "explanations": "Explanation: The function mergesort has a bug in the line 17. The function is called with an empty list, but it does not return",
+      "function": "merge",
+      "ground_truth": "17 + merge + if len(arr) <= 1:",
+      "context_match": "Yes"
+    }
+  },
+  {
+    "trace_id": "breadth_first_search",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "queue.extend(node for node in node.successors if node not in nodesseen)",
+      "explanations": "Explanation: The line 17 is a buggy line because it is a infinite loop. The line 17 is a infinite loop",
+      "function": "breadth_first_search",
+      "ground_truth": "11 + breadth_first_search + while queue:",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "shunting_yard",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "while opstack and precedence[token] <= precedence[opstack[-1]]:",
+      "explanations": "Explanation: The while loop is not properly closed. The condition is not properly defined.",
+      "function": "shunting_yard",
+      "ground_truth": "18 + shunting_yard + opstack.append(token)",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "quicksort",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if not arr:",
+      "explanations": "Explanation: The if statement is not properly indented.",
+      "function": "quicksort",
+      "ground_truth": "7 + quicksort + greater = quicksort([x for x in arr[1:] if x >= pivot])",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "shortest_paths",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "weight_by_edge[u, v] = min(",
+      "explanations": "Explanation: The line 10 is a buggy line because it is a min() function that takes two arguments. The min() function should take",
+      "function": "shortest_paths",
+      "ground_truth": "10 + shortest_paths + weight_by_node[v] = min(",
+      "context_match": "Yes"
+    }
+  },
+  {
+    "trace_id": "rpn_eval",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "stack.append(",
+      "explanations": "Explanation: The function is using the wrong operator. The function is using the operator '+' instead of the operator '-'.",
+      "function": "op",
+      "ground_truth": "20 + op + op(token, b, a)",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "minimum_spanning_tree",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):",
+      "explanations": "Explanation: The if statement is not properly indented.",
+      "function": "minimum_spanning_tree",
+      "ground_truth": "12 + minimum_spanning_tree + group_by_node[node] = group_by_node[u]",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "sqrt",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "while abs(x - approx) > epsilon:",
+      "explanations": "Explanation: The while loop will run indefinitely if the condition is not met.",
+      "function": "sqrt",
+      "ground_truth": "4 + sqrt + while abs(x - approx ** 2) > epsilon:",
+      "context_match": "Yes"
+    }
+  },
+  {
+    "trace_id": "reverse_linked_list",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "node = nextnode",
+      "explanations": "Explanation: The function reverses the linked list but does not return the new head.",
+      "function": "reverse_linked_list",
+      "ground_truth": "6 + reverse_linked_list + prevnode = node",
+      "context_match": "Yes"
+    }
+  },
+  {
+    "trace_id": "levenshtein",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if source == '' or target == '':",
+      "explanations": "Explanation: The if statement is not properly closed.",
+      "function": "levenshtein",
+      "ground_truth": "6 + levenshtein + return levenshtein(source[1:], target[1:])",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "detect_cycle",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if hare is tortoise:",
+      "explanations": "Explanation: The function will return True if the cycle is detected, but it will also return True if the cycle is not detected.",
+      "function": "detect_cycle",
+      "ground_truth": "5 + detect_cycle + if hare is None or hare.successor is None:",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "flatten",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "yield flatten(x)",
+      "explanations": "Explanation: The yield statement is not indented correctly.",
+      "function": "flatten",
+      "ground_truth": "7 + flatten + yield x",
+      "context_match": "Yes"
+    }
+  },
+  {
+    "trace_id": "knapsack",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if weight < j:",
+      "explanations": "Explanation: The if statement is not properly indented.",
+      "function": "knapsack",
+      "ground_truth": "12 + knapsack + if weight <= j:",
+      "context_match": "Yes"
+    }
+  },
+  {
+    "trace_id": "subsequences",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if k == 0:",
+      "explanations": "Explanation: The if statement is not properly indented.",
+      "function": "subsequences",
+      "ground_truth": "3 + subsequences + return [[]]",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "next_permutation",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if perm[i] < perm[i + 1]:",
+      "explanations": "Explanation: The if statement is not properly closed.",
+      "function": "next_permutation",
+      "ground_truth": "6 + next_permutation + if perm[i] < perm[j]:",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "longest_common_subsequence",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if not a or not b:",
+      "explanations": "Explanation: The if statement is not properly indented.",
+      "function": "longest_common_subsequence",
+      "ground_truth": "6 + longest_common_subsequence + return a[0] + longest_common_subsequence(a[1:], b[1:])",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "sieve",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if any(n % p > 0 for p in primes):",
+      "explanations": "Explanation: The if statement is not properly closed.",
+      "function": "sieve",
+      "ground_truth": "4 + sieve + if all(n % p > 0 for p in primes):",
+      "context_match": "Yes"
+    }
+  },
+  {
+    "trace_id": "bitcount",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "n ^= n - 1",
+      "explanations": "Explanation: The line 5 is a buggy line because it is a bitwise XOR operation. The result of the operation is not a boolean value.",
+      "function": "bitcount",
+      "ground_truth": "5 + bitcount + n &= n - 1",
+      "context_match": "Yes"
+    }
+  },
+  {
+    "trace_id": "shortest_path_length_test",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "print(result)",
+      "explanations": "Explanation: The print statement is not inside the if statement.",
+      "function": "main",
+      "ground_truth": "48 + main + main()",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "is_valid_parenthesization",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if depth < 0:",
+      "explanations": "Explanation: The function does not handle the case where the depth goes below 0.",
+      "function": "is_valid_parenthesization",
+      "ground_truth": "12 + is_valid_parenthesization + return depth == 0",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "wrap",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if end == -1:",
+      "explanations": "Explanation: The if statement is not properly indented.",
+      "function": "wrap",
+      "ground_truth": "10 + wrap + lines.append(text)",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "kth",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "elif k >= num_lessoreq:",
+      "explanations": "Explanation: The elif statement is not properly indented.",
+      "function": "kth",
+      "ground_truth": "12 + kth + return kth(above, k - num_lessoreq)",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "lis",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "length = max(prefix_lengths) if prefix_lengths else 0",
+      "explanations": "Explanation: The if statement is not properly indented.",
+      "function": "lis",
+      "ground_truth": "14 + lis + longest = max(longest, length + 1)",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "next_palindrome",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "digit_list[high_mid] += 1",
+      "explanations": "Explanation: The function does not handle the case where the input is a palindrome.",
+      "function": "next_palindrome",
+      "ground_truth": "15 + next_palindrome + return [1] + (len(digit_list) - 1) * [0] + [1]",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "kheapsort",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "while heap:",
+      "explanations": "Explanation: The while loop will run forever if the heap is empty.",
+      "function": "kheapsort",
+      "ground_truth": "7 + kheapsort + for x in arr[k:]:",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "shortest_path_length",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if node is goalnode:",
+      "explanations": "Explanation: The if statement is not properly indented.",
+      "function": "shortest_path_length",
+      "ground_truth": "22 + shortest_path_length + distance + length_by_edge[node, nextnode]",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "possible_change",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "return possible_change(coins, total - first) + possible_change(rest, total)",
+      "explanations": "Explanation: The function is recursive and the return statement is not correct.",
+      "function": "possible_change",
+      "ground_truth": "1 + UNKNOWN_FUNCTION + def possible_change(coins, total):",
+      "context_match": "No"
+    }
+  },
+  {
+    "trace_id": "powerset",
+    "agent": "retrieval",
+    "input": {
+      "AST": "ast_data"
+    },
+    "output": {
+      "buggy_line": "if arr:",
+      "explanations": "Explanation: The if statement is not properly closed.",
+      "function": "powerset",
+      "ground_truth": "4 + powerset + first, *rest = arr",
+      "context_match": "No"
+    }
+  }
+]
