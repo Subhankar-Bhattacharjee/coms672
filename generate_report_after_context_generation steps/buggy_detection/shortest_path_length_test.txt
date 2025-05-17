@@ -1,0 +1,3 @@
+Function: main
+Buggy Line Number: 45
+Explanation: The print statement is not inside the if statement.

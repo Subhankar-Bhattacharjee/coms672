@@ -1,0 +1,3 @@
+Function: shortest_paths
+Buggy Line Number: 10
+Explanation: The line 10 is a buggy line because it is a min() function that takes two arguments. The min() function should take

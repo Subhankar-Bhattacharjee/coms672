@@ -1,0 +1,92 @@
+Issue Description: Uses the wrong comparison (<= instead of <), causing off-by-one misses at the ends.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def find_in_sorted(arr, x):
+        arguments (line None): 
+            arg (line 1): def find_in_sorted(arr, x):
+            arg (line 1): def find_in_sorted(arr, x):
+        FunctionDef (line 2):     def binsearch(start, end):
+            arguments (line None): 
+                arg (line 2):     def binsearch(start, end):
+                arg (line 2):     def binsearch(start, end):
+            If (line 3):         if start == end:
+                Compare (line 3):         if start == end:
+                    Name (line 3):         if start == end:
+                        Load (line None): 
+                    Eq (line None): 
+                    Name (line 3):         if start == end:
+                        Load (line None): 
+                Return (line 4):             return -1
+                    UnaryOp (line 4):             return -1
+                        USub (line None): 
+                        Constant (line 4):             return -1
+            Assign (line 5):         mid = start + (end - start) // 2
+                Name (line 5):         mid = start + (end - start) // 2
+                    Store (line None): 
+                BinOp (line 5):         mid = start + (end - start) // 2
+                    Name (line 5):         mid = start + (end - start) // 2
+                        Load (line None): 
+                    Add (line None): 
+                    BinOp (line 5):         mid = start + (end - start) // 2
+                        BinOp (line 5):         mid = start + (end - start) // 2
+                            Name (line 5):         mid = start + (end - start) // 2
+                                Load (line None): 
+                            Sub (line None): 
+                            Name (line 5):         mid = start + (end - start) // 2
+                                Load (line None): 
+                        FloorDiv (line None): 
+                        Constant (line 5):         mid = start + (end - start) // 2
+            If (line 6):         if x < arr[mid]:
+                Compare (line 6):         if x < arr[mid]:
+                    Name (line 6):         if x < arr[mid]:
+                        Load (line None): 
+                    Lt (line None): 
+                    Subscript (line 6):         if x < arr[mid]:
+                        Name (line 6):         if x < arr[mid]:
+                            Load (line None): 
+                        Name (line 6):         if x < arr[mid]:
+                            Load (line None): 
+                        Load (line None): 
+                Return (line 7):             return binsearch(start, mid)
+                    Call (line 7):             return binsearch(start, mid)
+                        Name (line 7):             return binsearch(start, mid)
+                            Load (line None): 
+                        Name (line 7):             return binsearch(start, mid)
+                            Load (line None): 
+                        Name (line 7):             return binsearch(start, mid)
+                            Load (line None): 
+                If (line 8):         elif x > arr[mid]:
+                    Compare (line 8):         elif x > arr[mid]:
+                        Name (line 8):         elif x > arr[mid]:
+                            Load (line None): 
+                        Gt (line None): 
+                        Subscript (line 8):         elif x > arr[mid]:
+                            Name (line 8):         elif x > arr[mid]:
+                                Load (line None): 
+                            Name (line 8):         elif x > arr[mid]:
+                                Load (line None): 
+                            Load (line None): 
+                    Return (line 9):             return binsearch(mid, end)
+                        Call (line 9):             return binsearch(mid, end)
+                            Name (line 9):             return binsearch(mid, end)
+                                Load (line None): 
+                            Name (line 9):             return binsearch(mid, end)
+                                Load (line None): 
+                            Name (line 9):             return binsearch(mid, end)
+                                Load (line None): 
+                    Return (line 11):             return mid
+                        Name (line 11):             return mid
+                            Load (line None): 
+        Return (line 13):     return binsearch(0, len(arr))
+            Call (line 13):     return binsearch(0, len(arr))
+                Name (line 13):     return binsearch(0, len(arr))
+                    Load (line None): 
+                Constant (line 13):     return binsearch(0, len(arr))
+                Call (line 13):     return binsearch(0, len(arr))
+                    Name (line 13):     return binsearch(0, len(arr))
+                        Load (line None): 
+                    Name (line 13):     return binsearch(0, len(arr))
+                        Load (line None): 
+    Expr (line 18): """
+        Constant (line 18): """

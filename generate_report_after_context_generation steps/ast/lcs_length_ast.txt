@@ -1,0 +1,95 @@
+Issue Description: Initializes the DP table rows/columns incorrectly, so the length count is off by one.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def lcs_length(s, t):
+        arguments (line None): 
+            arg (line 1): def lcs_length(s, t):
+            arg (line 1): def lcs_length(s, t):
+        ImportFrom (line 2):     from collections import Counter
+            alias (line 2):     from collections import Counter
+        Assign (line 4):     dp = Counter()
+            Name (line 4):     dp = Counter()
+                Store (line None): 
+            Call (line 4):     dp = Counter()
+                Name (line 4):     dp = Counter()
+                    Load (line None): 
+        For (line 6):     for i in range(len(s)):
+            Name (line 6):     for i in range(len(s)):
+                Store (line None): 
+            Call (line 6):     for i in range(len(s)):
+                Name (line 6):     for i in range(len(s)):
+                    Load (line None): 
+                Call (line 6):     for i in range(len(s)):
+                    Name (line 6):     for i in range(len(s)):
+                        Load (line None): 
+                    Name (line 6):     for i in range(len(s)):
+                        Load (line None): 
+            For (line 7):         for j in range(len(t)):
+                Name (line 7):         for j in range(len(t)):
+                    Store (line None): 
+                Call (line 7):         for j in range(len(t)):
+                    Name (line 7):         for j in range(len(t)):
+                        Load (line None): 
+                    Call (line 7):         for j in range(len(t)):
+                        Name (line 7):         for j in range(len(t)):
+                            Load (line None): 
+                        Name (line 7):         for j in range(len(t)):
+                            Load (line None): 
+                If (line 8):             if s[i] == t[j]:
+                    Compare (line 8):             if s[i] == t[j]:
+                        Subscript (line 8):             if s[i] == t[j]:
+                            Name (line 8):             if s[i] == t[j]:
+                                Load (line None): 
+                            Name (line 8):             if s[i] == t[j]:
+                                Load (line None): 
+                            Load (line None): 
+                        Eq (line None): 
+                        Subscript (line 8):             if s[i] == t[j]:
+                            Name (line 8):             if s[i] == t[j]:
+                                Load (line None): 
+                            Name (line 8):             if s[i] == t[j]:
+                                Load (line None): 
+                            Load (line None): 
+                    Assign (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                        Subscript (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                            Name (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                                Load (line None): 
+                            Tuple (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                                Name (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                                    Load (line None): 
+                                Name (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                                    Load (line None): 
+                                Load (line None): 
+                            Store (line None): 
+                        BinOp (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                            Subscript (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                                Name (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                                    Load (line None): 
+                                Tuple (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                                    BinOp (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                                        Name (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                                            Load (line None): 
+                                        Sub (line None): 
+                                        Constant (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                                    Name (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+                                        Load (line None): 
+                                    Load (line None): 
+                                Load (line None): 
+                            Add (line None): 
+                            Constant (line 9):                 dp[i, j] = dp[i - 1, j] + 1
+        Return (line 11):     return max(dp.values()) if dp else 0
+            IfExp (line 11):     return max(dp.values()) if dp else 0
+                Name (line 11):     return max(dp.values()) if dp else 0
+                    Load (line None): 
+                Call (line 11):     return max(dp.values()) if dp else 0
+                    Name (line 11):     return max(dp.values()) if dp else 0
+                        Load (line None): 
+                    Call (line 11):     return max(dp.values()) if dp else 0
+                        Attribute (line 11):     return max(dp.values()) if dp else 0
+                            Name (line 11):     return max(dp.values()) if dp else 0
+                                Load (line None): 
+                            Load (line None): 
+                Constant (line 11):     return max(dp.values()) if dp else 0
+    Expr (line 15): """
+        Constant (line 15): """

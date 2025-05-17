@@ -1,0 +1,3 @@
+Function: next_palindrome
+Buggy Line Number: 11
+Explanation: The function does not handle the case where the input is a palindrome.

@@ -1,0 +1,3 @@
+Function: flatten
+Buggy Line Number: 7
+Explanation: The yield statement is not indented correctly.

@@ -1,0 +1,38 @@
+Issue Description: Fails to update the head pointer after reversal, returning None.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def reverse_linked_list(node):
+        arguments (line None): 
+            arg (line 1): def reverse_linked_list(node):
+        Assign (line 2):     prevnode = None
+            Name (line 2):     prevnode = None
+                Store (line None): 
+            Constant (line 2):     prevnode = None
+        While (line 3):     while node:
+            Name (line 3):     while node:
+                Load (line None): 
+            Assign (line 4):         nextnode = node.successor
+                Name (line 4):         nextnode = node.successor
+                    Store (line None): 
+                Attribute (line 4):         nextnode = node.successor
+                    Name (line 4):         nextnode = node.successor
+                        Load (line None): 
+                    Load (line None): 
+            Assign (line 5):         node.successor = prevnode
+                Attribute (line 5):         node.successor = prevnode
+                    Name (line 5):         node.successor = prevnode
+                        Load (line None): 
+                    Store (line None): 
+                Name (line 5):         node.successor = prevnode
+                    Load (line None): 
+            Assign (line 6):         node = nextnode
+                Name (line 6):         node = nextnode
+                    Store (line None): 
+                Name (line 6):         node = nextnode
+                    Load (line None): 
+        Return (line 7):     return prevnode
+            Name (line 7):     return prevnode
+                Load (line None): 
+    Expr (line 10): """
+        Constant (line 10): """

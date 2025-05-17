@@ -1,0 +1,3 @@
+Function: pascal
+Buggy Line Number: 7
+Explanation: The line 7 has a bug. The variable upleft is not defined.

@@ -1,0 +1,3 @@
+Function: find_in_sorted
+Buggy Line Number: 11
+Explanation: The function returns the index of the first occurrence of x in arr, not the last.

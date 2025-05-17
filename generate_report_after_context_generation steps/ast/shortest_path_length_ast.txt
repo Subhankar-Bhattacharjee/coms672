@@ -1,0 +1,226 @@
+Issue Description: Initializes all node distances to 0 instead of ∞, so some paths appear to have zero length.
+
+AST:
+Module (line None): 
+    ImportFrom (line 1): from heapq import *
+        alias (line 1): from heapq import *
+    FunctionDef (line 3): def shortest_path_length(length_by_edge, startnode, goalnode):
+        arguments (line None): 
+            arg (line 3): def shortest_path_length(length_by_edge, startnode, goalnode):
+            arg (line 3): def shortest_path_length(length_by_edge, startnode, goalnode):
+            arg (line 3): def shortest_path_length(length_by_edge, startnode, goalnode):
+        Assign (line 4):     unvisited_nodes = [] # FibHeap containing (node, distance) pairs
+            Name (line 4):     unvisited_nodes = [] # FibHeap containing (node, distance) pairs
+                Store (line None): 
+            List (line 4):     unvisited_nodes = [] # FibHeap containing (node, distance) pairs
+                Load (line None): 
+        Expr (line 5):     heappush(unvisited_nodes, (0, startnode))
+            Call (line 5):     heappush(unvisited_nodes, (0, startnode))
+                Name (line 5):     heappush(unvisited_nodes, (0, startnode))
+                    Load (line None): 
+                Name (line 5):     heappush(unvisited_nodes, (0, startnode))
+                    Load (line None): 
+                Tuple (line 5):     heappush(unvisited_nodes, (0, startnode))
+                    Constant (line 5):     heappush(unvisited_nodes, (0, startnode))
+                    Name (line 5):     heappush(unvisited_nodes, (0, startnode))
+                        Load (line None): 
+                    Load (line None): 
+        Assign (line 6):     visited_nodes = set()
+            Name (line 6):     visited_nodes = set()
+                Store (line None): 
+            Call (line 6):     visited_nodes = set()
+                Name (line 6):     visited_nodes = set()
+                    Load (line None): 
+        While (line 8):     while len(unvisited_nodes) > 0:
+            Compare (line 8):     while len(unvisited_nodes) > 0:
+                Call (line 8):     while len(unvisited_nodes) > 0:
+                    Name (line 8):     while len(unvisited_nodes) > 0:
+                        Load (line None): 
+                    Name (line 8):     while len(unvisited_nodes) > 0:
+                        Load (line None): 
+                Gt (line None): 
+                Constant (line 8):     while len(unvisited_nodes) > 0:
+            Assign (line 9):         distance, node = heappop(unvisited_nodes)
+                Tuple (line 9):         distance, node = heappop(unvisited_nodes)
+                    Name (line 9):         distance, node = heappop(unvisited_nodes)
+                        Store (line None): 
+                    Name (line 9):         distance, node = heappop(unvisited_nodes)
+                        Store (line None): 
+                    Store (line None): 
+                Call (line 9):         distance, node = heappop(unvisited_nodes)
+                    Name (line 9):         distance, node = heappop(unvisited_nodes)
+                        Load (line None): 
+                    Name (line 9):         distance, node = heappop(unvisited_nodes)
+                        Load (line None): 
+            If (line 10):         if node is goalnode:
+                Compare (line 10):         if node is goalnode:
+                    Name (line 10):         if node is goalnode:
+                        Load (line None): 
+                    Is (line None): 
+                    Name (line 10):         if node is goalnode:
+                        Load (line None): 
+                Return (line 11):             return distance
+                    Name (line 11):             return distance
+                        Load (line None): 
+            Expr (line 13):         visited_nodes.add(node)
+                Call (line 13):         visited_nodes.add(node)
+                    Attribute (line 13):         visited_nodes.add(node)
+                        Name (line 13):         visited_nodes.add(node)
+                            Load (line None): 
+                        Load (line None): 
+                    Name (line 13):         visited_nodes.add(node)
+                        Load (line None): 
+            For (line 15):         for nextnode in node.successors:
+                Name (line 15):         for nextnode in node.successors:
+                    Store (line None): 
+                Attribute (line 15):         for nextnode in node.successors:
+                    Name (line 15):         for nextnode in node.successors:
+                        Load (line None): 
+                    Load (line None): 
+                If (line 16):             if nextnode in visited_nodes:
+                    Compare (line 16):             if nextnode in visited_nodes:
+                        Name (line 16):             if nextnode in visited_nodes:
+                            Load (line None): 
+                        In (line None): 
+                        Name (line 16):             if nextnode in visited_nodes:
+                            Load (line None): 
+                    Continue (line 17):                 continue
+                Expr (line 19):             insert_or_update(unvisited_nodes,
+                    Call (line 19):             insert_or_update(unvisited_nodes,
+                        Name (line 19):             insert_or_update(unvisited_nodes,
+                            Load (line None): 
+                        Name (line 19):             insert_or_update(unvisited_nodes,
+                            Load (line None): 
+                        Tuple (line 20):                 (min(
+                            Call (line 20):                 (min(
+                                Name (line 20):                 (min(
+                                    Load (line None): 
+                                BoolOp (line 21):                     get(unvisited_nodes, nextnode) or float('inf'),
+                                    Or (line None): 
+                                    Call (line 21):                     get(unvisited_nodes, nextnode) or float('inf'),
+                                        Name (line 21):                     get(unvisited_nodes, nextnode) or float('inf'),
+                                            Load (line None): 
+                                        Name (line 21):                     get(unvisited_nodes, nextnode) or float('inf'),
+                                            Load (line None): 
+                                        Name (line 21):                     get(unvisited_nodes, nextnode) or float('inf'),
+                                            Load (line None): 
+                                    Call (line 21):                     get(unvisited_nodes, nextnode) or float('inf'),
+                                        Name (line 21):                     get(unvisited_nodes, nextnode) or float('inf'),
+                                            Load (line None): 
+                                        Constant (line 21):                     get(unvisited_nodes, nextnode) or float('inf'),
+                                BinOp (line 22):                     get(unvisited_nodes, nextnode) + length_by_edge[node, nextnode]
+                                    Call (line 22):                     get(unvisited_nodes, nextnode) + length_by_edge[node, nextnode]
+                                        Name (line 22):                     get(unvisited_nodes, nextnode) + length_by_edge[node, nextnode]
+                                            Load (line None): 
+                                        Name (line 22):                     get(unvisited_nodes, nextnode) + length_by_edge[node, nextnode]
+                                            Load (line None): 
+                                        Name (line 22):                     get(unvisited_nodes, nextnode) + length_by_edge[node, nextnode]
+                                            Load (line None): 
+                                    Add (line None): 
+                                    Subscript (line 22):                     get(unvisited_nodes, nextnode) + length_by_edge[node, nextnode]
+                                        Name (line 22):                     get(unvisited_nodes, nextnode) + length_by_edge[node, nextnode]
+                                            Load (line None): 
+                                        Tuple (line 22):                     get(unvisited_nodes, nextnode) + length_by_edge[node, nextnode]
+                                            Name (line 22):                     get(unvisited_nodes, nextnode) + length_by_edge[node, nextnode]
+                                                Load (line None): 
+                                            Name (line 22):                     get(unvisited_nodes, nextnode) + length_by_edge[node, nextnode]
+                                                Load (line None): 
+                                            Load (line None): 
+                                        Load (line None): 
+                            Name (line 24):                 nextnode)
+                                Load (line None): 
+                            Load (line None): 
+        Return (line 27):     return float('inf')
+            Call (line 27):     return float('inf')
+                Name (line 27):     return float('inf')
+                    Load (line None): 
+                Constant (line 27):     return float('inf')
+    FunctionDef (line 30): def get(node_heap, wanted_node):
+        arguments (line None): 
+            arg (line 30): def get(node_heap, wanted_node):
+            arg (line 30): def get(node_heap, wanted_node):
+        For (line 31):     for dist, node in node_heap:
+            Tuple (line 31):     for dist, node in node_heap:
+                Name (line 31):     for dist, node in node_heap:
+                    Store (line None): 
+                Name (line 31):     for dist, node in node_heap:
+                    Store (line None): 
+                Store (line None): 
+            Name (line 31):     for dist, node in node_heap:
+                Load (line None): 
+            If (line 32):         if node == wanted_node:
+                Compare (line 32):         if node == wanted_node:
+                    Name (line 32):         if node == wanted_node:
+                        Load (line None): 
+                    Eq (line None): 
+                    Name (line 32):         if node == wanted_node:
+                        Load (line None): 
+                Return (line 33):             return dist
+                    Name (line 33):             return dist
+                        Load (line None): 
+        Return (line 34):     return 0
+            Constant (line 34):     return 0
+    FunctionDef (line 36): def insert_or_update(node_heap, dist_node):
+        arguments (line None): 
+            arg (line 36): def insert_or_update(node_heap, dist_node):
+            arg (line 36): def insert_or_update(node_heap, dist_node):
+        Assign (line 37):     dist, node = dist_node
+            Tuple (line 37):     dist, node = dist_node
+                Name (line 37):     dist, node = dist_node
+                    Store (line None): 
+                Name (line 37):     dist, node = dist_node
+                    Store (line None): 
+                Store (line None): 
+            Name (line 37):     dist, node = dist_node
+                Load (line None): 
+        For (line 38):     for i, tpl in enumerate(node_heap):
+            Tuple (line 38):     for i, tpl in enumerate(node_heap):
+                Name (line 38):     for i, tpl in enumerate(node_heap):
+                    Store (line None): 
+                Name (line 38):     for i, tpl in enumerate(node_heap):
+                    Store (line None): 
+                Store (line None): 
+            Call (line 38):     for i, tpl in enumerate(node_heap):
+                Name (line 38):     for i, tpl in enumerate(node_heap):
+                    Load (line None): 
+                Name (line 38):     for i, tpl in enumerate(node_heap):
+                    Load (line None): 
+            Assign (line 39):         a, b = tpl
+                Tuple (line 39):         a, b = tpl
+                    Name (line 39):         a, b = tpl
+                        Store (line None): 
+                    Name (line 39):         a, b = tpl
+                        Store (line None): 
+                    Store (line None): 
+                Name (line 39):         a, b = tpl
+                    Load (line None): 
+            If (line 40):         if b == node:
+                Compare (line 40):         if b == node:
+                    Name (line 40):         if b == node:
+                        Load (line None): 
+                    Eq (line None): 
+                    Name (line 40):         if b == node:
+                        Load (line None): 
+                Assign (line 41):             node_heap[i] = dist_node #heapq retains sorted property
+                    Subscript (line 41):             node_heap[i] = dist_node #heapq retains sorted property
+                        Name (line 41):             node_heap[i] = dist_node #heapq retains sorted property
+                            Load (line None): 
+                        Name (line 41):             node_heap[i] = dist_node #heapq retains sorted property
+                            Load (line None): 
+                        Store (line None): 
+                    Name (line 41):             node_heap[i] = dist_node #heapq retains sorted property
+                        Load (line None): 
+                Return (line 42):             return None
+                    Constant (line 42):             return None
+        Expr (line 44):     heappush(node_heap, dist_node)
+            Call (line 44):     heappush(node_heap, dist_node)
+                Name (line 44):     heappush(node_heap, dist_node)
+                    Load (line None): 
+                Name (line 44):     heappush(node_heap, dist_node)
+                    Load (line None): 
+                Name (line 44):     heappush(node_heap, dist_node)
+                    Load (line None): 
+        Return (line 45):     return None
+            Constant (line 45):     return None
+    Expr (line 47): """
+        Constant (line 47): """

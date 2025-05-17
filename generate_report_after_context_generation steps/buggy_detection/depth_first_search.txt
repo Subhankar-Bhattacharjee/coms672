@@ -1,0 +1,3 @@
+Function: depth_first_search
+Buggy Line Number: 10
+Explanation: The line 10 is a buggy line because it is a return statement that is not inside a function.

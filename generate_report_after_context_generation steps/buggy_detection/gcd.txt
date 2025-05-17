@@ -1,0 +1,3 @@
+Function: gcd
+Buggy Line Number: 2
+Explanation: The if statement is not properly closed.

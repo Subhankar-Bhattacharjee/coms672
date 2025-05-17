@@ -1,0 +1,3 @@
+Function: lis
+Buggy Line Number: 10
+Explanation: The if statement is not properly indented.

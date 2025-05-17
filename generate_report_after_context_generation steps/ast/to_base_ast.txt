@@ -1,0 +1,69 @@
+Issue Description: Off-by-one in digit conversion for bases >10, mapping 10→'A' as 9→'A' instead.
+
+AST:
+Module (line None): 
+    Import (line 2): import string
+        alias (line 2): import string
+    FunctionDef (line 3): def to_base(num, b):
+        arguments (line None): 
+            arg (line 3): def to_base(num, b):
+            arg (line 3): def to_base(num, b):
+        Assign (line 4):     result = ''
+            Name (line 4):     result = ''
+                Store (line None): 
+            Constant (line 4):     result = ''
+        Assign (line 5):     alphabet = string.digits + string.ascii_uppercase
+            Name (line 5):     alphabet = string.digits + string.ascii_uppercase
+                Store (line None): 
+            BinOp (line 5):     alphabet = string.digits + string.ascii_uppercase
+                Attribute (line 5):     alphabet = string.digits + string.ascii_uppercase
+                    Name (line 5):     alphabet = string.digits + string.ascii_uppercase
+                        Load (line None): 
+                    Load (line None): 
+                Add (line None): 
+                Attribute (line 5):     alphabet = string.digits + string.ascii_uppercase
+                    Name (line 5):     alphabet = string.digits + string.ascii_uppercase
+                        Load (line None): 
+                    Load (line None): 
+        While (line 6):     while num > 0:
+            Compare (line 6):     while num > 0:
+                Name (line 6):     while num > 0:
+                    Load (line None): 
+                Gt (line None): 
+                Constant (line 6):     while num > 0:
+            Assign (line 7):         i = num % b
+                Name (line 7):         i = num % b
+                    Store (line None): 
+                BinOp (line 7):         i = num % b
+                    Name (line 7):         i = num % b
+                        Load (line None): 
+                    Mod (line None): 
+                    Name (line 7):         i = num % b
+                        Load (line None): 
+            Assign (line 8):         num = num // b
+                Name (line 8):         num = num // b
+                    Store (line None): 
+                BinOp (line 8):         num = num // b
+                    Name (line 8):         num = num // b
+                        Load (line None): 
+                    FloorDiv (line None): 
+                    Name (line 8):         num = num // b
+                        Load (line None): 
+            Assign (line 9):         result = result + alphabet[i]
+                Name (line 9):         result = result + alphabet[i]
+                    Store (line None): 
+                BinOp (line 9):         result = result + alphabet[i]
+                    Name (line 9):         result = result + alphabet[i]
+                        Load (line None): 
+                    Add (line None): 
+                    Subscript (line 9):         result = result + alphabet[i]
+                        Name (line 9):         result = result + alphabet[i]
+                            Load (line None): 
+                        Name (line 9):         result = result + alphabet[i]
+                            Load (line None): 
+                        Load (line None): 
+        Return (line 10):     return result
+            Name (line 10):     return result
+                Load (line None): 
+    Expr (line 14): """
+        Constant (line 14): """

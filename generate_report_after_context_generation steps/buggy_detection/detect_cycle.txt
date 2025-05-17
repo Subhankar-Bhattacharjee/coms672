@@ -1,0 +1,3 @@
+Function: detect_cycle
+Buggy Line Number: 11
+Explanation: The function will return True if the cycle is detected, but it will also return True if the cycle is not detected.

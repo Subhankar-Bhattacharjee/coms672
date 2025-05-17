@@ -1,0 +1,3 @@
+Function: reverse_linked_list
+Buggy Line Number: 6
+Explanation: The function reverses the linked list but does not return the new head.

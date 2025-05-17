@@ -1,0 +1,127 @@
+Issue Description: Same distance-initialization bug as above, affecting multi-source paths.
+
+AST:
+Module (line None): 
+    ImportFrom (line 1): from collections import defaultdict
+        alias (line 1): from collections import defaultdict
+    FunctionDef (line 3): def shortest_path_lengths(n, length_by_edge):
+        arguments (line None): 
+            arg (line 3): def shortest_path_lengths(n, length_by_edge):
+            arg (line 3): def shortest_path_lengths(n, length_by_edge):
+        Assign (line 4):     length_by_path = defaultdict(lambda: float('inf'))
+            Name (line 4):     length_by_path = defaultdict(lambda: float('inf'))
+                Store (line None): 
+            Call (line 4):     length_by_path = defaultdict(lambda: float('inf'))
+                Name (line 4):     length_by_path = defaultdict(lambda: float('inf'))
+                    Load (line None): 
+                Lambda (line 4):     length_by_path = defaultdict(lambda: float('inf'))
+                    arguments (line None): 
+                    Call (line 4):     length_by_path = defaultdict(lambda: float('inf'))
+                        Name (line 4):     length_by_path = defaultdict(lambda: float('inf'))
+                            Load (line None): 
+                        Constant (line 4):     length_by_path = defaultdict(lambda: float('inf'))
+        Expr (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+            Call (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                Attribute (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                    Name (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                        Load (line None): 
+                    Load (line None): 
+                DictComp (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                    Tuple (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                        Name (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                            Load (line None): 
+                        Name (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                            Load (line None): 
+                        Load (line None): 
+                    Constant (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                    comprehension (line None): 
+                        Name (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                            Store (line None): 
+                        Call (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                            Name (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                                Load (line None): 
+                            Name (line 5):     length_by_path.update({(i, i): 0 for i in range(n)})
+                                Load (line None): 
+        Expr (line 6):     length_by_path.update(length_by_edge)
+            Call (line 6):     length_by_path.update(length_by_edge)
+                Attribute (line 6):     length_by_path.update(length_by_edge)
+                    Name (line 6):     length_by_path.update(length_by_edge)
+                        Load (line None): 
+                    Load (line None): 
+                Name (line 6):     length_by_path.update(length_by_edge)
+                    Load (line None): 
+        For (line 8):     for k in range(n):
+            Name (line 8):     for k in range(n):
+                Store (line None): 
+            Call (line 8):     for k in range(n):
+                Name (line 8):     for k in range(n):
+                    Load (line None): 
+                Name (line 8):     for k in range(n):
+                    Load (line None): 
+            For (line 9):         for i in range(n):
+                Name (line 9):         for i in range(n):
+                    Store (line None): 
+                Call (line 9):         for i in range(n):
+                    Name (line 9):         for i in range(n):
+                        Load (line None): 
+                    Name (line 9):         for i in range(n):
+                        Load (line None): 
+                For (line 10):             for j in range(n):
+                    Name (line 10):             for j in range(n):
+                        Store (line None): 
+                    Call (line 10):             for j in range(n):
+                        Name (line 10):             for j in range(n):
+                            Load (line None): 
+                        Name (line 10):             for j in range(n):
+                            Load (line None): 
+                    Assign (line 11):                 length_by_path[i, j] = min(
+                        Subscript (line 11):                 length_by_path[i, j] = min(
+                            Name (line 11):                 length_by_path[i, j] = min(
+                                Load (line None): 
+                            Tuple (line 11):                 length_by_path[i, j] = min(
+                                Name (line 11):                 length_by_path[i, j] = min(
+                                    Load (line None): 
+                                Name (line 11):                 length_by_path[i, j] = min(
+                                    Load (line None): 
+                                Load (line None): 
+                            Store (line None): 
+                        Call (line 11):                 length_by_path[i, j] = min(
+                            Name (line 11):                 length_by_path[i, j] = min(
+                                Load (line None): 
+                            Subscript (line 12):                     length_by_path[i, j],
+                                Name (line 12):                     length_by_path[i, j],
+                                    Load (line None): 
+                                Tuple (line 12):                     length_by_path[i, j],
+                                    Name (line 12):                     length_by_path[i, j],
+                                        Load (line None): 
+                                    Name (line 12):                     length_by_path[i, j],
+                                        Load (line None): 
+                                    Load (line None): 
+                                Load (line None): 
+                            BinOp (line 13):                     length_by_path[i, k] + length_by_path[j, k]
+                                Subscript (line 13):                     length_by_path[i, k] + length_by_path[j, k]
+                                    Name (line 13):                     length_by_path[i, k] + length_by_path[j, k]
+                                        Load (line None): 
+                                    Tuple (line 13):                     length_by_path[i, k] + length_by_path[j, k]
+                                        Name (line 13):                     length_by_path[i, k] + length_by_path[j, k]
+                                            Load (line None): 
+                                        Name (line 13):                     length_by_path[i, k] + length_by_path[j, k]
+                                            Load (line None): 
+                                        Load (line None): 
+                                    Load (line None): 
+                                Add (line None): 
+                                Subscript (line 13):                     length_by_path[i, k] + length_by_path[j, k]
+                                    Name (line 13):                     length_by_path[i, k] + length_by_path[j, k]
+                                        Load (line None): 
+                                    Tuple (line 13):                     length_by_path[i, k] + length_by_path[j, k]
+                                        Name (line 13):                     length_by_path[i, k] + length_by_path[j, k]
+                                            Load (line None): 
+                                        Name (line 13):                     length_by_path[i, k] + length_by_path[j, k]
+                                            Load (line None): 
+                                        Load (line None): 
+                                    Load (line None): 
+        Return (line 16):     return length_by_path
+            Name (line 16):     return length_by_path
+                Load (line None): 
+    Expr (line 19): """
+        Constant (line 19): """

@@ -1,0 +1,51 @@
+Issue Description: Builds nested lists incorrectly (it appends the entire list rather than its elements).
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def powerset(arr):
+        arguments (line None): 
+            arg (line 2): def powerset(arr):
+        If (line 3):     if arr:
+            Name (line 3):     if arr:
+                Load (line None): 
+            Assign (line 4):         first, *rest = arr #python3 just like car and cdr (in this case anyway..)
+                Tuple (line 4):         first, *rest = arr #python3 just like car and cdr (in this case anyway..)
+                    Name (line 4):         first, *rest = arr #python3 just like car and cdr (in this case anyway..)
+                        Store (line None): 
+                    Starred (line 4):         first, *rest = arr #python3 just like car and cdr (in this case anyway..)
+                        Name (line 4):         first, *rest = arr #python3 just like car and cdr (in this case anyway..)
+                            Store (line None): 
+                        Store (line None): 
+                    Store (line None): 
+                Name (line 4):         first, *rest = arr #python3 just like car and cdr (in this case anyway..)
+                    Load (line None): 
+            Assign (line 5):         rest_subsets = powerset(rest)
+                Name (line 5):         rest_subsets = powerset(rest)
+                    Store (line None): 
+                Call (line 5):         rest_subsets = powerset(rest)
+                    Name (line 5):         rest_subsets = powerset(rest)
+                        Load (line None): 
+                    Name (line 5):         rest_subsets = powerset(rest)
+                        Load (line None): 
+            Return (line 6):         return [[first] + subset for subset in rest_subsets]
+                ListComp (line 6):         return [[first] + subset for subset in rest_subsets]
+                    BinOp (line 6):         return [[first] + subset for subset in rest_subsets]
+                        List (line 6):         return [[first] + subset for subset in rest_subsets]
+                            Name (line 6):         return [[first] + subset for subset in rest_subsets]
+                                Load (line None): 
+                            Load (line None): 
+                        Add (line None): 
+                        Name (line 6):         return [[first] + subset for subset in rest_subsets]
+                            Load (line None): 
+                    comprehension (line None): 
+                        Name (line 6):         return [[first] + subset for subset in rest_subsets]
+                            Store (line None): 
+                        Name (line 6):         return [[first] + subset for subset in rest_subsets]
+                            Load (line None): 
+            Return (line 8):         return [[]]
+                List (line 8):         return [[]]
+                    List (line 8):         return [[]]
+                        Load (line None): 
+                    Load (line None): 
+    Expr (line 11): """
+        Constant (line 11): """

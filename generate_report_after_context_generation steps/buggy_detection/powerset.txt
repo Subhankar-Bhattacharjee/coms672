@@ -1,0 +1,3 @@
+Function: powerset
+Buggy Line Number: 3
+Explanation: The if statement is not properly closed.

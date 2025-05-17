@@ -1,0 +1,31 @@
+Issue Description: Infinite recursion when one argument is zero (base-case check is reversed).
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def gcd(a, b):
+        arguments (line None): 
+            arg (line 1): def gcd(a, b):
+            arg (line 1): def gcd(a, b):
+        If (line 2):     if b == 0:
+            Compare (line 2):     if b == 0:
+                Name (line 2):     if b == 0:
+                    Load (line None): 
+                Eq (line None): 
+                Constant (line 2):     if b == 0:
+            Return (line 3):         return a
+                Name (line 3):         return a
+                    Load (line None): 
+            Return (line 5):         return gcd(a % b, b)
+                Call (line 5):         return gcd(a % b, b)
+                    Name (line 5):         return gcd(a % b, b)
+                        Load (line None): 
+                    BinOp (line 5):         return gcd(a % b, b)
+                        Name (line 5):         return gcd(a % b, b)
+                            Load (line None): 
+                        Mod (line None): 
+                        Name (line 5):         return gcd(a % b, b)
+                            Load (line None): 
+                    Name (line 5):         return gcd(a % b, b)
+                        Load (line None): 
+    Expr (line 8): """
+        Constant (line 8): """

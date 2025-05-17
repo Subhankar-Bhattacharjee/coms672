@@ -1,0 +1,153 @@
+Issue Description: Off-by-one in the DP table update (<= vs <), yielding incorrect max values.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def knapsack(capacity, items):
+        arguments (line None): 
+            arg (line 2): def knapsack(capacity, items):
+            arg (line 2): def knapsack(capacity, items):
+        ImportFrom (line 3):     from collections import defaultdict
+            alias (line 3):     from collections import defaultdict
+        Assign (line 4):     memo = defaultdict(int)
+            Name (line 4):     memo = defaultdict(int)
+                Store (line None): 
+            Call (line 4):     memo = defaultdict(int)
+                Name (line 4):     memo = defaultdict(int)
+                    Load (line None): 
+                Name (line 4):     memo = defaultdict(int)
+                    Load (line None): 
+        For (line 6):     for i in range(1, len(items) + 1):
+            Name (line 6):     for i in range(1, len(items) + 1):
+                Store (line None): 
+            Call (line 6):     for i in range(1, len(items) + 1):
+                Name (line 6):     for i in range(1, len(items) + 1):
+                    Load (line None): 
+                Constant (line 6):     for i in range(1, len(items) + 1):
+                BinOp (line 6):     for i in range(1, len(items) + 1):
+                    Call (line 6):     for i in range(1, len(items) + 1):
+                        Name (line 6):     for i in range(1, len(items) + 1):
+                            Load (line None): 
+                        Name (line 6):     for i in range(1, len(items) + 1):
+                            Load (line None): 
+                    Add (line None): 
+                    Constant (line 6):     for i in range(1, len(items) + 1):
+            Assign (line 7):         weight, value = items[i - 1]
+                Tuple (line 7):         weight, value = items[i - 1]
+                    Name (line 7):         weight, value = items[i - 1]
+                        Store (line None): 
+                    Name (line 7):         weight, value = items[i - 1]
+                        Store (line None): 
+                    Store (line None): 
+                Subscript (line 7):         weight, value = items[i - 1]
+                    Name (line 7):         weight, value = items[i - 1]
+                        Load (line None): 
+                    BinOp (line 7):         weight, value = items[i - 1]
+                        Name (line 7):         weight, value = items[i - 1]
+                            Load (line None): 
+                        Sub (line None): 
+                        Constant (line 7):         weight, value = items[i - 1]
+                    Load (line None): 
+            For (line 9):         for j in range(1, capacity + 1):
+                Name (line 9):         for j in range(1, capacity + 1):
+                    Store (line None): 
+                Call (line 9):         for j in range(1, capacity + 1):
+                    Name (line 9):         for j in range(1, capacity + 1):
+                        Load (line None): 
+                    Constant (line 9):         for j in range(1, capacity + 1):
+                    BinOp (line 9):         for j in range(1, capacity + 1):
+                        Name (line 9):         for j in range(1, capacity + 1):
+                            Load (line None): 
+                        Add (line None): 
+                        Constant (line 9):         for j in range(1, capacity + 1):
+                Assign (line 10):             memo[i, j] = memo[i - 1, j]
+                    Subscript (line 10):             memo[i, j] = memo[i - 1, j]
+                        Name (line 10):             memo[i, j] = memo[i - 1, j]
+                            Load (line None): 
+                        Tuple (line 10):             memo[i, j] = memo[i - 1, j]
+                            Name (line 10):             memo[i, j] = memo[i - 1, j]
+                                Load (line None): 
+                            Name (line 10):             memo[i, j] = memo[i - 1, j]
+                                Load (line None): 
+                            Load (line None): 
+                        Store (line None): 
+                    Subscript (line 10):             memo[i, j] = memo[i - 1, j]
+                        Name (line 10):             memo[i, j] = memo[i - 1, j]
+                            Load (line None): 
+                        Tuple (line 10):             memo[i, j] = memo[i - 1, j]
+                            BinOp (line 10):             memo[i, j] = memo[i - 1, j]
+                                Name (line 10):             memo[i, j] = memo[i - 1, j]
+                                    Load (line None): 
+                                Sub (line None): 
+                                Constant (line 10):             memo[i, j] = memo[i - 1, j]
+                            Name (line 10):             memo[i, j] = memo[i - 1, j]
+                                Load (line None): 
+                            Load (line None): 
+                        Load (line None): 
+                If (line 12):             if weight < j:
+                    Compare (line 12):             if weight < j:
+                        Name (line 12):             if weight < j:
+                            Load (line None): 
+                        Lt (line None): 
+                        Name (line 12):             if weight < j:
+                            Load (line None): 
+                    Assign (line 13):                 memo[i, j] = max(
+                        Subscript (line 13):                 memo[i, j] = max(
+                            Name (line 13):                 memo[i, j] = max(
+                                Load (line None): 
+                            Tuple (line 13):                 memo[i, j] = max(
+                                Name (line 13):                 memo[i, j] = max(
+                                    Load (line None): 
+                                Name (line 13):                 memo[i, j] = max(
+                                    Load (line None): 
+                                Load (line None): 
+                            Store (line None): 
+                        Call (line 13):                 memo[i, j] = max(
+                            Name (line 13):                 memo[i, j] = max(
+                                Load (line None): 
+                            Subscript (line 14):                     memo[i, j],
+                                Name (line 14):                     memo[i, j],
+                                    Load (line None): 
+                                Tuple (line 14):                     memo[i, j],
+                                    Name (line 14):                     memo[i, j],
+                                        Load (line None): 
+                                    Name (line 14):                     memo[i, j],
+                                        Load (line None): 
+                                    Load (line None): 
+                                Load (line None): 
+                            BinOp (line 15):                     value + memo[i - 1, j - weight]
+                                Name (line 15):                     value + memo[i - 1, j - weight]
+                                    Load (line None): 
+                                Add (line None): 
+                                Subscript (line 15):                     value + memo[i - 1, j - weight]
+                                    Name (line 15):                     value + memo[i - 1, j - weight]
+                                        Load (line None): 
+                                    Tuple (line 15):                     value + memo[i - 1, j - weight]
+                                        BinOp (line 15):                     value + memo[i - 1, j - weight]
+                                            Name (line 15):                     value + memo[i - 1, j - weight]
+                                                Load (line None): 
+                                            Sub (line None): 
+                                            Constant (line 15):                     value + memo[i - 1, j - weight]
+                                        BinOp (line 15):                     value + memo[i - 1, j - weight]
+                                            Name (line 15):                     value + memo[i - 1, j - weight]
+                                                Load (line None): 
+                                            Sub (line None): 
+                                            Name (line 15):                     value + memo[i - 1, j - weight]
+                                                Load (line None): 
+                                        Load (line None): 
+                                    Load (line None): 
+        Return (line 18):     return memo[len(items), capacity]
+            Subscript (line 18):     return memo[len(items), capacity]
+                Name (line 18):     return memo[len(items), capacity]
+                    Load (line None): 
+                Tuple (line 18):     return memo[len(items), capacity]
+                    Call (line 18):     return memo[len(items), capacity]
+                        Name (line 18):     return memo[len(items), capacity]
+                            Load (line None): 
+                        Name (line 18):     return memo[len(items), capacity]
+                            Load (line None): 
+                    Name (line 18):     return memo[len(items), capacity]
+                        Load (line None): 
+                    Load (line None): 
+                Load (line None): 
+    Expr (line 20): """
+        Constant (line 20): """

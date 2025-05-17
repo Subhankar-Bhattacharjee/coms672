@@ -1,0 +1,215 @@
+Issue Description: No description available.
+
+AST:
+Module (line None): 
+    ImportFrom (line 1): from .node import Node
+        alias (line 1): from .node import Node
+    ImportFrom (line 2): from .shortest_path_length import shortest_path_length
+        alias (line 2): from .shortest_path_length import shortest_path_length
+    Expr (line 5): """
+        Constant (line 5): """
+    FunctionDef (line 8): def main():
+        arguments (line None): 
+        Assign (line 10):     node1 = Node("1")
+            Name (line 10):     node1 = Node("1")
+                Store (line None): 
+            Call (line 10):     node1 = Node("1")
+                Name (line 10):     node1 = Node("1")
+                    Load (line None): 
+                Constant (line 10):     node1 = Node("1")
+        Assign (line 11):     node5 = Node("5")
+            Name (line 11):     node5 = Node("5")
+                Store (line None): 
+            Call (line 11):     node5 = Node("5")
+                Name (line 11):     node5 = Node("5")
+                    Load (line None): 
+                Constant (line 11):     node5 = Node("5")
+        Assign (line 12):     node4 = Node("4", None, [node5])
+            Name (line 12):     node4 = Node("4", None, [node5])
+                Store (line None): 
+            Call (line 12):     node4 = Node("4", None, [node5])
+                Name (line 12):     node4 = Node("4", None, [node5])
+                    Load (line None): 
+                Constant (line 12):     node4 = Node("4", None, [node5])
+                Constant (line 12):     node4 = Node("4", None, [node5])
+                List (line 12):     node4 = Node("4", None, [node5])
+                    Name (line 12):     node4 = Node("4", None, [node5])
+                        Load (line None): 
+                    Load (line None): 
+        Assign (line 13):     node3 = Node("3", None, [node4])
+            Name (line 13):     node3 = Node("3", None, [node4])
+                Store (line None): 
+            Call (line 13):     node3 = Node("3", None, [node4])
+                Name (line 13):     node3 = Node("3", None, [node4])
+                    Load (line None): 
+                Constant (line 13):     node3 = Node("3", None, [node4])
+                Constant (line 13):     node3 = Node("3", None, [node4])
+                List (line 13):     node3 = Node("3", None, [node4])
+                    Name (line 13):     node3 = Node("3", None, [node4])
+                        Load (line None): 
+                    Load (line None): 
+        Assign (line 14):     node2 = Node("2", None, [node1, node3, node4])
+            Name (line 14):     node2 = Node("2", None, [node1, node3, node4])
+                Store (line None): 
+            Call (line 14):     node2 = Node("2", None, [node1, node3, node4])
+                Name (line 14):     node2 = Node("2", None, [node1, node3, node4])
+                    Load (line None): 
+                Constant (line 14):     node2 = Node("2", None, [node1, node3, node4])
+                Constant (line 14):     node2 = Node("2", None, [node1, node3, node4])
+                List (line 14):     node2 = Node("2", None, [node1, node3, node4])
+                    Name (line 14):     node2 = Node("2", None, [node1, node3, node4])
+                        Load (line None): 
+                    Name (line 14):     node2 = Node("2", None, [node1, node3, node4])
+                        Load (line None): 
+                    Name (line 14):     node2 = Node("2", None, [node1, node3, node4])
+                        Load (line None): 
+                    Load (line None): 
+        Assign (line 15):     node0 = Node("0", None, [node2, node5])
+            Name (line 15):     node0 = Node("0", None, [node2, node5])
+                Store (line None): 
+            Call (line 15):     node0 = Node("0", None, [node2, node5])
+                Name (line 15):     node0 = Node("0", None, [node2, node5])
+                    Load (line None): 
+                Constant (line 15):     node0 = Node("0", None, [node2, node5])
+                Constant (line 15):     node0 = Node("0", None, [node2, node5])
+                List (line 15):     node0 = Node("0", None, [node2, node5])
+                    Name (line 15):     node0 = Node("0", None, [node2, node5])
+                        Load (line None): 
+                    Name (line 15):     node0 = Node("0", None, [node2, node5])
+                        Load (line None): 
+                    Load (line None): 
+        Assign (line 17):     length_by_edge = {
+            Name (line 17):     length_by_edge = {
+                Store (line None): 
+            Dict (line 17):     length_by_edge = {
+                Tuple (line 18):         (node0, node2): 3,
+                    Name (line 18):         (node0, node2): 3,
+                        Load (line None): 
+                    Name (line 18):         (node0, node2): 3,
+                        Load (line None): 
+                    Load (line None): 
+                Tuple (line 19):         (node0, node5): 10,
+                    Name (line 19):         (node0, node5): 10,
+                        Load (line None): 
+                    Name (line 19):         (node0, node5): 10,
+                        Load (line None): 
+                    Load (line None): 
+                Tuple (line 20):         (node2, node1): 1,
+                    Name (line 20):         (node2, node1): 1,
+                        Load (line None): 
+                    Name (line 20):         (node2, node1): 1,
+                        Load (line None): 
+                    Load (line None): 
+                Tuple (line 21):         (node2, node3): 2,
+                    Name (line 21):         (node2, node3): 2,
+                        Load (line None): 
+                    Name (line 21):         (node2, node3): 2,
+                        Load (line None): 
+                    Load (line None): 
+                Tuple (line 22):         (node2, node4): 4,
+                    Name (line 22):         (node2, node4): 4,
+                        Load (line None): 
+                    Name (line 22):         (node2, node4): 4,
+                        Load (line None): 
+                    Load (line None): 
+                Tuple (line 23):         (node3, node4): 1,
+                    Name (line 23):         (node3, node4): 1,
+                        Load (line None): 
+                    Name (line 23):         (node3, node4): 1,
+                        Load (line None): 
+                    Load (line None): 
+                Tuple (line 24):         (node4, node5): 1
+                    Name (line 24):         (node4, node5): 1
+                        Load (line None): 
+                    Name (line 24):         (node4, node5): 1
+                        Load (line None): 
+                    Load (line None): 
+                Constant (line 18):         (node0, node2): 3,
+                Constant (line 19):         (node0, node5): 10,
+                Constant (line 20):         (node2, node1): 1,
+                Constant (line 21):         (node2, node3): 2,
+                Constant (line 22):         (node2, node4): 4,
+                Constant (line 23):         (node3, node4): 1,
+                Constant (line 24):         (node4, node5): 1
+        Assign (line 29):     result =  shortest_path_length(length_by_edge, node0, node1)
+            Name (line 29):     result =  shortest_path_length(length_by_edge, node0, node1)
+                Store (line None): 
+            Call (line 29):     result =  shortest_path_length(length_by_edge, node0, node1)
+                Name (line 29):     result =  shortest_path_length(length_by_edge, node0, node1)
+                    Load (line None): 
+                Name (line 29):     result =  shortest_path_length(length_by_edge, node0, node1)
+                    Load (line None): 
+                Name (line 29):     result =  shortest_path_length(length_by_edge, node0, node1)
+                    Load (line None): 
+                Name (line 29):     result =  shortest_path_length(length_by_edge, node0, node1)
+                    Load (line None): 
+        Expr (line 30):     print(result)
+            Call (line 30):     print(result)
+                Name (line 30):     print(result)
+                    Load (line None): 
+                Name (line 30):     print(result)
+                    Load (line None): 
+        Assign (line 34):     result = shortest_path_length(length_by_edge, node0, node5)
+            Name (line 34):     result = shortest_path_length(length_by_edge, node0, node5)
+                Store (line None): 
+            Call (line 34):     result = shortest_path_length(length_by_edge, node0, node5)
+                Name (line 34):     result = shortest_path_length(length_by_edge, node0, node5)
+                    Load (line None): 
+                Name (line 34):     result = shortest_path_length(length_by_edge, node0, node5)
+                    Load (line None): 
+                Name (line 34):     result = shortest_path_length(length_by_edge, node0, node5)
+                    Load (line None): 
+                Name (line 34):     result = shortest_path_length(length_by_edge, node0, node5)
+                    Load (line None): 
+        Expr (line 35):     print(result)
+            Call (line 35):     print(result)
+                Name (line 35):     print(result)
+                    Load (line None): 
+                Name (line 35):     print(result)
+                    Load (line None): 
+        Assign (line 39):     result = shortest_path_length(length_by_edge, node2, node2)
+            Name (line 39):     result = shortest_path_length(length_by_edge, node2, node2)
+                Store (line None): 
+            Call (line 39):     result = shortest_path_length(length_by_edge, node2, node2)
+                Name (line 39):     result = shortest_path_length(length_by_edge, node2, node2)
+                    Load (line None): 
+                Name (line 39):     result = shortest_path_length(length_by_edge, node2, node2)
+                    Load (line None): 
+                Name (line 39):     result = shortest_path_length(length_by_edge, node2, node2)
+                    Load (line None): 
+                Name (line 39):     result = shortest_path_length(length_by_edge, node2, node2)
+                    Load (line None): 
+        Expr (line 40):     print(result)
+            Call (line 40):     print(result)
+                Name (line 40):     print(result)
+                    Load (line None): 
+                Name (line 40):     print(result)
+                    Load (line None): 
+        Assign (line 44):     result = shortest_path_length(length_by_edge, node1, node5)
+            Name (line 44):     result = shortest_path_length(length_by_edge, node1, node5)
+                Store (line None): 
+            Call (line 44):     result = shortest_path_length(length_by_edge, node1, node5)
+                Name (line 44):     result = shortest_path_length(length_by_edge, node1, node5)
+                    Load (line None): 
+                Name (line 44):     result = shortest_path_length(length_by_edge, node1, node5)
+                    Load (line None): 
+                Name (line 44):     result = shortest_path_length(length_by_edge, node1, node5)
+                    Load (line None): 
+                Name (line 44):     result = shortest_path_length(length_by_edge, node1, node5)
+                    Load (line None): 
+        Expr (line 45):     print(result)
+            Call (line 45):     print(result)
+                Name (line 45):     print(result)
+                    Load (line None): 
+                Name (line 45):     print(result)
+                    Load (line None): 
+    If (line 47): if __name__ == "__main__":
+        Compare (line 47): if __name__ == "__main__":
+            Name (line 47): if __name__ == "__main__":
+                Load (line None): 
+            Eq (line None): 
+            Constant (line 47): if __name__ == "__main__":
+        Expr (line 48):     main()
+            Call (line 48):     main()
+                Name (line 48):     main()
+                    Load (line None): 

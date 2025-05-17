@@ -1,0 +1,136 @@
+Issue Description: Doesn’t propagate carry across multiple 9’s, so numbers like 1999 produce 10090 instead of 2002.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def next_palindrome(digit_list):
+        arguments (line None): 
+            arg (line 1): def next_palindrome(digit_list):
+        Assign (line 2):     high_mid = len(digit_list) // 2
+            Name (line 2):     high_mid = len(digit_list) // 2
+                Store (line None): 
+            BinOp (line 2):     high_mid = len(digit_list) // 2
+                Call (line 2):     high_mid = len(digit_list) // 2
+                    Name (line 2):     high_mid = len(digit_list) // 2
+                        Load (line None): 
+                    Name (line 2):     high_mid = len(digit_list) // 2
+                        Load (line None): 
+                FloorDiv (line None): 
+                Constant (line 2):     high_mid = len(digit_list) // 2
+        Assign (line 3):     low_mid = (len(digit_list) - 1) // 2
+            Name (line 3):     low_mid = (len(digit_list) - 1) // 2
+                Store (line None): 
+            BinOp (line 3):     low_mid = (len(digit_list) - 1) // 2
+                BinOp (line 3):     low_mid = (len(digit_list) - 1) // 2
+                    Call (line 3):     low_mid = (len(digit_list) - 1) // 2
+                        Name (line 3):     low_mid = (len(digit_list) - 1) // 2
+                            Load (line None): 
+                        Name (line 3):     low_mid = (len(digit_list) - 1) // 2
+                            Load (line None): 
+                    Sub (line None): 
+                    Constant (line 3):     low_mid = (len(digit_list) - 1) // 2
+                FloorDiv (line None): 
+                Constant (line 3):     low_mid = (len(digit_list) - 1) // 2
+        While (line 4):     while high_mid < len(digit_list) and low_mid >= 0:
+            BoolOp (line 4):     while high_mid < len(digit_list) and low_mid >= 0:
+                And (line None): 
+                Compare (line 4):     while high_mid < len(digit_list) and low_mid >= 0:
+                    Name (line 4):     while high_mid < len(digit_list) and low_mid >= 0:
+                        Load (line None): 
+                    Lt (line None): 
+                    Call (line 4):     while high_mid < len(digit_list) and low_mid >= 0:
+                        Name (line 4):     while high_mid < len(digit_list) and low_mid >= 0:
+                            Load (line None): 
+                        Name (line 4):     while high_mid < len(digit_list) and low_mid >= 0:
+                            Load (line None): 
+                Compare (line 4):     while high_mid < len(digit_list) and low_mid >= 0:
+                    Name (line 4):     while high_mid < len(digit_list) and low_mid >= 0:
+                        Load (line None): 
+                    GtE (line None): 
+                    Constant (line 4):     while high_mid < len(digit_list) and low_mid >= 0:
+            If (line 5):         if digit_list[high_mid] == 9:
+                Compare (line 5):         if digit_list[high_mid] == 9:
+                    Subscript (line 5):         if digit_list[high_mid] == 9:
+                        Name (line 5):         if digit_list[high_mid] == 9:
+                            Load (line None): 
+                        Name (line 5):         if digit_list[high_mid] == 9:
+                            Load (line None): 
+                        Load (line None): 
+                    Eq (line None): 
+                    Constant (line 5):         if digit_list[high_mid] == 9:
+                Assign (line 6):             digit_list[high_mid] = 0
+                    Subscript (line 6):             digit_list[high_mid] = 0
+                        Name (line 6):             digit_list[high_mid] = 0
+                            Load (line None): 
+                        Name (line 6):             digit_list[high_mid] = 0
+                            Load (line None): 
+                        Store (line None): 
+                    Constant (line 6):             digit_list[high_mid] = 0
+                Assign (line 7):             digit_list[low_mid] = 0
+                    Subscript (line 7):             digit_list[low_mid] = 0
+                        Name (line 7):             digit_list[low_mid] = 0
+                            Load (line None): 
+                        Name (line 7):             digit_list[low_mid] = 0
+                            Load (line None): 
+                        Store (line None): 
+                    Constant (line 7):             digit_list[low_mid] = 0
+                AugAssign (line 8):             high_mid += 1
+                    Name (line 8):             high_mid += 1
+                        Store (line None): 
+                    Add (line None): 
+                    Constant (line 8):             high_mid += 1
+                AugAssign (line 9):             low_mid -= 1
+                    Name (line 9):             low_mid -= 1
+                        Store (line None): 
+                    Sub (line None): 
+                    Constant (line 9):             low_mid -= 1
+                AugAssign (line 11):             digit_list[high_mid] += 1
+                    Subscript (line 11):             digit_list[high_mid] += 1
+                        Name (line 11):             digit_list[high_mid] += 1
+                            Load (line None): 
+                        Name (line 11):             digit_list[high_mid] += 1
+                            Load (line None): 
+                        Store (line None): 
+                    Add (line None): 
+                    Constant (line 11):             digit_list[high_mid] += 1
+                If (line 12):             if low_mid != high_mid:
+                    Compare (line 12):             if low_mid != high_mid:
+                        Name (line 12):             if low_mid != high_mid:
+                            Load (line None): 
+                        NotEq (line None): 
+                        Name (line 12):             if low_mid != high_mid:
+                            Load (line None): 
+                    AugAssign (line 13):                 digit_list[low_mid] += 1
+                        Subscript (line 13):                 digit_list[low_mid] += 1
+                            Name (line 13):                 digit_list[low_mid] += 1
+                                Load (line None): 
+                            Name (line 13):                 digit_list[low_mid] += 1
+                                Load (line None): 
+                            Store (line None): 
+                        Add (line None): 
+                        Constant (line 13):                 digit_list[low_mid] += 1
+                Return (line 14):             return digit_list
+                    Name (line 14):             return digit_list
+                        Load (line None): 
+        Return (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+            BinOp (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                BinOp (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                    List (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                        Constant (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                        Load (line None): 
+                    Add (line None): 
+                    BinOp (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                        Call (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                            Name (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                                Load (line None): 
+                            Name (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                                Load (line None): 
+                        Mult (line None): 
+                        List (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                            Constant (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                            Load (line None): 
+                Add (line None): 
+                List (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                    Constant (line 15):     return [1] + (len(digit_list)) * [0] + [1]
+                    Load (line None): 
+    Expr (line 17): """
+        Constant (line 17): """

@@ -1,0 +1,84 @@
+Issue Description: Off-by-one error in backtracking loop, so the subsequence can be missing its first/last char.
+
+AST:
+Module (line None): 
+    FunctionDef (line 1): def longest_common_subsequence(a, b):
+        arguments (line None): 
+            arg (line 1): def longest_common_subsequence(a, b):
+            arg (line 1): def longest_common_subsequence(a, b):
+        If (line 2):     if not a or not b:
+            BoolOp (line 2):     if not a or not b:
+                Or (line None): 
+                UnaryOp (line 2):     if not a or not b:
+                    Not (line None): 
+                    Name (line 2):     if not a or not b:
+                        Load (line None): 
+                UnaryOp (line 2):     if not a or not b:
+                    Not (line None): 
+                    Name (line 2):     if not a or not b:
+                        Load (line None): 
+            Return (line 3):         return ''
+                Constant (line 3):         return ''
+            If (line 5):     elif a[0] == b[0]:
+                Compare (line 5):     elif a[0] == b[0]:
+                    Subscript (line 5):     elif a[0] == b[0]:
+                        Name (line 5):     elif a[0] == b[0]:
+                            Load (line None): 
+                        Constant (line 5):     elif a[0] == b[0]:
+                        Load (line None): 
+                    Eq (line None): 
+                    Subscript (line 5):     elif a[0] == b[0]:
+                        Name (line 5):     elif a[0] == b[0]:
+                            Load (line None): 
+                        Constant (line 5):     elif a[0] == b[0]:
+                        Load (line None): 
+                Return (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                    BinOp (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                        Subscript (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                            Name (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                                Load (line None): 
+                            Constant (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                            Load (line None): 
+                        Add (line None): 
+                        Call (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                            Name (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                                Load (line None): 
+                            Subscript (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                                Name (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                                    Load (line None): 
+                                Slice (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                                    Constant (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                                Load (line None): 
+                            Name (line 6):         return a[0] + longest_common_subsequence(a[1:], b)
+                                Load (line None): 
+                Return (line 9):         return max(
+                    Call (line 9):         return max(
+                        Name (line 9):         return max(
+                            Load (line None): 
+                        Call (line 10):             longest_common_subsequence(a, b[1:]),
+                            Name (line 10):             longest_common_subsequence(a, b[1:]),
+                                Load (line None): 
+                            Name (line 10):             longest_common_subsequence(a, b[1:]),
+                                Load (line None): 
+                            Subscript (line 10):             longest_common_subsequence(a, b[1:]),
+                                Name (line 10):             longest_common_subsequence(a, b[1:]),
+                                    Load (line None): 
+                                Slice (line 10):             longest_common_subsequence(a, b[1:]),
+                                    Constant (line 10):             longest_common_subsequence(a, b[1:]),
+                                Load (line None): 
+                        Call (line 11):             longest_common_subsequence(a[1:], b),
+                            Name (line 11):             longest_common_subsequence(a[1:], b),
+                                Load (line None): 
+                            Subscript (line 11):             longest_common_subsequence(a[1:], b),
+                                Name (line 11):             longest_common_subsequence(a[1:], b),
+                                    Load (line None): 
+                                Slice (line 11):             longest_common_subsequence(a[1:], b),
+                                    Constant (line 11):             longest_common_subsequence(a[1:], b),
+                                Load (line None): 
+                            Name (line 11):             longest_common_subsequence(a[1:], b),
+                                Load (line None): 
+                        keyword (line 12):             key=len
+                            Name (line 12):             key=len
+                                Load (line None): 
+    Expr (line 17): """
+        Constant (line 17): """

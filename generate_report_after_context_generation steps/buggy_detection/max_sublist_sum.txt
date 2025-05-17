@@ -1,0 +1,3 @@
+Function: max_sublist_sum
+Buggy Line Number: 8
+Explanation: The max_so_far variable is not initialized.

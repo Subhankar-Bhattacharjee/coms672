@@ -1,0 +1,3 @@
+Function: find_first_in_sorted
+Buggy Line Number: 11
+Explanation: The elif statement is not needed. The if statement is sufficient.

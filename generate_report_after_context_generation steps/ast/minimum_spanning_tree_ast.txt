@@ -1,0 +1,116 @@
+Issue Description: Updates the wrong key in the priority queue, causing some edges to be skipped.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def minimum_spanning_tree(weight_by_edge):
+        arguments (line None): 
+            arg (line 2): def minimum_spanning_tree(weight_by_edge):
+        Assign (line 3):     group_by_node = {}
+            Name (line 3):     group_by_node = {}
+                Store (line None): 
+            Dict (line 3):     group_by_node = {}
+        Assign (line 4):     mst_edges = set()
+            Name (line 4):     mst_edges = set()
+                Store (line None): 
+            Call (line 4):     mst_edges = set()
+                Name (line 4):     mst_edges = set()
+                    Load (line None): 
+        For (line 6):     for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+            Name (line 6):     for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+                Store (line None): 
+            Call (line 6):     for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+                Name (line 6):     for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+                    Load (line None): 
+                Name (line 6):     for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+                    Load (line None): 
+                keyword (line 6):     for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+                    Attribute (line 6):     for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+                        Name (line 6):     for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+                            Load (line None): 
+                        Load (line None): 
+            Assign (line 7):         u, v = edge
+                Tuple (line 7):         u, v = edge
+                    Name (line 7):         u, v = edge
+                        Store (line None): 
+                    Name (line 7):         u, v = edge
+                        Store (line None): 
+                    Store (line None): 
+                Name (line 7):         u, v = edge
+                    Load (line None): 
+            If (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                Compare (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                    Call (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                        Attribute (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                            Name (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                                Load (line None): 
+                            Load (line None): 
+                        Name (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                            Load (line None): 
+                        Set (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                            Name (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                                Load (line None): 
+                    NotEq (line None): 
+                    Call (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                        Attribute (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                            Name (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                                Load (line None): 
+                            Load (line None): 
+                        Name (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                            Load (line None): 
+                        Set (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                            Name (line 8):         if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):
+                                Load (line None): 
+                Expr (line 9):             mst_edges.add(edge)
+                    Call (line 9):             mst_edges.add(edge)
+                        Attribute (line 9):             mst_edges.add(edge)
+                            Name (line 9):             mst_edges.add(edge)
+                                Load (line None): 
+                            Load (line None): 
+                        Name (line 9):             mst_edges.add(edge)
+                            Load (line None): 
+                Expr (line 10):             group_by_node[u].update(group_by_node[v])
+                    Call (line 10):             group_by_node[u].update(group_by_node[v])
+                        Attribute (line 10):             group_by_node[u].update(group_by_node[v])
+                            Subscript (line 10):             group_by_node[u].update(group_by_node[v])
+                                Name (line 10):             group_by_node[u].update(group_by_node[v])
+                                    Load (line None): 
+                                Name (line 10):             group_by_node[u].update(group_by_node[v])
+                                    Load (line None): 
+                                Load (line None): 
+                            Load (line None): 
+                        Subscript (line 10):             group_by_node[u].update(group_by_node[v])
+                            Name (line 10):             group_by_node[u].update(group_by_node[v])
+                                Load (line None): 
+                            Name (line 10):             group_by_node[u].update(group_by_node[v])
+                                Load (line None): 
+                            Load (line None): 
+                For (line 11):             for node in group_by_node[v]:
+                    Name (line 11):             for node in group_by_node[v]:
+                        Store (line None): 
+                    Subscript (line 11):             for node in group_by_node[v]:
+                        Name (line 11):             for node in group_by_node[v]:
+                            Load (line None): 
+                        Name (line 11):             for node in group_by_node[v]:
+                            Load (line None): 
+                        Load (line None): 
+                    Expr (line 12):                 group_by_node[node].update(group_by_node[u])
+                        Call (line 12):                 group_by_node[node].update(group_by_node[u])
+                            Attribute (line 12):                 group_by_node[node].update(group_by_node[u])
+                                Subscript (line 12):                 group_by_node[node].update(group_by_node[u])
+                                    Name (line 12):                 group_by_node[node].update(group_by_node[u])
+                                        Load (line None): 
+                                    Name (line 12):                 group_by_node[node].update(group_by_node[u])
+                                        Load (line None): 
+                                    Load (line None): 
+                                Load (line None): 
+                            Subscript (line 12):                 group_by_node[node].update(group_by_node[u])
+                                Name (line 12):                 group_by_node[node].update(group_by_node[u])
+                                    Load (line None): 
+                                Name (line 12):                 group_by_node[node].update(group_by_node[u])
+                                    Load (line None): 
+                                Load (line None): 
+        Return (line 14):     return mst_edges
+            Name (line 14):     return mst_edges
+                Load (line None): 
+    Expr (line 19): """
+        Constant (line 19): """

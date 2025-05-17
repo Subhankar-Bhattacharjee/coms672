@@ -1,0 +1,3 @@
+Function: bitcount
+Buggy Line Number: 5
+Explanation: The line 5 is a buggy line because it is a bitwise XOR operation. The result of the operation is not a boolean value.

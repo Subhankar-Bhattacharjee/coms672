@@ -1,0 +1,100 @@
+Issue Description: Omits the source node in the reconstructed path because it never sets a predecessor for it.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def shortest_paths(source, weight_by_edge):
+        arguments (line None): 
+            arg (line 2): def shortest_paths(source, weight_by_edge):
+            arg (line 2): def shortest_paths(source, weight_by_edge):
+        Assign (line 3):     weight_by_node = {
+            Name (line 3):     weight_by_node = {
+                Store (line None): 
+            DictComp (line 3):     weight_by_node = {
+                Name (line 4):         v: float('inf') for u, v in weight_by_edge
+                    Load (line None): 
+                Call (line 4):         v: float('inf') for u, v in weight_by_edge
+                    Name (line 4):         v: float('inf') for u, v in weight_by_edge
+                        Load (line None): 
+                    Constant (line 4):         v: float('inf') for u, v in weight_by_edge
+                comprehension (line None): 
+                    Tuple (line 4):         v: float('inf') for u, v in weight_by_edge
+                        Name (line 4):         v: float('inf') for u, v in weight_by_edge
+                            Store (line None): 
+                        Name (line 4):         v: float('inf') for u, v in weight_by_edge
+                            Store (line None): 
+                        Store (line None): 
+                    Name (line 4):         v: float('inf') for u, v in weight_by_edge
+                        Load (line None): 
+        Assign (line 6):     weight_by_node[source] = 0
+            Subscript (line 6):     weight_by_node[source] = 0
+                Name (line 6):     weight_by_node[source] = 0
+                    Load (line None): 
+                Name (line 6):     weight_by_node[source] = 0
+                    Load (line None): 
+                Store (line None): 
+            Constant (line 6):     weight_by_node[source] = 0
+        For (line 8):     for i in range(len(weight_by_node) - 1):
+            Name (line 8):     for i in range(len(weight_by_node) - 1):
+                Store (line None): 
+            Call (line 8):     for i in range(len(weight_by_node) - 1):
+                Name (line 8):     for i in range(len(weight_by_node) - 1):
+                    Load (line None): 
+                BinOp (line 8):     for i in range(len(weight_by_node) - 1):
+                    Call (line 8):     for i in range(len(weight_by_node) - 1):
+                        Name (line 8):     for i in range(len(weight_by_node) - 1):
+                            Load (line None): 
+                        Name (line 8):     for i in range(len(weight_by_node) - 1):
+                            Load (line None): 
+                    Sub (line None): 
+                    Constant (line 8):     for i in range(len(weight_by_node) - 1):
+            For (line 9):         for (u, v), weight in weight_by_edge.items():
+                Tuple (line 9):         for (u, v), weight in weight_by_edge.items():
+                    Tuple (line 9):         for (u, v), weight in weight_by_edge.items():
+                        Name (line 9):         for (u, v), weight in weight_by_edge.items():
+                            Store (line None): 
+                        Name (line 9):         for (u, v), weight in weight_by_edge.items():
+                            Store (line None): 
+                        Store (line None): 
+                    Name (line 9):         for (u, v), weight in weight_by_edge.items():
+                        Store (line None): 
+                    Store (line None): 
+                Call (line 9):         for (u, v), weight in weight_by_edge.items():
+                    Attribute (line 9):         for (u, v), weight in weight_by_edge.items():
+                        Name (line 9):         for (u, v), weight in weight_by_edge.items():
+                            Load (line None): 
+                        Load (line None): 
+                Assign (line 10):             weight_by_edge[u, v] = min(
+                    Subscript (line 10):             weight_by_edge[u, v] = min(
+                        Name (line 10):             weight_by_edge[u, v] = min(
+                            Load (line None): 
+                        Tuple (line 10):             weight_by_edge[u, v] = min(
+                            Name (line 10):             weight_by_edge[u, v] = min(
+                                Load (line None): 
+                            Name (line 10):             weight_by_edge[u, v] = min(
+                                Load (line None): 
+                            Load (line None): 
+                        Store (line None): 
+                    Call (line 10):             weight_by_edge[u, v] = min(
+                        Name (line 10):             weight_by_edge[u, v] = min(
+                            Load (line None): 
+                        BinOp (line 11):                 weight_by_node[u] + weight,
+                            Subscript (line 11):                 weight_by_node[u] + weight,
+                                Name (line 11):                 weight_by_node[u] + weight,
+                                    Load (line None): 
+                                Name (line 11):                 weight_by_node[u] + weight,
+                                    Load (line None): 
+                                Load (line None): 
+                            Add (line None): 
+                            Name (line 11):                 weight_by_node[u] + weight,
+                                Load (line None): 
+                        Subscript (line 12):                 weight_by_node[v]
+                            Name (line 12):                 weight_by_node[v]
+                                Load (line None): 
+                            Name (line 12):                 weight_by_node[v]
+                                Load (line None): 
+                            Load (line None): 
+        Return (line 15):     return weight_by_node
+            Name (line 15):     return weight_by_node
+                Load (line None): 
+    Expr (line 18): """
+        Constant (line 18): """

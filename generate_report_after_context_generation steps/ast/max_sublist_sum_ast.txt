@@ -1,0 +1,44 @@
+Issue Description: No description available.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def max_sublist_sum(arr):
+        arguments (line None): 
+            arg (line 2): def max_sublist_sum(arr):
+        Assign (line 3):     max_ending_here = 0
+            Name (line 3):     max_ending_here = 0
+                Store (line None): 
+            Constant (line 3):     max_ending_here = 0
+        Assign (line 4):     max_so_far = 0
+            Name (line 4):     max_so_far = 0
+                Store (line None): 
+            Constant (line 4):     max_so_far = 0
+        For (line 6):     for x in arr:
+            Name (line 6):     for x in arr:
+                Store (line None): 
+            Name (line 6):     for x in arr:
+                Load (line None): 
+            Assign (line 7):         max_ending_here = max_ending_here + x
+                Name (line 7):         max_ending_here = max_ending_here + x
+                    Store (line None): 
+                BinOp (line 7):         max_ending_here = max_ending_here + x
+                    Name (line 7):         max_ending_here = max_ending_here + x
+                        Load (line None): 
+                    Add (line None): 
+                    Name (line 7):         max_ending_here = max_ending_here + x
+                        Load (line None): 
+            Assign (line 8):         max_so_far = max(max_so_far, max_ending_here)
+                Name (line 8):         max_so_far = max(max_so_far, max_ending_here)
+                    Store (line None): 
+                Call (line 8):         max_so_far = max(max_so_far, max_ending_here)
+                    Name (line 8):         max_so_far = max(max_so_far, max_ending_here)
+                        Load (line None): 
+                    Name (line 8):         max_so_far = max(max_so_far, max_ending_here)
+                        Load (line None): 
+                    Name (line 8):         max_so_far = max(max_so_far, max_ending_here)
+                        Load (line None): 
+        Return (line 10):     return max_so_far
+            Name (line 10):     return max_so_far
+                Load (line None): 
+    Expr (line 13): """
+        Constant (line 13): """

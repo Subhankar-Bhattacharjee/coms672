@@ -1,0 +1,132 @@
+Issue Description: Pops operands in the wrong order for non-commutative operators, yielding reversed results.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def rpn_eval(tokens):
+        arguments (line None): 
+            arg (line 2): def rpn_eval(tokens):
+        FunctionDef (line 3):     def op(symbol, a, b):
+            arguments (line None): 
+                arg (line 3):     def op(symbol, a, b):
+                arg (line 3):     def op(symbol, a, b):
+                arg (line 3):     def op(symbol, a, b):
+            Return (line 4):         return {
+                Call (line 4):         return {
+                    Subscript (line 4):         return {
+                        Dict (line 4):         return {
+                            Constant (line 5):             '+': lambda a, b: a + b,
+                            Constant (line 6):             '-': lambda a, b: a - b,
+                            Constant (line 7):             '*': lambda a, b: a * b,
+                            Constant (line 8):             '/': lambda a, b: a / b
+                            Lambda (line 5):             '+': lambda a, b: a + b,
+                                arguments (line None): 
+                                    arg (line 5):             '+': lambda a, b: a + b,
+                                    arg (line 5):             '+': lambda a, b: a + b,
+                                BinOp (line 5):             '+': lambda a, b: a + b,
+                                    Name (line 5):             '+': lambda a, b: a + b,
+                                        Load (line None): 
+                                    Add (line None): 
+                                    Name (line 5):             '+': lambda a, b: a + b,
+                                        Load (line None): 
+                            Lambda (line 6):             '-': lambda a, b: a - b,
+                                arguments (line None): 
+                                    arg (line 6):             '-': lambda a, b: a - b,
+                                    arg (line 6):             '-': lambda a, b: a - b,
+                                BinOp (line 6):             '-': lambda a, b: a - b,
+                                    Name (line 6):             '-': lambda a, b: a - b,
+                                        Load (line None): 
+                                    Sub (line None): 
+                                    Name (line 6):             '-': lambda a, b: a - b,
+                                        Load (line None): 
+                            Lambda (line 7):             '*': lambda a, b: a * b,
+                                arguments (line None): 
+                                    arg (line 7):             '*': lambda a, b: a * b,
+                                    arg (line 7):             '*': lambda a, b: a * b,
+                                BinOp (line 7):             '*': lambda a, b: a * b,
+                                    Name (line 7):             '*': lambda a, b: a * b,
+                                        Load (line None): 
+                                    Mult (line None): 
+                                    Name (line 7):             '*': lambda a, b: a * b,
+                                        Load (line None): 
+                            Lambda (line 8):             '/': lambda a, b: a / b
+                                arguments (line None): 
+                                    arg (line 8):             '/': lambda a, b: a / b
+                                    arg (line 8):             '/': lambda a, b: a / b
+                                BinOp (line 8):             '/': lambda a, b: a / b
+                                    Name (line 8):             '/': lambda a, b: a / b
+                                        Load (line None): 
+                                    Div (line None): 
+                                    Name (line 8):             '/': lambda a, b: a / b
+                                        Load (line None): 
+                        Name (line 9):         }[symbol](a, b)
+                            Load (line None): 
+                        Load (line None): 
+                    Name (line 9):         }[symbol](a, b)
+                        Load (line None): 
+                    Name (line 9):         }[symbol](a, b)
+                        Load (line None): 
+        Assign (line 11):     stack = []
+            Name (line 11):     stack = []
+                Store (line None): 
+            List (line 11):     stack = []
+                Load (line None): 
+        For (line 13):     for token in tokens:
+            Name (line 13):     for token in tokens:
+                Store (line None): 
+            Name (line 13):     for token in tokens:
+                Load (line None): 
+            If (line 14):         if isinstance(token, float):
+                Call (line 14):         if isinstance(token, float):
+                    Name (line 14):         if isinstance(token, float):
+                        Load (line None): 
+                    Name (line 14):         if isinstance(token, float):
+                        Load (line None): 
+                    Name (line 14):         if isinstance(token, float):
+                        Load (line None): 
+                Expr (line 15):             stack.append(token)
+                    Call (line 15):             stack.append(token)
+                        Attribute (line 15):             stack.append(token)
+                            Name (line 15):             stack.append(token)
+                                Load (line None): 
+                            Load (line None): 
+                        Name (line 15):             stack.append(token)
+                            Load (line None): 
+                Assign (line 17):             a = stack.pop()
+                    Name (line 17):             a = stack.pop()
+                        Store (line None): 
+                    Call (line 17):             a = stack.pop()
+                        Attribute (line 17):             a = stack.pop()
+                            Name (line 17):             a = stack.pop()
+                                Load (line None): 
+                            Load (line None): 
+                Assign (line 18):             b = stack.pop()
+                    Name (line 18):             b = stack.pop()
+                        Store (line None): 
+                    Call (line 18):             b = stack.pop()
+                        Attribute (line 18):             b = stack.pop()
+                            Name (line 18):             b = stack.pop()
+                                Load (line None): 
+                            Load (line None): 
+                Expr (line 19):             stack.append(
+                    Call (line 19):             stack.append(
+                        Attribute (line 19):             stack.append(
+                            Name (line 19):             stack.append(
+                                Load (line None): 
+                            Load (line None): 
+                        Call (line 20):                 op(token, a, b)
+                            Name (line 20):                 op(token, a, b)
+                                Load (line None): 
+                            Name (line 20):                 op(token, a, b)
+                                Load (line None): 
+                            Name (line 20):                 op(token, a, b)
+                                Load (line None): 
+                            Name (line 20):                 op(token, a, b)
+                                Load (line None): 
+        Return (line 23):     return stack.pop()
+            Call (line 23):     return stack.pop()
+                Attribute (line 23):     return stack.pop()
+                    Name (line 23):     return stack.pop()
+                        Load (line None): 
+                    Load (line None): 
+    Expr (line 27): """
+        Constant (line 27): """

@@ -1,0 +1,3 @@
+Function: is_valid_parenthesization
+Buggy Line Number: 9
+Explanation: The function does not handle the case where the depth goes below 0.

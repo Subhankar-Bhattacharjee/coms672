@@ -1,0 +1,3 @@
+Function: minimum_spanning_tree
+Buggy Line Number: 8
+Explanation: The if statement is not properly indented.

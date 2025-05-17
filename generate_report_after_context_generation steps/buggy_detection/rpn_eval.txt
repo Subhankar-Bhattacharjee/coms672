@@ -1,0 +1,3 @@
+Function: rpn_eval
+Buggy Line Number: 19
+Explanation: The function is using the wrong operator. The function is using the operator '+' instead of the operator '-'.

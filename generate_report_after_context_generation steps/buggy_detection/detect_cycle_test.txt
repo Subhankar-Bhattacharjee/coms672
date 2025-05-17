@@ -1,0 +1,3 @@
+Function: main
+Buggy Line Number: 17
+Explanation: The if statement is not properly closed.

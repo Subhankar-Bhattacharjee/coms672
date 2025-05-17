@@ -1,0 +1,3 @@
+Function: sqrt
+Buggy Line Number: 4
+Explanation: The while loop will run indefinitely if the condition is not met.

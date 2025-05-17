@@ -1,0 +1,3 @@
+Function: get_factors
+Buggy Line Number: 3
+Explanation: The function will return [] if n is 1.

@@ -1,0 +1,3 @@
+Function: lcs_length
+Buggy Line Number: 8
+Explanation: The bug is in the if statement. The condition is not correct.

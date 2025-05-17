@@ -1,0 +1,145 @@
+Issue Description: Fails to swap the correct pair when the sequence is in descending order, so the last permutation isn’t reset.
+
+AST:
+Module (line None): 
+    FunctionDef (line 2): def next_permutation(perm):
+        arguments (line None): 
+            arg (line 2): def next_permutation(perm):
+        For (line 3):     for i in range(len(perm) - 2, -1, -1):
+            Name (line 3):     for i in range(len(perm) - 2, -1, -1):
+                Store (line None): 
+            Call (line 3):     for i in range(len(perm) - 2, -1, -1):
+                Name (line 3):     for i in range(len(perm) - 2, -1, -1):
+                    Load (line None): 
+                BinOp (line 3):     for i in range(len(perm) - 2, -1, -1):
+                    Call (line 3):     for i in range(len(perm) - 2, -1, -1):
+                        Name (line 3):     for i in range(len(perm) - 2, -1, -1):
+                            Load (line None): 
+                        Name (line 3):     for i in range(len(perm) - 2, -1, -1):
+                            Load (line None): 
+                    Sub (line None): 
+                    Constant (line 3):     for i in range(len(perm) - 2, -1, -1):
+                UnaryOp (line 3):     for i in range(len(perm) - 2, -1, -1):
+                    USub (line None): 
+                    Constant (line 3):     for i in range(len(perm) - 2, -1, -1):
+                UnaryOp (line 3):     for i in range(len(perm) - 2, -1, -1):
+                    USub (line None): 
+                    Constant (line 3):     for i in range(len(perm) - 2, -1, -1):
+            If (line 4):         if perm[i] < perm[i + 1]:
+                Compare (line 4):         if perm[i] < perm[i + 1]:
+                    Subscript (line 4):         if perm[i] < perm[i + 1]:
+                        Name (line 4):         if perm[i] < perm[i + 1]:
+                            Load (line None): 
+                        Name (line 4):         if perm[i] < perm[i + 1]:
+                            Load (line None): 
+                        Load (line None): 
+                    Lt (line None): 
+                    Subscript (line 4):         if perm[i] < perm[i + 1]:
+                        Name (line 4):         if perm[i] < perm[i + 1]:
+                            Load (line None): 
+                        BinOp (line 4):         if perm[i] < perm[i + 1]:
+                            Name (line 4):         if perm[i] < perm[i + 1]:
+                                Load (line None): 
+                            Add (line None): 
+                            Constant (line 4):         if perm[i] < perm[i + 1]:
+                        Load (line None): 
+                For (line 5):             for j in range(len(perm) - 1, i, -1):
+                    Name (line 5):             for j in range(len(perm) - 1, i, -1):
+                        Store (line None): 
+                    Call (line 5):             for j in range(len(perm) - 1, i, -1):
+                        Name (line 5):             for j in range(len(perm) - 1, i, -1):
+                            Load (line None): 
+                        BinOp (line 5):             for j in range(len(perm) - 1, i, -1):
+                            Call (line 5):             for j in range(len(perm) - 1, i, -1):
+                                Name (line 5):             for j in range(len(perm) - 1, i, -1):
+                                    Load (line None): 
+                                Name (line 5):             for j in range(len(perm) - 1, i, -1):
+                                    Load (line None): 
+                            Sub (line None): 
+                            Constant (line 5):             for j in range(len(perm) - 1, i, -1):
+                        Name (line 5):             for j in range(len(perm) - 1, i, -1):
+                            Load (line None): 
+                        UnaryOp (line 5):             for j in range(len(perm) - 1, i, -1):
+                            USub (line None): 
+                            Constant (line 5):             for j in range(len(perm) - 1, i, -1):
+                    If (line 6):                 if perm[j] < perm[i]:
+                        Compare (line 6):                 if perm[j] < perm[i]:
+                            Subscript (line 6):                 if perm[j] < perm[i]:
+                                Name (line 6):                 if perm[j] < perm[i]:
+                                    Load (line None): 
+                                Name (line 6):                 if perm[j] < perm[i]:
+                                    Load (line None): 
+                                Load (line None): 
+                            Lt (line None): 
+                            Subscript (line 6):                 if perm[j] < perm[i]:
+                                Name (line 6):                 if perm[j] < perm[i]:
+                                    Load (line None): 
+                                Name (line 6):                 if perm[j] < perm[i]:
+                                    Load (line None): 
+                                Load (line None): 
+                        Assign (line 7):                     next_perm = list(perm)
+                            Name (line 7):                     next_perm = list(perm)
+                                Store (line None): 
+                            Call (line 7):                     next_perm = list(perm)
+                                Name (line 7):                     next_perm = list(perm)
+                                    Load (line None): 
+                                Name (line 7):                     next_perm = list(perm)
+                                    Load (line None): 
+                        Assign (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                            Tuple (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                Subscript (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                    Name (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                        Load (line None): 
+                                    Name (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                        Load (line None): 
+                                    Store (line None): 
+                                Subscript (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                    Name (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                        Load (line None): 
+                                    Name (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                        Load (line None): 
+                                    Store (line None): 
+                                Store (line None): 
+                            Tuple (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                Subscript (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                    Name (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                        Load (line None): 
+                                    Name (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                        Load (line None): 
+                                    Load (line None): 
+                                Subscript (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                    Name (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                        Load (line None): 
+                                    Name (line 8):                     next_perm[i], next_perm[j] = perm[j], perm[i]
+                                        Load (line None): 
+                                    Load (line None): 
+                                Load (line None): 
+                        Assign (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                            Subscript (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                Name (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                    Load (line None): 
+                                Slice (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                    BinOp (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                        Name (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                            Load (line None): 
+                                        Add (line None): 
+                                        Constant (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                Store (line None): 
+                            Call (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                Name (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                    Load (line None): 
+                                Subscript (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                    Name (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                        Load (line None): 
+                                    Slice (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                        BinOp (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                            Name (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                                Load (line None): 
+                                            Add (line None): 
+                                            Constant (line 9):                     next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                                    Load (line None): 
+                        Return (line 10):                     return next_perm
+                            Name (line 10):                     return next_perm
+                                Load (line None): 
+    Expr (line 14): """
+        Constant (line 14): """
